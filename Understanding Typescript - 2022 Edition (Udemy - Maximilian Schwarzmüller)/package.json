@@ -1,0 +1,12 @@
+{
+    "name": "understanding-typescript-2022-edition",
+    "version": "1.0.0",
+    "description": "Understanding Typescript - 2022 Edition",
+    "main": "app.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Mohamed Elhawary",
+    "license": "ISC"
+  }
+  
