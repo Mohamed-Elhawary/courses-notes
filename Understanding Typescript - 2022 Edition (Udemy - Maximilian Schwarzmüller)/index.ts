@@ -11,7 +11,7 @@ button.addEventListener("click", function() {
 });
 
 
-/* SECTION [2]: Lecture [2]*/
+/* SECTION [2]: Lecture [11]*/
 function collect(n1: number, n2: number): number {
     return n1 + n2;
 }
@@ -20,3 +20,6 @@ const number1 = 5.2;
 const number2 = 3;
 
 console.log(collect(number1, number2));
+
+/* SECTION [2]: Lecture [12]*/
+// > The Key difference between JS & TS is [JS uses dynamic types that are resolved at runtime], but [TS uses static types that are resolved during development mode]
