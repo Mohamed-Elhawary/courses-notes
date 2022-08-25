@@ -1,4 +1,4 @@
-/* SECTION [1]: Lecture [4]*/
+/*SECTION [1]: Lecture [4]*/
 const input = document.getElementById('number')! as HTMLInputElement; // Exclamation Mark (!) to ensure that the element with the "input" ID will never yield >> (null)
 const button = document.getElementById('button')! as HTMLButtonElement;
 
@@ -11,7 +11,7 @@ button.addEventListener("click", function() {
 });
 
 
-/* SECTION [2]: Lecture [11]*/
+/*SECTION [2]: Lecture [11]*/
 function collect(n1: number, n2: number): number {
     return n1 + n2;
 }
@@ -21,5 +21,13 @@ const number2 = 3;
 
 console.log(collect(number1, number2));
 
-/* SECTION [2]: Lecture [12]*/
+/*SECTION [2]: Lecture [12]*/
 // > The Key difference between JS & TS is [JS uses dynamic types that are resolved at runtime], but [TS uses static types that are resolved during development mode]
+
+/*SECTION [2]: Lecture [15]*/
+// Type Assignment
+let numberAss: number;
+numberAss = 5;
+
+// Type Inference
+let numberInf = 5; // === let numberInf: number = 5; but we don't have to assign the type explicitly here as well like the above example, cause this type now rely on type inference
