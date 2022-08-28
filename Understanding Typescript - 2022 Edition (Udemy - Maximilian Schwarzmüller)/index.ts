@@ -29,5 +29,21 @@ console.log(collect(number1, number2));
 let numberAss: number;
 numberAss = 5;
 
-// Type Inference
+// Type Inference [Best Practice & better syntax]
 let numberInf = 5; // === let numberInf: number = 5; but we don't have to assign the type explicitly here as well like the above example, cause this type now rely on type inference
+
+/*SECTION [2]: Lecture [16]*/
+// Object Type Assignment
+const person1: {
+    name: string;
+    age: number;
+} = {
+    name: "hawary",
+    age: 27,
+};
+
+// Object Type Inference [Best Practice & better syntax]
+const person2 = {
+    name: "hawary",
+    age: 27,
+};
