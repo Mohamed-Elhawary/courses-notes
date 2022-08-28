@@ -47,3 +47,10 @@ const person2 = {
     name: "hawary",
     age: 27,
 };
+
+/*SECTION [2]: Lecture [18]*/
+// Array Type Assignment
+let hobbies: string[] = ["sports", "driving"];
+
+// Array Type Inference [Best Practice & better syntax]
+let hobbies2 = ["swim", "watch movies"];
