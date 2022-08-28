@@ -92,3 +92,8 @@ function literalType(result: "as-number" | "as-string") { // This is the Literal
         console.log("string")
     }
 }
+
+/*SECTION [2]: Lecture [24]*/
+type AliasStringWithNumber = string | number; // Alias
+
+const value: AliasStringWithNumber = 15;
