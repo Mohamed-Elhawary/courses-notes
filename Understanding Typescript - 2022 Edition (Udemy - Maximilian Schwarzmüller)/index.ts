@@ -146,4 +146,3 @@ function funVoid(num: number): void { // void type function, has no return state
 funVoid(3); // 3
 
 console.log(funVoid(3)); // undefined
-
