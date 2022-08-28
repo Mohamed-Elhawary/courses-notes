@@ -61,3 +61,19 @@ let tupleArray: [number, string] = [12, "admin"]; // This is a [Tuple] type, it 
 // tupleArray[1] = 10; xx >> will catch an error
 // tupleArray = [15, "author", "admin"]; xx >> will catch an error
 // tupleArray.push("author"); >> TypeScript can't detect [push] method as it increases the array fixed length, so it allows us to use it with tuples normally, [This is an issue in the compilier itself]
+
+/*SECTION [2]: Lecture [20]*/
+// Automatically enumerated global constant identifiers, starting from Zero based index.
+enum Role {
+    ADMIN,
+    AUTHOR,
+    USER,
+}
+
+enum Type {
+    GAME = 100,
+    LOGIC,
+    FUN = "Movies",
+}
+
+console.log(Role.ADMIN, Type.FUN);
