@@ -54,3 +54,10 @@ let hobbies: string[] = ["sports", "driving"];
 
 // Array Type Inference [Best Practice & better syntax]
 let hobbies2 = ["swim", "watch movies"];
+
+/*SECTION [2]: Lecture [19]*/
+let tupleArray: [number, string] = [12, "admin"]; // This is a [Tuple] type, it is a normal array but has fixed length and fixed types of elements that can't not be changed
+
+// tupleArray[1] = 10; xx >> will catch an error
+// tupleArray = [15, "author", "admin"]; xx >> will catch an error
+// tupleArray.push("author"); >> TypeScript can't detect [push] method as it increases the array fixed length, so it allows us to use it with tuples normally, [This is an issue in the compilier itself]
