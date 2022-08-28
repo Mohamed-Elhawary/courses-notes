@@ -146,3 +146,16 @@ function funVoid(num: number): void { // void type function, has no return state
 funVoid(3); // 3
 
 console.log(funVoid(3)); // undefined
+
+/*SECTION [2]: Lecture [27]*/
+let funcTypeLessPrecise: Function; // This is good but not perfect, we say this should be a function, but it could also more precise to define the funtions inputs and outputs type
+
+funcTypeLessPrecise = funInf;
+funcTypeLessPrecise = funVoid;
+// funcTypeLessPrecise = 5; xx
+
+let funcTypeMorePrecise: (n1: number, n2: number) => number; // Function Type
+
+funcTypeMorePrecise = funInf;
+// funcTypeMorePrecise = funVoid; xx
+// funcTypeMorePrecise = 5; xx
