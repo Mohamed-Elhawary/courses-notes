@@ -172,3 +172,26 @@ addAndHandle(10, 20, (result) => {
     console.log(result);
     return result;
 })
+
+/*SECTION [2]: Lecture [29]*/
+let userInput: unknown;
+
+let userName: string;
+
+userInput = 5;
+userInput = "Max";
+
+// userName = userInput; xx
+
+if (typeof userInput === "string") { // we will have to use extra check to make sure that what you want to do can be done.
+    userName = userInput;
+}
+
+let userInput2: any;
+
+let userName2: string;
+
+userInput2 = 5;
+userInput2 = "Max";
+
+userName2 = userInput2; // No problem with [any] type, so unknown is a bit more restrict than any
