@@ -77,3 +77,6 @@ enum Type {
 }
 
 console.log(Role.ADMIN, Type.FUN);
+
+/*SECTION [2]: Lecture [21]*/
+const anyType: any = "string"; // Any kind of value, no specific type assignment, you can use it as a fallback if you have some value or some kind of data where you really can't know which kind of data will be stored in there.
