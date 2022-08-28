@@ -195,3 +195,10 @@ userInput2 = 5;
 userInput2 = "Max";
 
 userName2 = userInput2; // No problem with [any] type, so unknown is a bit more restrict than any
+
+/*SECTION [2]: Lecture [30]*/
+function generateError(msg: string, code: number): never { // never type function, is a function that doesn't return anything, like functions that throw an error or function that handle an infinite loop. 
+    throw { message: msg, errorCode: code };
+    // throw new Error()
+    // while () {}
+}
