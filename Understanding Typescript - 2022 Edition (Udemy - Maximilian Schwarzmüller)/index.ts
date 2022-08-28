@@ -82,4 +82,13 @@ console.log(Role.ADMIN, Type.FUN);
 const anyType: any = "string"; // Any kind of value, no specific type assignment, you can use it as a fallback if you have some value or some kind of data where you really can't know which kind of data will be stored in there.
 
 /*SECTION [2]: Lecture [22]*/
-const unionType: string | number | boolean = "string";
+const unionType: string | number | boolean = "string"; // Union Type
+
+/*SECTION [2]: Lecture [23]*/
+function literalType(result: "as-number" | "as-string") { // This is the Literal Type combined with union type together, so (result) here has specific literal types you choose, either "as-number" or "as-string" ONLY.
+    if(result === "as-number") {
+        console.log("number");
+    } else {
+        console.log("string")
+    }
+}
