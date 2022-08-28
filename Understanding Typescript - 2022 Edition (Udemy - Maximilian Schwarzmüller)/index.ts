@@ -154,8 +154,21 @@ funcTypeLessPrecise = funInf;
 funcTypeLessPrecise = funVoid;
 // funcTypeLessPrecise = 5; xx
 
-let funcTypeMorePrecise: (n1: number, n2: number) => number; // Function Type
+let funcTypeMorePrecise: (n1: number, n2: number) => number; // Function Type define the parameters and return type of a function
 
 funcTypeMorePrecise = funInf;
 // funcTypeMorePrecise = funVoid; xx
 // funcTypeMorePrecise = 5; xx
+
+/*SECTION [2]: Lecture [28]*/
+function addAndHandle(n1: number, n2 : number, cb: (num: number) => void) { // Function Callback
+    const result = n1 + n2;
+    cb(result);
+}
+
+// Callback functions can return something, even if the argument on which they're passed does NOT expect a returned value, see below example for more details:
+
+addAndHandle(10, 20, (result) => {
+    console.log(result);
+    return result;
+})
