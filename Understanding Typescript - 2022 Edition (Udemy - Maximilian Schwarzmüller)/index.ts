@@ -34,7 +34,7 @@ let numberInf = 5; // === let numberInf: number = 5; but we don't have to assign
 
 /*SECTION [2]: Lecture [16]*/
 // Object Type Assignment
-const person1: {
+const objectAss: {
     name: string;
     age: number;
 } = {
@@ -43,17 +43,17 @@ const person1: {
 };
 
 // Object Type Inference [Best Practice & better syntax]
-const person2 = {
+const objectInf = {
     name: "hawary",
     age: 27,
 };
 
 /*SECTION [2]: Lecture [18]*/
 // Array Type Assignment
-let hobbies: string[] = ["sports", "driving"];
+let arrAss: string[] = ["sports", "driving"];
 
 // Array Type Inference [Best Practice & better syntax]
-let hobbies2 = ["swim", "watch movies"];
+let arrInf = ["swim", "watch movies"];
 
 /*SECTION [2]: Lecture [19]*/
 let tupleArray: [number, string] = [12, "admin"]; // This is a [Tuple] type, it is a normal array but has fixed length and fixed types of elements that can't not be changed
@@ -123,3 +123,27 @@ function greet2(user: User) {
 function isOlder2(user: User, checkAge: number) {
   return checkAge > user.age;
 }
+
+/*SECTION [2]: Lecture [26]*/
+// Function Type Assignment
+function funAss(n1: number, n2: number): number {
+    return n1 + n2;
+}
+
+// Function Type Inference [Best Practice & better syntax]
+function funInf(n1: number, n2: number) {
+    return n1 + n2;
+}
+
+function funReturn(num: number) { // return type function
+    return num;
+}
+
+function funVoid(num: number): void { // void type function, has no return statement, instead it returns "undefined" by default
+    console.log(num);
+}
+
+funVoid(3); // 3
+
+console.log(funVoid(3)); // undefined
+
