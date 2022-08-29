@@ -144,3 +144,4 @@ function generateError(msg, code) {
     // throw new Error()
     // while () {}
 }
+//# sourceMappingURL=index.js.map
