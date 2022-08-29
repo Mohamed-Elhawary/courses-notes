@@ -202,3 +202,4 @@ function generateError(msg: string, code: number): never { // never type functio
     // throw new Error()
     // while () {}
 }
+
