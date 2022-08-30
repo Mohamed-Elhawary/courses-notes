@@ -207,9 +207,8 @@ function generateError(msg: string, code: number): never { // never type functio
 class Department {
     name: string;
     constructor(n: string) {
-    this.name = n;
+        this.name = n;
     }
-    }
-    const accounting = new Department( 'Accounting' )
-    console.log(accounting);
+}
 
+const accounting = new Department( 'Accounting' );

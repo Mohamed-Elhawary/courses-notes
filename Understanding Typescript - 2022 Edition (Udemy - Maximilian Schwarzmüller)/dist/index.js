@@ -151,5 +151,4 @@ class Department {
     }
 }
 const accounting = new Department('Accounting');
-console.log(accounting);
 //# sourceMappingURL=index.js.map
