@@ -144,4 +144,12 @@ function generateError(msg, code) {
     // throw new Error()
     // while () {}
 }
+/*SECTION [5]: Lecture [59]*/
+class Department {
+    constructor(n) {
+        this.name = n;
+    }
+}
+const accounting = new Department('Accounting');
+console.log(accounting);
 //# sourceMappingURL=index.js.map

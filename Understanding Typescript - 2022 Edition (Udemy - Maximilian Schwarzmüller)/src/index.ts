@@ -203,3 +203,13 @@ function generateError(msg: string, code: number): never { // never type functio
     // while () {}
 }
 
+/*SECTION [5]: Lecture [59]*/
+class Department {
+    name: string;
+    constructor(n: string) {
+    this.name = n;
+    }
+    }
+    const accounting = new Department( 'Accounting' )
+    console.log(accounting);
+
