@@ -203,14 +203,22 @@ function generateError(msg: string, code: number): never { // never type functio
     // while () {}
 }
 
-/*SECTION [5]: Lecture [59, 61]*/
+/*SECTION [5]: Lecture [59, 61, 62]*/
 class Department {
-    name: string;
+    public name: string;
+    private employees: string[] = [];
     constructor(n: string) {
         this.name = n;
     }
     describe() {
         console.log("Department", this.name);
+    }
+    addEmployee(employee: string) {
+        this.employees.push(employee);
+    }
+    printEmployeesInformation() {
+        console.log(this.employees.length);
+        console.log(this.employees);
     }
 }
 
@@ -225,3 +233,9 @@ const accountCopy1 = { describe: accounting.describe() };
 const accountCopy2 = { name: "Engineering", describe: accounting.describe() };
 
 // accountCopy2.describe(); // Department Engineering
+
+accounting.addEmployee("Max");
+
+// accounting.employees[2] = "Anna"; // error can't be accessable, because the employees property has private modifier
+
+accounting.printEmployeesInformation();
