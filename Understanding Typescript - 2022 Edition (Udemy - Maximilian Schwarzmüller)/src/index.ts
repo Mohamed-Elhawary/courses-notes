@@ -243,3 +243,17 @@ accounting.addEmployee("Max");
 accounting.printEmployeesInformation();
 
 // accounting.id = "2"; // error
+
+/*SECTION [5]: Lecture [65]*/
+class ITDepartment extends Department {
+    constructor(id: string, public admins: string[]) {
+        super("IT", id);
+    }
+    addAdmin(admin: string ) {
+        this.admins.push(admin)
+    }
+}
+
+const it = new ITDepartment("25", ["Max"]);
+
+console.log(it);
