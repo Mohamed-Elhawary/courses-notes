@@ -144,19 +144,33 @@ function generateError(msg, code) {
     // throw new Error()
     // while () {}
 }
-/*SECTION [5]: Lecture [59, 61]*/
+/*SECTION [5]: Lecture [59, 61, 62]*/
 class Department {
-    constructor(n) {
-        this.name = n;
+    // constructor(n: string) {
+    constructor(name) {
+        this.name = name;
+        // public name: string;
+        this.employees = [];
+        // this.name = n;
     }
     describe() {
         console.log("Department", this.name);
     }
+    addEmployee(employee) {
+        this.employees.push(employee);
+    }
+    printEmployeesInformation() {
+        console.log(this.employees.length);
+        console.log(this.employees);
+    }
 }
-const accounting = new Department('Accounting');
+const accounting = new Department("Accounting");
 accounting.describe(); // Department Accounting
 const accountCopy1 = { describe: accounting.describe() };
-accountCopy1.describe(); // Department undefined
+// accountCopy1.describe(); // Department undefined
 const accountCopy2 = { name: "Engineering", describe: accounting.describe() };
-accountCopy2.describe(); // Department Engineering
+// accountCopy2.describe(); // Department Engineering
+accounting.addEmployee("Max");
+// accounting.employees[2] = "Anna"; // error can't be accessable, because the employees property has private modifier
+accounting.printEmployeesInformation();
 //# sourceMappingURL=index.js.map

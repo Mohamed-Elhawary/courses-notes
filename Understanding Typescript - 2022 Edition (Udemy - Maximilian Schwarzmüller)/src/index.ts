@@ -205,10 +205,11 @@ function generateError(msg: string, code: number): never { // never type functio
 
 /*SECTION [5]: Lecture [59, 61, 62]*/
 class Department {
-    public name: string;
+    // public name: string;
     private employees: string[] = [];
-    constructor(n: string) {
-        this.name = n;
+    // constructor(n: string) {
+        constructor(public name: string) { // shorthand code
+        // this.name = n;
     }
     describe() {
         console.log("Department", this.name);
