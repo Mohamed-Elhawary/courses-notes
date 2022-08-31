@@ -203,12 +203,25 @@ function generateError(msg: string, code: number): never { // never type functio
     // while () {}
 }
 
-/*SECTION [5]: Lecture [59]*/
+/*SECTION [5]: Lecture [59, 61]*/
 class Department {
     name: string;
     constructor(n: string) {
         this.name = n;
     }
+    describe() {
+        console.log("Department", this.name);
+    }
 }
 
-const accounting = new Department( 'Accounting' );
+const accounting = new Department( "Accounting" );
+
+accounting.describe(); // Department Accounting
+
+const accountCopy1 = { describe: accounting.describe() };
+
+// accountCopy1.describe(); // Department undefined
+
+const accountCopy2 = { name: "Engineering", describe: accounting.describe() };
+
+// accountCopy2.describe(); // Department Engineering

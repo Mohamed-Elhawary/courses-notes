@@ -144,11 +144,19 @@ function generateError(msg, code) {
     // throw new Error()
     // while () {}
 }
-/*SECTION [5]: Lecture [59]*/
+/*SECTION [5]: Lecture [59, 61]*/
 class Department {
     constructor(n) {
         this.name = n;
     }
+    describe() {
+        console.log("Department", this.name);
+    }
 }
 const accounting = new Department('Accounting');
+accounting.describe(); // Department Accounting
+const accountCopy1 = { describe: accounting.describe() };
+accountCopy1.describe(); // Department undefined
+const accountCopy2 = { name: "Engineering", describe: accounting.describe() };
+accountCopy2.describe(); // Department Engineering
 //# sourceMappingURL=index.js.map
