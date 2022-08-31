@@ -208,6 +208,7 @@ class Department {
     // public name: string;
     // public readonly id: string;
     private employees: string[] = [];
+    protected reports: string[] = [];
     // constructor(n: string) {
         constructor(public name: string, public readonly id: string) { // shorthand code
         // this.name = n;
@@ -218,9 +219,16 @@ class Department {
     addEmployee(employee: string) {
         this.employees.push(employee);
     }
+    addReport(report: string) {
+        this.reports.push(report);
+    }
     printEmployeesInformation() {
         console.log(this.employees.length);
         console.log(this.employees);
+    }
+    printReportsInformation() {
+        console.log(this.reports.length);
+        console.log(this.reports);
     }
 }
 
@@ -238,9 +246,13 @@ const accountCopy2 = { name: "Engineering", describe: accounting.describe(), id:
 
 accounting.addEmployee("Max");
 
-// accounting.employees[2] = "Anna"; // error can't be accessable, because the employees property has private modifier
+// accounting.employees[2] = "Anna"; // error can't be accessable outside the class, because the employees property has private modifier
+
+// accounting.reports[1] = "report 1"; // error can't be accessable outside the class, because the reports property has protected modifier
 
 accounting.printEmployeesInformation();
+
+accounting.printReportsInformation();
 
 // accounting.id = "2"; // error
 
@@ -249,8 +261,14 @@ class ITDepartment extends Department {
     constructor(id: string, public admins: string[]) {
         super("IT", id);
     }
-    addAdmin(admin: string ) {
+    addAdmin(admin: string ): void {
         this.admins.push(admin)
+    }
+    /* addEmployee(employee: string): void {
+        this.employess.push(employee);
+    } */ // can't be accessable in the inhertance class that extends from the parent class [Department Class] because we use private modifier with the employees property
+    addReport(report: string): void {
+        this.reports.push(report); // can be accessable in the inhertance class that extends from the parent class [Department Class] because we use protected modifier with the reports property
     }
 }
 
