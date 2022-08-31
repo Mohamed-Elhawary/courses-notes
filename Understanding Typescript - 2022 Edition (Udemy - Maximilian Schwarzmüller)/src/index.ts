@@ -203,15 +203,32 @@ function generateError(msg: string, code: number): never { // never type functio
     // while () {}
 }
 
-/*SECTION [5]: Lecture [59, 61, 62]*/
+/*SECTION [5]: Lecture [59, 61, 62, 66, 67]*/
 class Department {
     // public name: string;
     // public readonly id: string;
     private employees: string[] = [];
     protected reports: string[] = [];
+    private lastReport: string;
     // constructor(n: string) {
-        constructor(public name: string, public readonly id: string) { // shorthand code
+    constructor(public name: string, public readonly id: string) { // shorthand code
         // this.name = n;
+        this.lastReport = this.reports[0]
+    }
+    get mostRecentReport(): any { //getter to get private property
+        if(this.lastReport) {
+            return this.lastReport;
+        } else {
+            console.log("No report found");
+        }
+    }
+    set mostRecentReport(report: string) { //setter to set private property
+        if(!report) {
+            console.log("Please add a valid value");
+        } else {
+            this.addReport(report);
+            this.lastReport = report;
+        }
     }
     describe() {
         console.log("Department", this.name);
@@ -221,6 +238,7 @@ class Department {
     }
     addReport(report: string) {
         this.reports.push(report);
+        this.lastReport = report;
     }
     printEmployeesInformation() {
         console.log(this.employees.length);
@@ -233,6 +251,10 @@ class Department {
 }
 
 const accounting = new Department( "Accounting", "s2" );
+
+console.log(accounting.mostRecentReport); // DON'T add function parentheses () here to execute getter method, instead treat with it as a normal property
+
+accounting.mostRecentReport = "Report 1";
 
 accounting.describe(); // Department Accounting
 
@@ -248,9 +270,13 @@ accounting.addEmployee("Max");
 
 // accounting.employees[2] = "Anna"; // error can't be accessable outside the class, because the employees property has private modifier
 
-// accounting.reports[1] = "report 1"; // error can't be accessable outside the class, because the reports property has protected modifier
-
 accounting.printEmployeesInformation();
+
+accounting.addReport("Report 2");
+
+console.log(accounting.mostRecentReport);
+
+// accounting.reports[1] = "report 1"; // error can't be accessable outside the class, because the reports property has protected modifier
 
 accounting.printReportsInformation();
 

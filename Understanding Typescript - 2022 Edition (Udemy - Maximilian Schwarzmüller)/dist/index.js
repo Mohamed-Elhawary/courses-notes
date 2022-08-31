@@ -144,7 +144,7 @@ function generateError(msg, code) {
     // throw new Error()
     // while () {}
 }
-/*SECTION [5]: Lecture [59, 61, 62]*/
+/*SECTION [5]: Lecture [59, 61, 62, 66, 67]*/
 class Department {
     // constructor(n: string) {
     constructor(name, id) {
@@ -153,7 +153,26 @@ class Department {
         // public name: string;
         // public readonly id: string;
         this.employees = [];
+        this.reports = [];
         // this.name = n;
+        this.lastReport = this.reports[0];
+    }
+    get mostRecentReport() {
+        if (this.lastReport) {
+            return this.lastReport;
+        }
+        else {
+            console.log("No report found");
+        }
+    }
+    set mostRecentReport(report) {
+        if (!report) {
+            console.log("Please add a valid value");
+        }
+        else {
+            this.addReport(report);
+            this.lastReport = report;
+        }
     }
     describe() {
         console.log("Department", this.name);
@@ -161,20 +180,34 @@ class Department {
     addEmployee(employee) {
         this.employees.push(employee);
     }
+    addReport(report) {
+        this.reports.push(report);
+        this.lastReport = report;
+    }
     printEmployeesInformation() {
         console.log(this.employees.length);
         console.log(this.employees);
     }
+    printReportsInformation() {
+        console.log(this.reports.length);
+        console.log(this.reports);
+    }
 }
 const accounting = new Department("Accounting", "s2");
+console.log(accounting.mostRecentReport); // DON'T add function parentheses () here to execute getter method, instead treat with it as a normal property
+accounting.mostRecentReport = "Report 1";
 accounting.describe(); // Department Accounting
 const accountCopy1 = { describe: accounting.describe() };
 // accountCopy1.describe(); // Department undefined
 const accountCopy2 = { name: "Engineering", describe: accounting.describe(), id: "2" };
 // accountCopy2.describe(); // Department Engineering
 accounting.addEmployee("Max");
-// accounting.employees[2] = "Anna"; // error can't be accessable, because the employees property has private modifier
+// accounting.employees[2] = "Anna"; // error can't be accessable outside the class, because the employees property has private modifier
 accounting.printEmployeesInformation();
+accounting.addReport("Report 2");
+console.log(accounting.mostRecentReport);
+// accounting.reports[1] = "report 1"; // error can't be accessable outside the class, because the reports property has protected modifier
+accounting.printReportsInformation();
 // accounting.id = "2"; // error
 /*SECTION [5]: Lecture [65]*/
 class ITDepartment extends Department {
@@ -184,6 +217,12 @@ class ITDepartment extends Department {
     }
     addAdmin(admin) {
         this.admins.push(admin);
+    }
+    /* addEmployee(employee: string): void {
+        this.employess.push(employee);
+    } */ // can't be accessable in the inhertance class that extends from the parent class [Department Class] because we use private modifier with the employees property
+    addReport(report) {
+        this.reports.push(report); // can be accessable in the inhertance class that extends from the parent class [Department Class] because we use protected modifier with the reports property
     }
 }
 const it = new ITDepartment("25", ["Max"]);
