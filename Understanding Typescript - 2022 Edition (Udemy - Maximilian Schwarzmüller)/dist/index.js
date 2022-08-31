@@ -144,7 +144,7 @@ function generateError(msg, code) {
     // throw new Error()
     // while () {}
 }
-/*SECTION [5]: Lecture [59, 61, 62, 66, 67]*/
+/*SECTION [5]: Lecture [59, 61, 62, 66, 67, 68]*/
 class Department {
     // constructor(n: string) {
     constructor(name, id) {
@@ -177,6 +177,9 @@ class Department {
     describe() {
         console.log("Department", this.name);
     }
+    static addYear(year) {
+        Department.fiscalYear = year;
+    }
     addEmployee(employee) {
         this.employees.push(employee);
     }
@@ -193,6 +196,10 @@ class Department {
         console.log(this.reports);
     }
 }
+Department.fiscalYear = 2020;
+// static methods & properties can be accessable without needing to initialize an instance of the class, you can access it from the class itself
+console.log(Department.addYear(2021));
+console.log(Department.fiscalYear);
 const accounting = new Department("Accounting", "s2");
 console.log(accounting.mostRecentReport); // DON'T add function parentheses () here to execute getter method, instead treat with it as a normal property
 accounting.mostRecentReport = "Report 1";

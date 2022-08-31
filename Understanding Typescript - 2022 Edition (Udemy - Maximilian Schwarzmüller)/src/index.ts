@@ -203,13 +203,14 @@ function generateError(msg: string, code: number): never { // never type functio
     // while () {}
 }
 
-/*SECTION [5]: Lecture [59, 61, 62, 66, 67]*/
+/*SECTION [5]: Lecture [59, 61, 62, 66, 67, 68]*/
 class Department {
     // public name: string;
     // public readonly id: string;
     private employees: string[] = [];
     protected reports: string[] = [];
     private lastReport: string;
+    static fiscalYear: number = 2020;
     // constructor(n: string) {
     constructor(public name: string, public readonly id: string) { // shorthand code
         // this.name = n;
@@ -233,6 +234,9 @@ class Department {
     describe() {
         console.log("Department", this.name);
     }
+    static addYear(year: number) { // static methods & properties can't be accessable with "this" keyword, you have to use the class name itself to access it >> Department.addYear(), Department.facialYear()
+        Department.fiscalYear = year;
+    }
     addEmployee(employee: string) {
         this.employees.push(employee);
     }
@@ -249,6 +253,10 @@ class Department {
         console.log(this.reports);
     }
 }
+
+// static methods & properties can be accessable without needing to initialize an instance of the class, you can access it from the class itself
+console.log(Department.addYear(2021)); 
+console.log(Department.fiscalYear);
 
 const accounting = new Department( "Accounting", "s2" );
 
