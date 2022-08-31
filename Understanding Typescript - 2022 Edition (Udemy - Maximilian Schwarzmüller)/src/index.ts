@@ -206,9 +206,10 @@ function generateError(msg: string, code: number): never { // never type functio
 /*SECTION [5]: Lecture [59, 61, 62]*/
 class Department {
     // public name: string;
+    // public readonly id: string;
     private employees: string[] = [];
     // constructor(n: string) {
-        constructor(public name: string) { // shorthand code
+        constructor(public name: string, public readonly id: string) { // shorthand code
         // this.name = n;
     }
     describe() {
@@ -223,7 +224,7 @@ class Department {
     }
 }
 
-const accounting = new Department( "Accounting" );
+const accounting = new Department( "Accounting", "s2" );
 
 accounting.describe(); // Department Accounting
 
@@ -231,7 +232,7 @@ const accountCopy1 = { describe: accounting.describe() };
 
 // accountCopy1.describe(); // Department undefined
 
-const accountCopy2 = { name: "Engineering", describe: accounting.describe() };
+const accountCopy2 = { name: "Engineering", describe: accounting.describe(), id: "2" };
 
 // accountCopy2.describe(); // Department Engineering
 
@@ -240,3 +241,5 @@ accounting.addEmployee("Max");
 // accounting.employees[2] = "Anna"; // error can't be accessable, because the employees property has private modifier
 
 accounting.printEmployeesInformation();
+
+// accounting.id = "2"; // error
