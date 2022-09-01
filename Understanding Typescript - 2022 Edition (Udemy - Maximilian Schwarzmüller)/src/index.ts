@@ -309,3 +309,18 @@ class ITDepartment extends Department {
 const it = new ITDepartment("25", ["Max"]);
 
 console.log(it);
+
+/*SECTION [5]: Lecture [69]*/
+abstract class Human { // class that has abstract modifier, can't be instantiated or take instaces from its structure. 
+    constructor(public name: string) {}
+    abstract describe(): void; // methods that have abstract modifier can't have an implementation in the base parent class but it MUST have implementation in the inhertance classes that extend from the base class
+}
+
+class Man extends Human {
+    constructor(name: string) {
+        super(name);
+    }
+    describe() {
+        console.log("Hello", this.name);
+    }
+}
