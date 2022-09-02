@@ -350,19 +350,26 @@ const dog = Dog.getInstance();
 
 console.log(dog);
 
-/*SECTION [5]: Lecture [72, 73, 75]*/
+/*SECTION [5]: Lecture [72, 73, 75, 76]*/
 // Interface describes the structure of an object, and how it looks like. 
 // Interface is same as (type) but type is more flexible because we can store other things like union types in the (type).
 // Interface can't own any implementation through it, it has only a structure.
-interface Greetable {
+interface UserLocation {
+    location: string;
+}
+interface Name {
     readonly name: string;
+}
+
+interface Greetable extends Name {
     age: number;
 
     greet(word: string): void;
 }
 
-class Person implements Greetable {
+class Person implements Greetable, UserLocation {
     name: string;
+    location: string = "Cairo";
     age = 30;
     constructor(n: string) {
         this.name = n;
