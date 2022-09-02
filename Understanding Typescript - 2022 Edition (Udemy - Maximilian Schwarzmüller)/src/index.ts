@@ -385,3 +385,16 @@ let userOne: Greetable;
 userOne = new Person("User");
 
 // userOne.name = "Manu";
+
+/*SECTION [5]: Lecture [77]*/
+//type AddFn = (a: number) => number;
+
+interface AddFn {
+    (a: number): number;
+}
+
+let addNumber: AddFn;
+
+addNumber = (n: number) => {
+    return n;
+}
