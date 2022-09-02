@@ -311,7 +311,7 @@ const it = new ITDepartment("25", ["Max"]);
 console.log(it);
 
 /*SECTION [5]: Lecture [69]*/
-abstract class Human { // class that has abstract modifier, can't be instantiated or take instaces from its structure. 
+abstract class Human { // class that has abstract modifier, can't be instantiated or take instaces from its structure, should be extended only.
     constructor(public name: string) {}
     abstract describe(): void; // methods that have abstract modifier can't have an implementation in the base parent class but it MUST have implementation in the inhertance classes that extend from the base class
 }
@@ -322,5 +322,50 @@ class Man extends Human {
     }
     describe() {
         console.log("Hello", this.name);
+    }
+}
+
+/*SECTION [5]: Lecture [70]*/
+// Singletons Pattern: This pattern is used to prevent creating more than one instance of a certain singleton class, will ensure that the class has one only instance, we have to use private modifier with inherited class constructor
+class Animal {
+    constructor(public name: string) {}
+}
+
+class Dog extends Animal {
+    private static instance: Dog;
+    private constructor(name: string) {
+        super(name);
+    }
+    static getInstance() {
+        if(Dog.instance) {
+            return this.instance;
+        }
+        this.instance = new Dog("Nani");
+        return this.instance;
+    }
+}
+
+// const dog = new Dog(); xx
+const dog = Dog.getInstance();
+
+console.log(dog);
+
+/*SECTION [5]: Lecture [72]*/
+// Interface describes the structure of an object, and how it looks like
+interface Person {
+    name: string;
+    age: number;
+
+    greet(word: string): void;
+}
+
+let userOne: Person;
+
+userOne = {
+    name: "John",
+    age: 12,
+
+    greet(word: string) {
+        console.log(word + this.name);
     }
 }
