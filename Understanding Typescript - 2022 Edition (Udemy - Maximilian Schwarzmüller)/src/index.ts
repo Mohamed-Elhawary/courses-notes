@@ -60,7 +60,7 @@ let tupleArray: [number, string] = [12, "admin"]; // This is a [Tuple] type, it 
 
 // tupleArray[1] = 10; xx >> will catch an error
 // tupleArray = [15, "author", "admin"]; xx >> will catch an error
-// tupleArray.push("author"); >> TypeScript can't detect [push] method as it increases the array fixed length, so it allows us to use it with tuples normally, [This is an issue in the compilier itself]
+// tupleArray.push("author"); >> TypeScript can't detect [push] method as it increases the array fixed length, so it allows us to use it with tuples normally, [This is an issue in the compiler itself]
 
 /*SECTION [2]: Lecture [20]*/
 // Automatically enumerated global constant identifiers, starting from Zero based index.
@@ -148,7 +148,7 @@ funVoid(3); // 3
 console.log(funVoid(3)); // undefined
 
 /*SECTION [2]: Lecture [27]*/
-let funcTypeLessPrecise: Function; // This is good but not perfect, we say this should be a function, but it could also more precise to define the funtions inputs and outputs type
+let funcTypeLessPrecise: Function; // This is good but not perfect, we say this should be a function, but it could also more precise to define the functions inputs and outputs type
 
 funcTypeLessPrecise = funInf;
 funcTypeLessPrecise = funVoid;
@@ -234,7 +234,7 @@ class Department {
     describe() {
         console.log("Department", this.name);
     }
-    static addYear(year: number) { // static methods & properties can't be accessable with "this" keyword, you have to use the class name itself to access it >> Department.addYear(), Department.facialYear()
+    static addYear(year: number) { // static methods & properties can't be accessible with "this" keyword, you have to use the class name itself to access it >> Department.addYear(), Department.facialYear()
         Department.fiscalYear = year;
     }
     addEmployee(employee: string) {
@@ -254,7 +254,7 @@ class Department {
     }
 }
 
-// static methods & properties can be accessable without needing to initialize an instance of the class, you can access it from the class itself
+// static methods & properties can be accessible without needing to initialize an instance of the class, you can access it from the class itself
 console.log(Department.addYear(2021)); 
 console.log(Department.fiscalYear);
 
@@ -299,10 +299,10 @@ class ITDepartment extends Department {
         this.admins.push(admin)
     }
     /* addEmployee(employee: string): void {
-        this.employess.push(employee);
-    } */ // can't be accessable in the inhertance class that extends from the parent class [Department Class] because we use private modifier with the employees property
+        this.employees.push(employee);
+    } */ // can't be accessible in the inheritance class that extends from the parent class [Department Class] because we use private modifier with the employees property
     addReport(report: string): void {
-        this.reports.push(report); // can be accessable in the inhertance class that extends from the parent class [Department Class] because we use protected modifier with the reports property
+        this.reports.push(report); // can be accessible in the inheritance class that extends from the parent class [Department Class] because we use protected modifier with the reports property
     }
 }
 
@@ -311,9 +311,9 @@ const it = new ITDepartment("25", ["Max"]);
 console.log(it);
 
 /*SECTION [5]: Lecture [69]*/
-abstract class Human { // class that has abstract modifier, can't be instantiated or take instaces from its structure, should be extended only.
+abstract class Human { // class that has abstract modifier, can't be instantiated or take instances from its structure, should be extended only.
     constructor(public name: string) {}
-    abstract describe(): void; // methods that have abstract modifier can't have an implementation in the base parent class but it MUST have implementation in the inhertance classes that extend from the base class
+    abstract describe(): void; // methods that have abstract modifier can't have an implementation in the base parent class but it MUST have implementation in the inheritance classes that extend from the base class
 }
 
 class Man extends Human {
@@ -339,7 +339,7 @@ class Dog extends Animal {
     static getInstance() {
         if(Dog.instance) {
             return this.instance;
-        }
+        } 
         this.instance = new Dog("Nani");
         return this.instance;
     }
@@ -350,22 +350,29 @@ const dog = Dog.getInstance();
 
 console.log(dog);
 
-/*SECTION [5]: Lecture [72]*/
-// Interface describes the structure of an object, and how it looks like
-interface Person {
+/*SECTION [5]: Lecture [72, 73]*/
+// Interface describes the structure of an object, and how it looks like. 
+// Interface is same as (type) but type is more flexible because we can store other things like union types in the (type).
+// Interface can't own any implementation through it, it has only a structure.
+interface Greetable {
     name: string;
     age: number;
 
     greet(word: string): void;
 }
 
-let userOne: Person;
-
-userOne = {
-    name: "John",
-    age: 12,
+class Person implements Greetable {
+    name: string;
+    age = 30;
+    constructor(n: string) {
+        this.name = n;
+    }
 
     greet(word: string) {
         console.log(word + this.name);
     }
 }
+
+let userOne: Greetable;
+
+userOne = new Person("User");
