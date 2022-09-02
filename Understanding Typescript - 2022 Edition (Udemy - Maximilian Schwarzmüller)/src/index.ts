@@ -359,6 +359,7 @@ interface UserLocation {
 }
 interface Name {
     readonly name: string;
+    outputName?: string; // optional
 }
 
 interface Greetable extends Name {
@@ -369,14 +370,22 @@ interface Greetable extends Name {
 
 class Person implements Greetable, UserLocation {
     name: string;
+    outputName?: string; // optional
     location: string = "Cairo";
     age = 30;
-    constructor(n: string) {
+    constructor(n: string, outputName?: string) {
         this.name = n;
+        if(outputName) {
+            this.outputName = outputName;
+        }
     }
 
     greet(word: string) {
-        console.log(word + this.name);
+        if(this.outputName) {
+            console.log(word + this.name + this.outputName);
+        } else {
+            console.log(word + this.name);
+        }
     }
 }
 
