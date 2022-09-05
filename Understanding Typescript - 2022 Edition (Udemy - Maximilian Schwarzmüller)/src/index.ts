@@ -407,3 +407,44 @@ let addNumber: AddFn;
 addNumber = (n: number) => {
     return n;
 }
+
+/*SECTION [6]: Lecture [83]*/
+type Admin = {
+    name: string;
+    role: number;
+}
+
+type Employee = {
+    age: number;
+    position: string;
+}
+
+type CompanyManagerMember = Admin & Employee; // Intersection Type.
+
+/* 
+>> Another way to do the same effect using interfaces instead of types.
+
+interface Admin {
+    name: string;
+    role: number;
+}
+
+interface Employee {
+    age: number;
+    position: string;
+}
+
+interface CompanyManagerMember extends Admin, Employee;
+*/
+
+const member: CompanyManagerMember = {
+    name: "Admin",
+    role: 0,
+    age: 3,
+    position: "Head Manager",
+}
+
+type Combine = number | string;
+type Numeric = number | boolean;
+
+type Universal = Combine & Numeric;
