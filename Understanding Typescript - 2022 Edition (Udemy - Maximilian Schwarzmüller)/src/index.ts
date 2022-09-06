@@ -535,3 +535,20 @@ const inputElement2 = document.getElementById("user-input");
 if(inputElement2) {
     (inputElement2 as HTMLInputElement).value = "value";
 }
+
+/*SECTION [6]: Lecture [87]*/
+
+/*
+    >> Index Properties give us the flexibility in our interface, so we don't need to know in advance which property names
+    we want to use and how many properties we need in this interface, see below example for more information:
+*/
+interface ErrorContainer {
+    id: string, // MUST be a string because we define that each index property in this interface has a string value.
+    [prop: string]: string; // Index Property
+}
+
+const errorObj: ErrorContainer = {
+    id: "1",
+    email: "invalid email",
+    name: "invalid name",
+}
