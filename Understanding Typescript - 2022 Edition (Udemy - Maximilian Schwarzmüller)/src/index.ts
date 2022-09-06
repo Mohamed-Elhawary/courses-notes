@@ -498,3 +498,28 @@ function useVehicle(vehicle: Vehicle) {
         vehicle.loadCargo(1000);
     }
 }
+
+/*SECTION [6]: Lecture [85]*/
+interface Bird {
+    type: "bird", // Discriminated Union [To avoid misspelling and typos] as we can use it to check with it in the switch case statements like below
+    flyingSpeed: number,
+}
+
+interface Horse {
+    type: "horse", // Discriminated Union [To avoid misspelling and typos] as we can use it to check with it in the switch case statements like below
+    runningSpeed: number,
+}
+
+type BigAnimal = Bird | Horse;
+
+function moveAnimal(animal: BigAnimal) {
+    let speed;
+    switch(animal.type) {
+        case("bird"):
+            console.log(animal.flyingSpeed);
+            break; 
+        case("horse"):
+            console.log(animal.runningSpeed);
+            break; 
+    }
+}
