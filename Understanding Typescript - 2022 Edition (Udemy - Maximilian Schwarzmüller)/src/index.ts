@@ -523,3 +523,15 @@ function moveAnimal(animal: BigAnimal) {
             break; 
     }
 }
+
+/*SECTION [6]: Lecture [86]*/
+// const inputElement = <HTMLInputElement>document.getElementById("user-input")!; >> OPTION ONE
+const inputElement = document.getElementById("user-input")! as HTMLInputElement; // >> OPTION TWO
+inputElement.value = "value";
+
+//Note: we add exclamation mark above if we are sure that this element will not be equal to "null" but if we aren't sure so we have to add "if" check like below example 
+const inputElement2 = document.getElementById("user-input");
+
+if(inputElement2) {
+    (inputElement2 as HTMLInputElement).value = "value";
+}
