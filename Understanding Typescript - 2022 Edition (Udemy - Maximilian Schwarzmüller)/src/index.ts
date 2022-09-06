@@ -354,6 +354,7 @@ console.log(dog);
 // Interface describes the structure of an object, and how it looks like. 
 // Interface is same as (type) but type is more flexible because we can store other things like union types in the (type).
 // Interface can't own any implementation through it, it has only a structure.
+// Interface can't be used in runtime, because JS doesn't support interfaces.
 interface UserLocation {
     location: string;
 }
@@ -415,6 +416,7 @@ type Admin = {
 }
 
 type Employee = {
+    name: string;
     age: number;
     position: string;
 }
@@ -445,6 +447,54 @@ const member: CompanyManagerMember = {
 }
 
 type Combine = number | string;
-type Numeric = number | boolean;
+type Numeric = number;
 
 type Universal = Combine & Numeric;
+
+/*SECTION [6]: Lecture [84]*/
+function concat(a: Combine, b: Numeric) {
+    if(typeof a === "string" || typeof b === "string") { // Type Guard
+        return a.toString() + b.toString();
+    } else {
+        return a + b;
+    }
+}
+
+type UnknownMember = Admin | Employee;
+
+function printComapanyMemeber(compMember: UnknownMember) {
+    console.log("name: " + compMember.name);
+
+    if("role" in compMember) { // Type Guard
+        console.log("role: " + compMember.role);
+    }
+}
+
+class Car {
+    drive() {
+        console.log("Driving a car...");
+    }
+}
+
+class Truck {
+    drive() {
+        console.log("Driving a truck...");
+    }
+
+    loadCargo(amount: number) {
+        console.log("loading cargo", amount);
+    }
+}
+
+type Vehicle = Car | Truck;
+
+const v1 = new Car();
+const v2 = new Truck();
+
+function useVehicle(vehicle: Vehicle) {
+    vehicle.drive();
+
+    if(vehicle instanceof Truck) { // Type Guard
+        vehicle.loadCargo(1000);
+    }
+}
