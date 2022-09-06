@@ -525,8 +525,8 @@ function moveAnimal(animal: BigAnimal) {
 }
 
 /*SECTION [6]: Lecture [86]*/
-// const inputElement = <HTMLInputElement>document.getElementById("user-input")!; >> OPTION ONE
-const inputElement = document.getElementById("user-input")! as HTMLInputElement; // >> OPTION TWO
+// const inputElement = <HTMLInputElement>document.getElementById("user-input")!; >> Option ONE for Type Casting
+const inputElement = document.getElementById("user-input")! as HTMLInputElement; // >> Option TWO for Type Casting
 inputElement.value = "value";
 
 //Note: we add exclamation mark above if we are sure that this element will not be equal to "null" but if we aren't sure so we have to add "if" check like below example 
