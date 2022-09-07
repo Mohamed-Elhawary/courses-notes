@@ -561,3 +561,10 @@ const errorObj: ErrorContainer = {
     email: "invalid email",
     name: "invalid name",
 }
+
+/*SECTION [6]: Lecture [90]*/
+const userInputValue = "";
+
+const storedData = userInputValue ?? "Default"; // This is called Nullish Coalescing that checks if the variable value equals to [NULL or undefined] only, Empty string here is treated here as truthy value.
+
+console.log(storedData);
