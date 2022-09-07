@@ -446,19 +446,28 @@ const member: CompanyManagerMember = {
     position: "Head Manager",
 }
 
+/*SECTION [6]: Lecture [84, 88]*/
 type Combine = number | string;
 type Numeric = number;
 
 type Universal = Combine & Numeric;
 
-/*SECTION [6]: Lecture [84]*/
-function concat(a: Combine, b: Numeric) {
+function concat(a: number, b: number): number; // Function Overload in case of 2 parameters are numbers
+function concat(a: string, b: string): string; // Function Overload in case of 2 parameters are strings
+function concat(a: string, b: number): string; // Function Overload in case of first parameter is string and second parameter is number
+function concat(a: number, b: string): string; // Function Overload in case of first parameter is number and second parameter is string
+
+function concat(a: Combine, b: Combine) {
     if(typeof a === "string" || typeof b === "string") { // Type Guard
         return a.toString() + b.toString();
     } else {
         return a + b;
     }
 }
+
+const result = concat("Hawary", " Frontend");
+
+result.split(" "); // We need here to add function overloads that define the return cases types of concat function. [as we add them above before the implementation of concat function]
 
 type UnknownMember = Admin | Employee;
 
