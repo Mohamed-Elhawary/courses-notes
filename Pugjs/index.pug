@@ -1,0 +1,132 @@
+//-the variable below is named as unbuffered code that doesn't show in the html codes but you can use its value with elements below, and it is prefered to put it at the top of the page like that to make it in a global scope so any element in the page can access its value easily like JS 
+- var className = "font"
+//-this variables below are named unbuffered block of codes
+-
+    var themeName = 'hawary'
+    var themeVersion = 'three'
+    var themeTag    = '<b>Bold</b>'
+include includes/mixins
+doctype
+html
+    head
+        block titlePage
+            title main page
+        include includes/styles.pug
+    body
+        block pageInfo
+            main hello in this main page 
+        block pageContnet
+            div.mydiv#main hello this is pug test
+                //comment visible to html code
+                h2 My Skills
+                ul(class='list ' + className)
+                    li php #{themeName.toUpperCase()} this is string interpolation and you can use any  Js functions inside the variable like you see
+                    li mysql #{themeVersion} this is string interpolation
+                    li javascript #{themeTag} this is escaped string interpolation for variables that contain entities
+                    li html !{themeTag} this is unscaped string interpolation for variables that contain entities
+                    li css #{'}'}! pug is smart enough to figure out where the expression ends, so you can even include } without escaping.
+                    li css #{'#{osama}'} we used here escaped option one, to can type the hash tag with its curley brackets itsself
+                    li css \#{osama} we used here escaped option two by slash sign, to can type the hash tag with its curley brackets itsself
+                p lorem <strong>test</strong> 
+                div: a: img
+                //-can call the mixin content at any place you want like below
+                +listStyle 
+                +features("clean code")
+                +features("high performance")
+                +features("high quality")
+            //-comment not visible to html code
+            //
+                multi lines commnet
+                that is vsisible to html code
+            div(class= className)
+                p lorem <b> bold </b>
+                p.tag-interpolation this is #[b(class="element") tag interpolation as another option to can add elements inside another element and this is #[span another tag interpolation, add element inside element that is inside another element]]
+                //-
+                    multi lines comment
+                    that is not visible to html code
+                p: b this is bold text iniside paragraph created by semi colon option
+                p i love 
+                    b pug >> this is bold text inside paragraph created by element b inside paragraph by using indent tabs
+                p
+                    | i love >> this is direct text inside th paragraph created by using verticle type line sign.
+                    b pugjs
+                    | and
+                    b Sass
+                |
+                | this is internal text inside the div and the previous type vertical line is for taking one break line spacing to type the text in its own line
+            |
+            | this is external text outside the div and the previous type line is for taking one break line spacing to type the text in its own line
+                    
+            .parent
+                p.p this is p
+                span(class='span', id='span' href='#') this is span
+                p#p this is p2
+                h3 this is h3
+                |
+                |
+                .
+                    this is block of texts inside the parent div, you can here write as you want of texts in multi lines
+                    as a second option to type a text instead of using the type line sign option, and note that the two previous 
+                    type lines signs before the block of text sign(.) is for taking one break line spacing to type the block of code 
+                    starting from its own line not starting beside another element, another note that the first word from each line in the block text
+                    is visible to us as a new element as it is colored with red color and this is not wrong from you, this is a bug error in the editor itself
+                    because this word still refers to a text word not to an element in the compilied html page so you are the right one.
+            |
+            |
+            .
+                this is block of texts outside the parent div and inside the body at the same level of the parent div, you can here write as you want of texts in multi lines
+                as a second option to type a text instead of using the type line sign option, and note that the two previous 
+                type lines signs before the block of text sign(.) is for taking one break line spacing to type the block of code 
+                starting from its own line not starting beside another element, another note that the first word from each line in the block text
+                is visible to us as a new element as it is colored with red color and this is not wrong from you, this is a bug error in the editor itself
+                because this word still refers to a text word not to an element in the compilied html page so you are the right one.
+            form
+                h2.contact-title contact Me
+                input(
+                    class="input1",
+                    type= 'text',
+                    name= 'user',
+                    style= "background-color: red; color: green"
+                )
+                input(
+                    class="input2"
+                    type="text"
+                    name= 'email'
+                    style= {'background-color': 'yellow', color: 'blue'}    
+                )
+                input(class="input3" type="password" name= 'pass')
+            div='this is <strong>buffered code</strong> escape the tags and any entities signs and show them in the browser in thier original shape, this is like you use entity way in regular html code but it is easier way'
+            div!='this is <strong>unescaped buffered code</strong> not escape the tags and any entities signs and show them in browser as you write regular html code (regular way) , prefered to not use this way and write the code in the normal way as any element in this page'
+            ul
+                //-this is for loop
+                - for (var x = 0; x <= 10; x++)
+                    li item#{x}
+            - var n = 0;
+            ul
+                //-this is while loop
+                while n < 20
+                    li= n++
+            //-this is each loop examples
+            each val, index in [1, 2, 'three', 4, 5]
+                div= index + ' : ' + val
+            - var array = ['html', 'css', 'php', 'js']
+            each val, index in array
+                div= index + ' : ' + val
+            else 
+                p there is no languages exist the array is empty
+            - var values = [];
+            ul
+                each val in values.length ? values : ['There are no values']
+                    li= val
+            - var friends = 8
+            case friends
+                when 0
+                    p you have no friends
+                when 1
+                when 2
+                    p you have small number of friends
+                when 3: p you have 3 friends please increse them to number greater than 3
+                when 4: p great you have 4 friends keep going
+                default
+                    p you have #{friends} friends now, nice work
+            div final div

@@ -1,0 +1,15 @@
+.feature {
+    padding: 30px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    opacity: .5;
+}
+footer {margin: 30px;}
+.navbar {
+    margin-top: 50px;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    -webkit-transform: translateY(50%);
+            transform: translateY(50%);
+}
