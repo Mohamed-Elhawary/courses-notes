@@ -43,7 +43,7 @@ let arrInf = ["swim", "watch movies"];
 let tupleArray = [12, "admin"]; // This is a [Tuple] type, it is a normal array but has fixed length and fixed types of elements that can't not be changed
 // tupleArray[1] = 10; xx >> will catch an error
 // tupleArray = [15, "author", "admin"]; xx >> will catch an error
-// tupleArray.push("author"); >> TypeScript can't detect [push] method as it increases the array fixed length, so it allows us to use it with tuples normally, [This is an issue in the compilier itself]
+// tupleArray.push("author"); >> TypeScript can't detect [push] method as it increases the array fixed length, so it allows us to use it with tuples normally, [This is an issue in the compiler itself]
 /*SECTION [2]: Lecture [20]*/
 // Automatically enumerated global constant identifiers, starting from Zero based index.
 var Role;
@@ -106,7 +106,7 @@ function funVoid(num) {
 funVoid(3); // 3
 console.log(funVoid(3)); // undefined
 /*SECTION [2]: Lecture [27]*/
-let funcTypeLessPrecise; // This is good but not perfect, we say this should be a function, but it could also more precise to define the funtions inputs and outputs type
+let funcTypeLessPrecise; // This is good but not perfect, we say this should be a function, but it could also more precise to define the functions inputs and outputs type
 funcTypeLessPrecise = funInf;
 funcTypeLessPrecise = funVoid;
 // funcTypeLessPrecise = 5; xx
@@ -197,7 +197,7 @@ class Department {
     }
 }
 Department.fiscalYear = 2020;
-// static methods & properties can be accessable without needing to initialize an instance of the class, you can access it from the class itself
+// static methods & properties can be accessible without needing to initialize an instance of the class, you can access it from the class itself
 console.log(Department.addYear(2021));
 console.log(Department.fiscalYear);
 const accounting = new Department("Accounting", "s2");
@@ -226,12 +226,159 @@ class ITDepartment extends Department {
         this.admins.push(admin);
     }
     /* addEmployee(employee: string): void {
-        this.employess.push(employee);
-    } */ // can't be accessable in the inhertance class that extends from the parent class [Department Class] because we use private modifier with the employees property
+        this.employees.push(employee);
+    } */ // can't be accessible in the inheritance class that extends from the parent class [Department Class] because we use private modifier with the employees property
     addReport(report) {
-        this.reports.push(report); // can be accessable in the inhertance class that extends from the parent class [Department Class] because we use protected modifier with the reports property
+        this.reports.push(report); // can be accessible in the inheritance class that extends from the parent class [Department Class] because we use protected modifier with the reports property
     }
 }
 const it = new ITDepartment("25", ["Max"]);
 console.log(it);
+/*SECTION [5]: Lecture [69]*/
+class Human {
+    constructor(name) {
+        this.name = name;
+    }
+}
+class Man extends Human {
+    constructor(name) {
+        super(name);
+    }
+    describe() {
+        console.log("Hello", this.name);
+    }
+}
+/*SECTION [5]: Lecture [70]*/
+// Singletons Pattern: This pattern is used to prevent creating more than one instance of a certain singleton class, will ensure that the class has one only instance, we have to use private modifier with inherited class constructor
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+}
+class Dog extends Animal {
+    constructor(name) {
+        super(name);
+    }
+    static getInstance() {
+        if (Dog.instance) {
+            return this.instance;
+        }
+        this.instance = new Dog("Nani");
+        return this.instance;
+    }
+}
+// const dog = new Dog(); xx
+const dog = Dog.getInstance();
+console.log(dog);
+class Person {
+    constructor(n, outputName) {
+        this.location = "Cairo";
+        this.age = 30;
+        this.name = n;
+        if (outputName) {
+            this.outputName = outputName;
+        }
+    }
+    greet(word) {
+        if (this.outputName) {
+            console.log(word + this.name + this.outputName);
+        }
+        else {
+            console.log(word + this.name);
+        }
+    }
+}
+let userOne;
+userOne = new Person("User");
+let addNumber;
+addNumber = (n) => {
+    return n;
+};
+/*
+>> Another way to do the same effect using interfaces instead of types.
+
+interface Admin {
+    name: string;
+    role: number;
+}
+
+interface Employee {
+    age: number;
+    position: string;
+}
+
+interface CompanyManagerMember extends Admin, Employee;
+*/
+const member = {
+    name: "Admin",
+    role: 0,
+    age: 3,
+    position: "Head Manager",
+};
+function concat(a, b) {
+    if (typeof a === "string" || typeof b === "string") { // Type Guard
+        return a.toString() + b.toString();
+    }
+    else {
+        return a + b;
+    }
+}
+const result = concat("Hawary", " Frontend");
+result.split(" "); // We need here to add function overloads that define the return cases types of concat function. [as we add them above before the implementation of concat function]
+function printComapanyMemeber(compMember) {
+    console.log("name: " + compMember.name);
+    if ("role" in compMember) { // Type Guard
+        console.log("role: " + compMember.role);
+    }
+}
+class Car {
+    drive() {
+        console.log("Driving a car...");
+    }
+}
+class Truck {
+    drive() {
+        console.log("Driving a truck...");
+    }
+    loadCargo(amount) {
+        console.log("loading cargo", amount);
+    }
+}
+const v1 = new Car();
+const v2 = new Truck();
+function useVehicle(vehicle) {
+    vehicle.drive();
+    if (vehicle instanceof Truck) { // Type Guard
+        vehicle.loadCargo(1000);
+    }
+}
+function moveAnimal(animal) {
+    let speed;
+    switch (animal.type) {
+        case ("bird"):
+            console.log(animal.flyingSpeed);
+            break;
+        case ("horse"):
+            console.log(animal.runningSpeed);
+            break;
+    }
+}
+/*SECTION [6]: Lecture [86]*/
+// const inputElement = <HTMLInputElement>document.getElementById("user-input")!; >> Option ONE for Type Casting
+const inputElement = document.getElementById("user-input"); // >> Option TWO for Type Casting
+inputElement.value = "value";
+//Note: we add exclamation mark above if we are sure that this element will not be equal to "null" but if we aren't sure so we have to add "if" check like below example 
+const inputElement2 = document.getElementById("user-input");
+if (inputElement2) {
+    inputElement2.value = "value";
+}
+const errorObj = {
+    id: "1",
+    email: "invalid email",
+    name: "invalid name",
+};
+/*SECTION [6]: Lecture [90]*/
+const userInputValue = "";
+const storedData = userInputValue !== null && userInputValue !== void 0 ? userInputValue : "Default"; // This is called Nullish Coalescing that checks if the variable value equals to [NULL or undefined] only, Empty string here is treated here as truthy value.
+console.log(storedData);
 //# sourceMappingURL=index.js.map
