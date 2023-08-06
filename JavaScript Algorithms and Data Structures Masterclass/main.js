@@ -38,3 +38,18 @@ let time2Solution2 = performance.now();
 console.log(`Time Elapsed: ${(time2Solution2- time1Solution2) / 1000} seconds.`);
 
 
+// L7: Counting Operations
+
+/* 
+    - In addUpToSolution1 we have:
+        - 2 assignment (let total = 0; & let i = 0)
+        - n comparisons (i <= n)
+        - n additions and n assignments (i ++ & total += i)
+
+    - In addUpToSolution2 we have:
+        - 3 operations (*, +, /) only
+
+    >> Depending on what we count, the number of operations can be as low as (2n) or as high as (5n + 2)
+*/
+
+
