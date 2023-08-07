@@ -53,3 +53,36 @@ console.log(`Time Elapsed: ${(time2Solution2- time1Solution2) / 1000} seconds.`)
 */
 
 
+// L8: Intro to Big O
+
+/* 
+    >> Big O Definition
+        We say that an algorithm is O(f(n)) if the number of simple operations the computer has to do is eventually less than a constant times f(n), as n increases.
+            - f(n) could be linear (f(n) = n)
+            - f(n) could be quadratic (f(n) = n²)
+            - f(n) could be constant (f(n) = 1)
+            - f(n) could be something entirely different!
+
+    >> addUpToSolution1: Number of operations is eventually bounded by a multiple of n (say: 10n) [O(n)]
+    >> addUpToSolution2: always 3 operations [O(1)] 
+*/
+
+function countUpAndDown (n) { // [O(n)]
+    console.log("Going up!");
+    for (let i = 0; i < n; i++) { // [O(n)]
+        console.log(i);
+    }
+    console.log("At the top!\nGoing down...");
+    for (let j = n - 1; j >= 0; j--) { // [O(n)]
+        console.log(j);
+    }
+    console.log("Back down. Bye!");
+}
+
+function printAllPairs (n) { // [O(n²)] >> O(n) Operation inside of O(n) Operation
+    for (let i = 0; i < n; i++) { // [O(n)]
+        for (let j = 0; j<n; j++) { // [O(n)]
+            console.log(i, j);
+        }
+    }
+}
