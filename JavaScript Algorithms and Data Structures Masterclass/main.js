@@ -81,7 +81,7 @@ function countUpAndDown (n) { // [O(n)]
 
 function printAllPairs (n) { // [O(n²)] >> O(n) Operation inside of O(n) Operation
     for (let i = 0; i < n; i++) { // [O(n)]
-        for (let j = 0; j<n; j++) { // [O(n)]
+        for (let j = 0; j< n; j++) { // [O(n)]
             console.log(i, j);
         }
     }
@@ -116,4 +116,30 @@ function logAtMost5 (n) { // [O(1)]
     for (let i = 1; i <= Math.min(5, n); i++) {
         console.log(i);
     }
+}
+
+// L11: Space Complexity
+
+/* 
+  >> We can use big O notation to analyze space complexity, how much additional memory do we need to allocate in order to run the code in our algorithm
+
+    - Most primitives (booleans, numbers, undefined, null) are constant space
+    - Strings require O(n) space (where n is the string length)
+    - Reference types are generally O(n), where n is the length (for arrays) or the number of keys (for objects)
+*/
+
+function sum(arr) { // [O(1)] Space
+    let total = 0; // one number
+    for (let i = 0; i < arr.length; i++) {
+        total += arr[i]; // another number
+    }
+    return total;
+}
+
+function double (arr) { // [O(n)] Space
+    let newArr = [];
+    for (let i = 0; i < arr.length; i++) {
+        newArr.push(2 * arr[i]);
+    }
+    return newArr; // n numbers
 }
