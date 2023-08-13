@@ -121,11 +121,11 @@ function logAtMost5 (n) { // [O(1)]
 // L11: Space Complexity
 
 /* 
-  >> We can use big O notation to analyze space complexity, how much additional memory do we need to allocate in order to run the code in our algorithm
+    >> We can use big O notation to analyze space complexity, how much additional memory do we need to allocate in order to run the code in our algorithm
 
-    - Most primitives (booleans, numbers, undefined, null) are constant space
-    - Strings require O(n) space (where n is the string length)
-    - Reference types are generally O(n), where n is the length (for arrays) or the number of keys (for objects)
+        - Most primitives (booleans, numbers, undefined, null) are constant space
+        - Strings require O(n) space (where n is the string length)
+        - Reference types are generally O(n), where n is the length (for arrays) or the number of keys (for objects)
 */
 
 function sum(arr) { // [O(1)] Space
@@ -143,3 +143,30 @@ function double (arr) { // [O(n)] Space
     }
     return newArr; // n numbers
 }
+
+// L12: Logs & Recap
+
+/*
+    >> what's a log?
+        
+        - log₂(8) = 3  >>>>  2 power of (3) = 8 
+        - log₂(value) = exponent >>>> 2 power of (exponent) = value
+
+    > The logarithm of a number roughly measures the number of times you can divide that number by 2 before you get a value that's less than or equal to one.
+*/
+
+/*
+    >> Who uses log in complexity ??
+
+        - Certain searching algorithms have logarithmic (time) complexity.
+        - Efficient sorting algorithms involve logarithms.
+        - Recursion sometimes involves logarithmic (space) complexity.
+*/
+
+/* 
+    >> Recap
+        - To analyze the performance of an algorithm, we use Big O Notation
+        - Big O Notation can give us a high level understanding of the time or space complexity of an algorithm
+        - Big O Notation doesn't care about precision, only about general trends (linear? quadratic? constant?)
+        - The time or space complexity (as measured by Big O). depends only on the algorithm, not the hardware used to run the algorithm
+*/
