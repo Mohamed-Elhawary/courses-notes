@@ -171,6 +171,7 @@ function double (arr) { // [O(n)] Space
         - The time or space complexity (as measured by Big O). depends only on the algorithm, not the hardware used to run the algorithm
 */
 
+
 /* Section 3: BigO Notation */
 
 // L15: The Big O of Objects
@@ -186,7 +187,7 @@ function double (arr) { // [O(n)] Space
         * Searching - O(N)
         * Access - 0(1)
         
-        - When you don't need any ordering,objects are an excellent choice!, because of constant time for insertion, removal and accessing data.
+        -   When you don't need any ordering,objects are an excellent choice!, because of constant time for insertion, removal and accessing data.
 */
 
 /*
@@ -197,3 +198,23 @@ function double (arr) { // [O(n)] Space
         - hasOwnProperty - 0(1)
 */
 
+
+// L16: When are Arrays Slow?
+
+/*
+    >> When to use Arrays ?
+        - when you need order
+        - when you need a fast access/insertion and removal (sort of ...)
+
+    >> Big O of Arrays
+        * Insertion - It depends [Insert at END [O(1)] >> (Push)] [Insert at Begin [O(N)] >> (Shift)]
+        * Removal - It depends [Remove from END [O(1)] >> (Pop)] [Remove from Begin [O(N)] >> (unShift)]
+        * Searching O(N)
+        * Access - O(1)
+        
+        -   Inserting item at the end of the array is faster than inserting at the beginning, because inserting at the end will just require adding a new index at the end of the array after the last existing index,
+            but inserting at the beginning will require re-ordering the array items and shifting their index for each item, where index (Zero) now will be related to the new inserted item, so the amount of time it takes to inserting 
+            item at the beginning of array, roughly grows in proportion with the size of the array. 
+
+        -   Same time complexity and same logic goes for removing item from the end and from the beginning of the array.
+*/
