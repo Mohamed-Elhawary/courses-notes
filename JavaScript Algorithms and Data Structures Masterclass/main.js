@@ -1,4 +1,4 @@
-/* Section 1: BigO Notation */
+/* Section 2: BigO Notation */
 
 // L6: Timing our Code
 
@@ -170,3 +170,30 @@ function double (arr) { // [O(n)] Space
         - Big O Notation doesn't care about precision, only about general trends (linear? quadratic? constant?)
         - The time or space complexity (as measured by Big O). depends only on the algorithm, not the hardware used to run the algorithm
 */
+
+/* Section 3: BigO Notation */
+
+// L15: The Big O of Objects
+
+/*
+    >> When to use Objects ?
+        - when you don't need order
+        - when you need a fast access/insertion and removal
+
+    >> Big O of Objects
+        * Insertion - 0(1)
+        * Removal - O(1)
+        * Searching - O(N)
+        * Access - 0(1)
+        
+        - When you don't need any ordering,objects are an excellent choice!, because of constant time for insertion, removal and accessing data.
+*/
+
+/*
+    >> Big O of Object Methods
+        - Object.keys - O(N)
+        - Object.values - O(N)
+        - Object.entries - O(N)
+        - hasOwnProperty - 0(1)
+*/
+
