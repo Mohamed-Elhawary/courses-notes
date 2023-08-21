@@ -207,8 +207,8 @@ function double (arr) { // [O(n)] Space
         - when you need a fast access/insertion and removal (sort of ...)
 
     >> Big O of Arrays
-        * Insertion - It depends [Insert at END [O(1)] >> (Push)] [Insert at Begin [O(N)] >> (Shift)]
-        * Removal - It depends [Remove from END [O(1)] >> (Pop)] [Remove from Begin [O(N)] >> (unShift)]
+        * Insertion - It depends [Insert at END [O(1)] >> (Push)] / [Insert at BEGIN [O(N)] >> (Shift)]
+        * Removal - It depends [Remove from END [O(1)] >> (Pop)] / [Remove from BEGIN [O(N)] >> (unShift)]
         * Searching O(N)
         * Access - O(1)
         
@@ -217,4 +217,21 @@ function double (arr) { // [O(n)] Space
             item at the beginning of array, roughly grows in proportion with the size of the array. 
 
         -   Same time complexity and same logic goes for removing item from the end and from the beginning of the array.
+*/
+
+
+// L17: Big O of Array Methods ?
+
+/*
+    >> Big O of Array Operations
+
+    • push - 0(1)
+    • pop - 0(1)
+    • shift - O(N)
+    • unshift - O(N) 
+    • concat - O(N)
+    • slice - O(N)
+    • splice - O(N)
+    • sort - O(N * log N)
+    • forEach/map/fil know.educe/etc. - O(N)
 */
