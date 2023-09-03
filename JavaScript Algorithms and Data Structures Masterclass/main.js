@@ -257,3 +257,13 @@ function double (arr) { // [O(n)] Space
             (You may not be able to answer this question until you set about solving the problem. That's okay; it's still worth considering the question at this early stage.)
         5. How should I label the important pieces of data that are a part of the problem?
 */
+
+// L21: Step 2: Explore Examples
+
+/*
+    >> EXPLORE EXAMPLES
+        • Start with Simple Examples 
+        • Progress to More Complex Examples
+        • Explore Examples with Empty Inputs
+        • Explore Examples with Invalid Inputs
+*/
