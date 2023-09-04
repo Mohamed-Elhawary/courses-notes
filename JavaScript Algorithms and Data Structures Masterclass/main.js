@@ -37,6 +37,7 @@ addUpToSolution2(1000000000); // Faster than Solution1
 let time2Solution2 = performance.now();
 console.log(`Time Elapsed: ${(time2Solution2- time1Solution2) / 1000} seconds.`);
 
+/*---------------------------------------------------------------------------------------------------*/
 
 // L7: Counting Operations
 
@@ -52,6 +53,7 @@ console.log(`Time Elapsed: ${(time2Solution2- time1Solution2) / 1000} seconds.`)
     > Depending on what we count, the number of operations can be as low as (2n) or as high as (5n + 2)
 */
 
+/*---------------------------------------------------------------------------------------------------*/
 
 // L8: Intro to Big O
 
@@ -87,6 +89,8 @@ function printAllPairs (n) { // [O(n²)] >> O(n) Operation inside of O(n) Operat
     }
 }
 
+/*---------------------------------------------------------------------------------------------------*/
+
 // L9: Simplifying Big O Expressions
 
 /*
@@ -116,6 +120,8 @@ function logAtMost5 (n) { // [O(1)]
     }
 }
 
+/*---------------------------------------------------------------------------------------------------*/
+
 // L11: Space Complexity
 
 /* 
@@ -141,6 +147,8 @@ function double (arr) { // [O(n)] Space
     return newArr; // n numbers
 }
 
+/*---------------------------------------------------------------------------------------------------*/
+
 // L12: Logs & Recap
 
 /*
@@ -164,6 +172,7 @@ function double (arr) { // [O(n)] Space
         - The time or space complexity (as measured by Big O). depends only on the algorithm, not the hardware used to run the algorithm
 */
 
+/*---------------------------------------------------------------------------------------------------*/
 
 /* Section 3: BigO Notation */
 
@@ -189,6 +198,7 @@ function double (arr) { // [O(n)] Space
         - hasOwnProperty - 0(1)
 */
 
+/*---------------------------------------------------------------------------------------------------*/
 
 // L16: When are Arrays Slow?
 
@@ -210,6 +220,7 @@ function double (arr) { // [O(n)] Space
     > Same time complexity and same logic goes for removing item from the end and from the beginning of the array.
 */
 
+/*---------------------------------------------------------------------------------------------------*/
 
 // L17: Big O of Array Methods ?
 
@@ -225,6 +236,8 @@ function double (arr) { // [O(n)] Space
         • sort - O(N * log N)
         • forEach/map/fill/reduce/etc. - O(N)
 */
+
+/*---------------------------------------------------------------------------------------------------*/
 
 /* Section 4: Problem Solving Approach */
 
@@ -246,6 +259,8 @@ function double (arr) { // [O(n)] Space
         - Look back and refactor
 */
 
+/*---------------------------------------------------------------------------------------------------*/
+
 // L20: Step 1: Understand The Problem
 
 /*
@@ -258,6 +273,8 @@ function double (arr) { // [O(n)] Space
         5. How should I label the important pieces of data that are a part of the problem?
 */
 
+/*---------------------------------------------------------------------------------------------------*/
+
 // L21: Step 2: Explore Examples
 
 /*
@@ -267,6 +284,8 @@ function double (arr) { // [O(n)] Space
         • Explore Examples with Empty Inputs
         • Explore Examples with Invalid Inputs
 */
+
+/*---------------------------------------------------------------------------------------------------*/
 
 // L22: Step 3: Break It Down
 
@@ -291,3 +310,5 @@ function double (arr) { // [O(n)] Space
         // if character is something else (space, period, etc. ) don't do anything
         // return object at end
     }
+
+/*---------------------------------------------------------------------------------------------------*/
