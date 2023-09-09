@@ -406,3 +406,20 @@ function isAlphaNumeric (char){
 
     return true;
 }
+
+/*---------------------------------------------------------------------------------------------------*/
+
+/* Section 5: Problem Solving Patterns */
+
+// L27: Intro to Problem Solving Patterns
+
+/*
+    >> SOME PATTERNS:
+        • Frequency Counter
+        • Multiple Pointers
+        • Sliding Window
+        • Divide and Conquer
+        • Dynamic Programming
+        • Greedy Algorithms
+        • Backtracking
+*/
