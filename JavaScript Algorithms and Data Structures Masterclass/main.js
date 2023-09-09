@@ -317,10 +317,10 @@ function double (arr) { // [O(n)] Space
 
 /*
     >> SIMPLIFY
-    - Find the core difficulty in what you're trying to do
-    - Temporarily ignore that difficulty
-    - Write a simplified solution
-    - Then incorporate that difficulty back in
+        - Find the core difficulty in what you're trying to do
+        - Temporarily ignore that difficulty
+        - Write a simplified solution
+        - Then incorporate that difficulty back in
 */
 
 function charCount(str) {
@@ -378,7 +378,7 @@ function charCount(str) {
         - using "for of" loop 
         - using one line condition in obj[char] instead of "if else" condition
         - using built-in js function to check if the "char" is [number/string] instead of "Regex".
-            {The used built-in method below is faster than Regex by 55%}
+            > The used built-in method below is faster than Regex by 55%
         - lower case any char after checking of its AlphaNumeric state, to not convert all the string chars into lowercase even if non AlphaNumeric chars.
 */
 
@@ -423,3 +423,66 @@ function isAlphaNumeric (char){
         • Greedy Algorithms
         • Backtracking
 */
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L28: Frequency Counter Pattern
+
+/*
+    >> FREQUENCY COUNTER PATTERN:
+        - This pattern uses objects or sets to collect values/frequencies of values.
+        - This can often avoid the need for nested loops or O(N²) operations with arrays / strings.
+
+    > Write a function called same, which accepts two arrays. The function should return true if every value in the
+      array has it's corresponding value squared in the second array. The frequency of values must be the same.
+        * Examples:
+        ------------
+            - same([1,2,3], [4,1,9]) // true 
+            - same([1,2,3], [1,9]) // false
+            - same([1,2,1], [4,4,1]) // false (must be same frequency)
+*/
+
+function same (arr1, arr2) { // This is a NAIVE solution, means [Not the best possible solution in this case] >> Time Complexity is [O(n^2)]
+    if(arr1. length !== arr2.length) {
+        return false;
+    }
+    
+    for(let i = 0; i < arr1.length; i++) { // [O(n)]
+        let correctIndex = arr2.indexOf(arr1[i] ** 2); // [O(n)]
+        if (correctIndex -1){
+            return false;
+        }
+        arr2.splice (correctIndex, 1)
+    }
+    
+    return true;
+}
+
+function same (arr1, arr2) { // [O(n)]
+    if(arr1. length !== arr2. length) {
+        return false;
+    }
+
+    let frequencyCounter1 = {};
+    let frequencyCounter2 = {};
+
+    for(let val of arr1) { // [O(n)]
+        frequencyCounter1[val] = (frequencyCounter1 [val] || 0) + 1; // === ++frequencyCounter1 [val] || 1
+    }
+    
+    for(let val of arr2) { // [O(n)]
+        frequencyCounter2 [val] = (frequencyCounter2 [val] || 0) + 1; // === ++frequencyCounter2 [val] || 1
+    }
+    
+    for(let key in frequencyCounter1) { // [O(n)]
+        if(!(key ** 2 in frequencyCounter2)) {
+            return false
+        }
+
+        if(frequencyCounter2 [key ** 2] !== frequencyCounter1[key]){
+            return false
+        }
+    }
+
+    return true;
+}
