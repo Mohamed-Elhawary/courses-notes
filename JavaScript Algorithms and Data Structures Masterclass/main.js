@@ -302,7 +302,7 @@ function double (arr) { // [O(n)] Space
             - charCount("Your PIN number is 1234!"); // {1:1, 2:1, 3:1, 4:1, b:1, e:1, i:2, m:1, n:2, o:1, p:1, r:2, s:1, u:2, y:1}
 */
 
-    function charCount(str) { // Break the steps of the problem down
+    function charCount1(str) { // Break the steps of the problem down
         // make object to return at end
         // loop over string, for each character...
         // if the char is a number/letter AND is a key in object, add one to count
@@ -323,12 +323,12 @@ function double (arr) { // [O(n)] Space
         - Then incorporate that difficulty back in
 */
 
-function charCount(str) {
+function charCount2(str) {
     // make object to return at end
-    var result = {};
+    let result = {};
     // loop over string, for each character...
-    for(var i = 0; i < str.length; i++) {
-        var char = str[i].toLowerCase();
+    for(let i = 0; i < str.length; i++) {
+        let char = str[i].toLowerCase();
         //if the char is a number/letter AND is a key in object, add one to count
         if (result [char] > 0) {
             result [char]++;
@@ -358,10 +358,11 @@ function charCount(str) {
         • How have other people solved this problem?
 */
 
-function charCount(str) {
-    var obj = {};
-        for (var i = 0; i < str.length; i++) {
-            var char = str[i].toLowerCase();
+function charCount3(str) {
+    let obj = {};
+        for (let i = 0; i < str.length; i++) {
+            let char = str[i].toLowerCase();
+
             if (/[a-z0-9]/.test(char)) {
                 if (obj [char] > 0) {
                     obj [char] ++;
@@ -382,9 +383,10 @@ function charCount(str) {
         - lower case any char after checking of its AlphaNumeric state, to not convert all the string chars into lowercase even if non AlphaNumeric chars.
 */
 
-function charCount(str) { 
-    var obj = {};
-    for (var char of str) {
+function charCount4(str) { 
+    let obj = {};
+
+    for (let char of str) {
         if (isAlphaNumeric(char)) {
             char = char.toLowerCase();
             
@@ -395,7 +397,8 @@ function charCount(str) {
 }
 
 function isAlphaNumeric (char){
-    var code = char.charCodeAt(0);
+    let code = char.charCodeAt(0);
+
     if (
         !(code> 47 && code <58) && // numeric (0-9)
         ! (code> 64 && code < 91) && // upper alpha (A-Z)
@@ -442,7 +445,7 @@ function isAlphaNumeric (char){
             - same([1,2,1], [4,4,1]) // false (must be same frequency)
 */
 
-function same (arr1, arr2) { // This is a NAIVE solution, means [Not the best possible solution in this case] >> Time Complexity is [O(n^2)]
+function same1(arr1, arr2) { // This is a NAIVE solution, means [Not the best possible solution in this case] >> Time Complexity is [O(n^2)]
     if(arr1. length !== arr2.length) {
         return false;
     }
@@ -458,7 +461,7 @@ function same (arr1, arr2) { // This is a NAIVE solution, means [Not the best po
     return true;
 }
 
-function same (arr1, arr2) { // [O(n)]
+function same2(arr1, arr2) { // [O(n)]
     if(arr1. length !== arr2. length) {
         return false;
     }
@@ -486,3 +489,25 @@ function same (arr1, arr2) { // [O(n)]
 
     return true;
 }
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L29: Frequency Counter: Anagram Challenge
+
+/* 
+    >> ANAGRAMS: 
+        - An anagram is a word, phrase, or name formed by rearranging the letters of another, such as cinema, formed from iceman.
+
+        > Write a function to determine if the second string is an anagram of the first. 
+            * Examples:
+            ------------
+            - validAnagram ( '') // true
+            - validAnagram ('aaz', 'zza') // false
+            - validAnagram('anagram', 'nagaram') // true
+            - validAnagram ("rat", "car") // false) // false
+            - validAnagram('awesome', 'awesom') // false
+            - validAnagram('qwerty', 'qeywrt') // true
+            - validAnagram('texttwisttime', 'timetwisttext') // true
+*/
+
+/*---------------------------------------------------------------------------------------------------*/
