@@ -432,7 +432,7 @@ function isAlphaNumeric (char){
 // L28: Frequency Counter Pattern
 
 /*
-    >> FREQUENCY COUNTER PATTERN:
+    >> Frequency Counter Pattern:
         - This pattern uses objects or sets to collect values/frequencies of values.
         - This can often avoid the need for nested loops or O(N²) operations with arrays / strings.
 
@@ -653,9 +653,9 @@ function countUniqueValues (arr) {
 // L34: Sliding Window Pattern
 
 /*
-    >> SLIDING WINDOW
+    >> Sliding Window Pattern:
         - This pattern involves creating a window which can either be an array or number from one position to another
-          Depending on a certain condition, the window either increases or closes (and a new window is created)
+          Depending on a certain condition, the window either increases or closes (and a new window is created).
           Very useful for keeping track of a subset of data in an array/string.
 
         > Write a function called maxSubarraySum which accepts an array of integers and a number called n. The function
@@ -713,3 +713,51 @@ function maxSubarraySum2(arr, num) { // [O(n)]
 }
 
 /*---------------------------------------------------------------------------------------------------*/
+
+// L35: Divide And Conquer Pattern
+
+/*
+    >> Divide And Conquer Pattern:
+        - This pattern involves dividing a data set into smaller chunks and then repeating
+          a process with a subset of data. This pattern can tremendously decrease time complexity.
+
+        > Given a "sorted" array of integers, write a function called binarySearch, that accepts a value and returns the
+          index where the value passed to the function is located. If the value is not found, return -1
+            * Examples:
+            ------------
+            - binarySearch([1,2,3,4,5,6],4) // 3 
+            - binarySearch([1,2,3,4,5,6],6) // 5
+            - binarySearch([1,2,3,4,5,6¹],11) // -1
+*/
+
+function linearSearch(arr, val) { // This is a NAIVE solution, means [Not the best possible solution in this case] >> Time Complexity is [O(n)] {Linear Search}
+    for (let i = 0; i < arr.length; i++) {
+    
+        if(arr[i] === val) {
+            return i;
+        }
+    }
+
+    return -1;
+}
+
+function binarySearch (array, val) { // [O(log(n))]
+    let min = 0;
+    let max = array.length - 1;
+
+    while (min <= max) {
+        let middle = Math.floor((min + max) / 2);
+
+        let currentElement = array[middle];
+
+        if (currentElement < val) {
+            min = middle + 1;
+        } else if (currentElement > val) {
+            max = middle - 1;
+        } else {
+            return middle;
+        }
+    }
+
+    return -1;
+}
