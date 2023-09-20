@@ -514,7 +514,7 @@ function same2(arr1, arr2) { // [O(n)]
 
 // L30: Anagram Challenge Solution
 
-function validAnagram1(first, second) {
+function validAnagram1(first, second) { // [O(n)]
     if (first.length !== second.length) {
         return false;
     }
@@ -524,23 +524,23 @@ function validAnagram1(first, second) {
     for (let i = 0; i < first.length; i++) {
         let letter = first[i];
         // if letter exists, increment, otherwise set to 1
-        lookup [letter] ? lookup [letter] += 1 : lookup [letter] = 1;
+        lookup[letter] ? lookup[letter] += 1 : lookup [letter] = 1;
     }
 
     for (let i = 0; i < second.length; i++) {
-        let letter = second [i];
+        let letter = second[i];
         // can't find letter or letter is zero then it's not an anagram
-        if (!lookup [letter]) {
+        if (!lookup[letter]) {
             return false;
         } else {
-            lookup [letter] -= 1;
+            lookup[letter] -= 1;
         }
     }
 
     return true;
 }
 
-function validAnagram2(str1, str2){
+function validAnagram2(str1, str2){ // [O(n)]
     if(str1.length !== str2.length) {
         return false;
     }
@@ -576,7 +576,7 @@ function validAnagram2(str1, str2){
 
 /*
     >> Multiple Pointers Pattern:
-        - Creating pointers or v s that correspond to an index or position and owards the beginning, end or middle base a certain condition.
+        - Creating pointers that correspond to an index or position towards the beginning, end or middle base a certain condition.
         - Very efficient for solving problems with minimal space complexity as well
         
         > Write a function called sumZero which accepts a "sorted" array of integers. The function should find the first pair
@@ -600,10 +600,10 @@ function sumZero1(arr) { // This is a NAIVE solution, means [Not the best possib
 
 function sumZero2(arr) { // [O(n)]
     let left = 0;
-    let right = arr. length - 1;
+    let right = arr.length - 1;
     
     while(left < right) {
-        let sum = arr[lēft] + arr[right];
+        let sum = arr[left] + arr[right];
         if (sum === 0) {
             return [arr[left], arr[right]];
         } else if (sum > 0) {
@@ -635,10 +635,10 @@ function sumZero2(arr) { // [O(n)]
 
 function countUniqueValues (arr) {
     if(arr.length === 0) return 0;
-    
+
     var i = 0;
 
-    for (var j = 1; j < arr. length; j++) {
+    for (var j = 1; j < arr.length; j++) {
         if(arr[i] !== arr[j]) {
             i++;
             arr[i] = arr[j];
@@ -646,6 +646,70 @@ function countUniqueValues (arr) {
     }
 
     return i + 1;
+}
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L34: Sliding Window Pattern
+
+/*
+    >> SLIDING WINDOW
+        - This pattern involves creating a window which can either be an array or number from one position to another
+          Depending on a certain condition, the window either increases or closes (and a new window is created)
+          Very useful for keeping track of a subset of data in an array/string.
+
+        > Write a function called maxSubarraySum which accepts an array of integers and a number called n. The function
+          should calculate the maximum sum of n consecutive elements in the array.
+            * Examples:
+            ------------
+            - maxSubarray Sum([1,2,5,2,8,1,5], 2) // 10
+            - maxSubarray Sum ([1,2,5,2,8,1,51,4) // 17
+            - maxSubarraySum ( [4,2,1,6], 1) // 6
+            - maxSubarraySum( [4,2,1,6,2],4) // 13
+            - maxSubarraySum( [],4) // null
+*/
+
+function maxSubarraySum1(arr, num) { // This is a NAIVE solution, means [Not the best possible solution in this case] >> Time Complexity is [O(n^2)]
+    if (num > arr.length) {
+        return null;
+    }
+
+    var max = -Infinity;
+    
+    for (let i = 0; i < arr.length - num + 1; i++) {
+        let temp = 0;
+        
+        for (let j = 0; j < num; j++) { 
+            temp += arr[i + j];
+        }
+
+        if (temp > max) {
+            max = temp;
+        }
+    }
+
+    return max;
+}
+
+function maxSubarraySum2(arr, num) { // [O(n)]
+    let maxSum = 0;
+    let tempSum = 0;
+    
+    if (arr.length < num) return null;
+    
+    for (let i = 0; i < num; i++) {
+        maxSum += arr[i];
+    }
+
+    tempSum = maxSum;
+    
+    for (let i = num; i < arr.length; i++) {
+        tempSum = tempSum - arr[i - num] + arr[i];
+
+        maxSum = Math.max(maxSum, tempSum);
+    }
+
+    return maxSum;
 }
 
 /*---------------------------------------------------------------------------------------------------*/
