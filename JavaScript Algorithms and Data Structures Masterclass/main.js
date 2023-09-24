@@ -796,3 +796,17 @@ function binarySearch (array, val) { // [O(log(n))]
 */
 
 /*---------------------------------------------------------------------------------------------------*/
+
+// L44: Our First Recursive Function
+
+/*
+    >> How Recursive Functions Work?
+        - Invoke the same function with a different input until you reach your base case!
+        - The Base Case is The condition when the recursion ends. This is the most important concept to understand.
+
+    >> Two Essential parts of recursive function:
+        - Base Case
+        - Different Input
+*/
+
+/*---------------------------------------------------------------------------------------------------*/
