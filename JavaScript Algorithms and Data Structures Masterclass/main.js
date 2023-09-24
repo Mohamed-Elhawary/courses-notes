@@ -779,3 +779,20 @@ function binarySearch (array, val) { // [O(log(n))]
         - We will see it with more complex data structures
         - It's sometimes a cleaner alternative to iteration
 */
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L43: The Call Stack
+
+/*
+    >> The Call Stack:
+        - It's a stack data structure.
+        - Any time a function is invoked it is placed (pushed) on the top of the call stack.
+        - When JavaScript sees the return keyword or when the function ends, the compiler will remove (pop).
+
+    >> What is the relation between Call Stack and Recursion?
+        - You're used to functions being pushed on the call stack and popped off when they are done.
+        - When we write recursive functions, we keep pushing new functions onto the call stack!
+*/
+
+/*---------------------------------------------------------------------------------------------------*/
