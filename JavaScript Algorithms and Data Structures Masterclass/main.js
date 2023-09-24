@@ -579,7 +579,7 @@ function validAnagram2(str1, str2){ // [O(n)]
         - Creating pointers that correspond to an index or position towards the beginning, end or middle base a certain condition.
         - Very efficient for solving problems with minimal space complexity as well
         
-        > Write a function called sumZero which accepts a "sorted" array of integers. The function should find the first pair
+        > Write a function called sumZero which accepts a sorted array of integers. The function should find the first pair
           where the sum is 0. Return an array that includes both values that sum to zero or undefined if a pair does not exist.
             * Examples:
             ------------
@@ -663,7 +663,7 @@ function countUniqueValues (arr) {
             * Examples:
             ------------
             - maxSubarray Sum([1,2,5,2,8,1,5], 2) // 10
-            - maxSubarray Sum ([1,2,5,2,8,1,51,4) // 17
+            - maxSubarray Sum ([1,2,5,2,8,1,5],4) // 17
             - maxSubarraySum ( [4,2,1,6], 1) // 6
             - maxSubarraySum( [4,2,1,6,2],4) // 13
             - maxSubarraySum( [],4) // null
@@ -721,7 +721,7 @@ function maxSubarraySum2(arr, num) { // [O(n)]
         - This pattern involves dividing a data set into smaller chunks and then repeating
           a process with a subset of data. This pattern can tremendously decrease time complexity.
 
-        > Given a "sorted" array of integers, write a function called binarySearch, that accepts a value and returns the
+        > Given a sorted array of integers, write a function called binarySearch, that accepts a value and returns the
           index where the value passed to the function is located. If the value is not found, return -1
             * Examples:
             ------------
@@ -761,3 +761,21 @@ function binarySearch (array, val) { // [O(log(n))]
 
     return -1;
 }
+
+/*---------------------------------------------------------------------------------------------------*/
+
+/* Section 7: Recursion */
+
+// L42: Why Use Recursion?
+
+/*
+    >> What is Recursion?
+        - A process (a function in our case) that calls itself.
+
+    >> Where can we use Recursion?
+        - JSON.parse / JSON.stringify
+        - document.getElementById and DOM traversal algorithms
+        - Object traversal
+        - We will see it with more complex data structures
+        - It's sometimes a cleaner alternative to iteration
+*/
