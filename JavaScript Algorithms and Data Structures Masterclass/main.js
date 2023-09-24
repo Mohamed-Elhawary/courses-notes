@@ -809,4 +809,20 @@ function binarySearch (array, val) { // [O(log(n))]
         - Different Input
 */
 
+function countDown(num) {
+    if (num <= 0) { // Base Case
+        console.log("All Done!!");
+
+        return;
+    }
+
+    console.log(num);
+
+    num--;
+
+    countDown(num); // Recursion
+}
+
+countDown(5);
+
 /*---------------------------------------------------------------------------------------------------*/
