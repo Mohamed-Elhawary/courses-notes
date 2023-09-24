@@ -826,3 +826,19 @@ function countDown(num) {
 countDown(5);
 
 /*---------------------------------------------------------------------------------------------------*/
+
+// L45: Our Second Recursive Function
+
+function sumRange(num) {
+    if (num === 1) return 1; // Base Case
+
+    return num + sumRange(num - 1);
+}
+
+sumRange(4); // 10
+// 4 + sumRange(3) >> (10)
+    // 3 + sumRange(2) >> (6)
+        // 2 + sumRange(1) >> (3)
+            // 1
+
+/*---------------------------------------------------------------------------------------------------*/
