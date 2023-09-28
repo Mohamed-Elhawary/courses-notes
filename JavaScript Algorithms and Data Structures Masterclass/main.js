@@ -845,7 +845,7 @@ sumRange(4); // 10
 
 // L46: Writing Factorial Iteratively
 
-function factorial(num) { // with (for-loop) Iteratively
+function factorial(num) { // Iteratively
     let total = 1;
 
     for (let i = num; i > 0; i--) {
@@ -854,5 +854,23 @@ function factorial(num) { // with (for-loop) Iteratively
 
     return total;
 }
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L47: Writing Factorial Recursively
+
+function factorial(num) { // Recursively
+    if (num === 1) return 1;
+    
+    return num * factorial(num - 1);
+        /*  5 * factorial(4)
+                    4 * factorial(3)
+                            3 * factorial(2)
+                                    2 * factorial(1)
+                                            1
+        */
+}
+
+factorial(5); // 5 * 4 * 3 * 2 * 1
 
 /*---------------------------------------------------------------------------------------------------*/
