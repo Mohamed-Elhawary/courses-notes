@@ -845,7 +845,7 @@ sumRange(4); // 10
 
 // L46: Writing Factorial Iteratively
 
-function factorial(num) { // Iteratively
+function factorial1(num) { // Iteratively
     let total = 1;
 
     for (let i = num; i > 0; i--) {
@@ -859,10 +859,10 @@ function factorial(num) { // Iteratively
 
 // L47: Writing Factorial Recursively
 
-function factorial(num) { // Recursively
+function factorial2(num) { // Recursively
     if (num === 1) return 1;
     
-    return num * factorial(num - 1);
+    return num * factorial2(num - 1);
         /*  5 * factorial(4)
                     4 * factorial(3)
                             3 * factorial(2)
@@ -871,6 +871,29 @@ function factorial(num) { // Recursively
         */
 }
 
-factorial(5); // 5 * 4 * 3 * 2 * 1
+factorial2(5); // 5 * 4 * 3 * 2 * 1
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L48: Common Recursion Pitfalls
+
+/* 
+    >> Where things go wrong?
+        • No base case
+        • Forgetting to return or returning the wrong thing!
+        • Stack Overflow! [Stack Exceeded]
+
+        * Examples:
+        ------------
+        -   function factorial (num) {
+                if (num === 1) return 1;
+                return num* factorial (num);
+            }
+
+        -   function factorial (num) {
+                if (num === 1) console.log(1) ;
+                return num * factorial (num-1);
+            }
+*/
 
 /*---------------------------------------------------------------------------------------------------*/
