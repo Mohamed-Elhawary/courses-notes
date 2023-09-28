@@ -897,3 +897,46 @@ factorial2(5); // 5 * 4 * 3 * 2 * 1
 */
 
 /*---------------------------------------------------------------------------------------------------*/
+
+// L49: Helper Method Recursion
+
+/*  
+    >> Helper Method Recursion Pattern
+        - It is just a pattern where we have an outer function that is not recursive, which calls an inner function, which is recursive.
+*/
+
+function outer(input) {
+    let outerScopedVar = [];
+
+    function helper(helperInput) {
+        // modify the outerScopedVar
+
+        helper(helperInput--);
+    }
+
+    helper(input);
+
+    return outerScopedVar;
+}
+
+function collectOddValues (arr) {
+    let result = [];
+    
+    function helper (helperInput) { // we use helper method recursion here, because if we use [collectOddValues] itself as the recursive function, we will reset [result] array to empty array, every time we call [collectOddValues].
+        if (helperInput. length === 0) {
+            return;
+        }
+
+        if(helperInput [0] % 2 !== 0) {
+            result.push(helperInput[0])
+        }
+
+        helper (helperInput.slice (1));
+    }
+
+    helper (arr)
+
+    return result;
+}
+
+/*---------------------------------------------------------------------------------------------------*/
