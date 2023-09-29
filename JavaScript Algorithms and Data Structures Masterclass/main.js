@@ -863,15 +863,15 @@ function factorial2(num) { // Recursively
     if (num === 1) return 1;
     
     return num * factorial2(num - 1);
-        /*  5 * factorial(4)
-                    4 * factorial(3)
-                            3 * factorial(2)
-                                    2 * factorial(1)
-                                            1
-        */
 }
 
 factorial2(5); // 5 * 4 * 3 * 2 * 1
+/*  5 * factorial(4)
+        4 * factorial(3)
+            3 * factorial(2)
+                2 * factorial(1)
+                    1
+*/
 
 /*---------------------------------------------------------------------------------------------------*/
 
@@ -919,7 +919,7 @@ function outer(input) {
     return outerScopedVar;
 }
 
-function collectOddValues (arr) {
+function collectOddValues1(arr) {
     let result = [];
     
     function helper (helperInput) { // we use helper method recursion here, because if we use [collectOddValues] itself as the recursive function, we will reset [result] array to empty array, every time we call [collectOddValues].
@@ -938,5 +938,47 @@ function collectOddValues (arr) {
 
     return result;
 }
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L50: Pure Recursion
+
+/*
+    >> Pure Recursion:
+        - It means the function itself is totally self contained and it is recursive, we don't have some external data structure like
+          we had in the previous example at the previous lecture, we don't need a nested function helper method recursion,  
+          we can do it with pure recursion, this is more challenging.
+
+    >> Pure Recursion Tips:
+        • For arrays, use methods like slice, the spread operator, and concat that make copies of arrays so you do not mutate them.
+        • Remember that strings are immutable so you will need to use methods like slice, substr, or substring to make copies of strings.
+        • To make copies of objects use Object.assign, or the spread operator.
+*/
+
+function collectOddValues2(arr) {
+    let newArr = [];
+    
+    if(arr.length === 0) {
+        return newArr;
+    }
+    
+    if(arr [0] % 2 !== 0) {
+        newArr.push(arr [0]);
+    }
+    
+    newArr = newArr.concat(collectOddValues (arr.slice (1)));
+
+    return newArr;
+}
+
+collectOddValues2([1, 2, 3, 4, 5]);
+/*
+[1].concat(collectOddValues ([2,3,4,5]))
+            [].concat(collectOddValues([3,4,5]))
+                        [3].concat(collectOddValues([4,5]))
+                                    [].concat(collectOddValues([5]))
+                                                [5].concat(collectOddValues([]))
+                                                            []
+*/
 
 /*---------------------------------------------------------------------------------------------------*/
