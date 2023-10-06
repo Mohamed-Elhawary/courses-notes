@@ -962,11 +962,11 @@ function collectOddValues2(arr) {
         return newArr;
     }
     
-    if(arr [0] % 2 !== 0) {
-        newArr.push(arr [0]);
+    if(arr[0] % 2 !== 0) {
+        newArr.push(arr[0]);
     }
     
-    newArr = newArr.concat(collectOddValues (arr.slice (1)));
+    newArr = newArr.concat(collectOddValues2(arr.slice(1)));
 
     return newArr;
 }
@@ -982,3 +982,15 @@ collectOddValues2([1, 2, 3, 4, 5]);
 */
 
 /*---------------------------------------------------------------------------------------------------*/
+
+/* Section 10: Searching Algorithms */
+
+// L57: Intro to Searching
+
+/*
+    >> Searching Algorithms:
+        - Linear Search in arrays
+        - Binary Search in sorted arrays
+        - Naive String Search
+        - KMP String Search
+*/
