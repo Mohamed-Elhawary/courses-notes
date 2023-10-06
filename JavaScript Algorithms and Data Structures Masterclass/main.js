@@ -994,3 +994,19 @@ collectOddValues2([1, 2, 3, 4, 5]);
         - Naive String Search
         - KMP String Search
 */
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L58: Intro to Linear Search
+
+/*
+    >> How do we Search? [Linear Search]
+        - Given an array, the simplest way to search for a value is to look at every element in the array and check if it's the value we want.
+        - JavaScript built-in search methods:-
+            • indexOf
+            • includes
+            • find
+            • findIndex
+*/
+
+/*---------------------------------------------------------------------------------------------------*/
