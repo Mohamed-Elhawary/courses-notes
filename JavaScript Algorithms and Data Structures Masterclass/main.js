@@ -1068,3 +1068,31 @@ function binarySearch(arr, elem) { // [O(log(n))]
 }
 
 /*---------------------------------------------------------------------------------------------------*/
+
+// L64: Binary Search BIG O
+
+/*
+    >> Binary Search Big O:
+        - Best Case: O(1)
+        - Worst Case: O(log(n))
+        - Average Case: O(log(n))
+
+    >> Suppose we are searching for 13 in this array: [2,4,5,9,11,14,15,19,21,25,28,30,50,52,60,63]
+        - [2,4,5,9,11,14,15,19,21,25,28,30,50,52,60,63]
+        - [2,4,5,9,11,14,15] (step 1)
+        - [14,15] (step 2)
+        - [14] (step 3)
+        - Not Exist > return -1 (step 4)
+
+        > Array of [16] elements will take [4] steps to check if [13] exists or not. (log₂16 > 4)
+        
+    >> To add another step, we need to double the number of elements in the array, Suppose we are searching for 32 in this array: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,32,35]
+        - [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,32,35]
+        - [17,18,19,20,21,22,23,24,25,26,27,28,29,30,32,35] (step 1)
+        - [25,26,27,28,29,30,32,35] (step 2)
+        - [29,30,32,35] (step 3)
+        - [32,35] (step 4)
+        - [32] (step 5)
+
+        > Array of [32] elements will take [5] steps to check if [32] exists or not. (log₂32 > 5)
+*/
