@@ -1010,3 +1010,15 @@ collectOddValues2([1, 2, 3, 4, 5]);
 */
 
 /*---------------------------------------------------------------------------------------------------*/
+
+// L59: Linear Search Solution
+
+function linearSearch(arr, val) { // [O(n)]
+    for (let i = 0; i < arr.length; i++) {
+        if(arr[i] === val) {
+            return i;
+        }
+    }
+
+    return -1;
+}
