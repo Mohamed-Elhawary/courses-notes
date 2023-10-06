@@ -1096,3 +1096,20 @@ function binarySearch(arr, elem) { // [O(log(n))]
 
         > Array of [32] elements will take [5] steps to check if [32] exists or not. (log₂32 > 5)
 */
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L65: Naive String Search
+
+/*
+    >> Write a function that counts how many times a short string exists in a long string (e.g: "omg" in "wowomgzomg").
+        - Steps:-
+            • Loop over the longer string
+            • Loop over the shorter string
+            • If the characters don't match, break out of the inner loop
+            • If the characters do match, keep going
+            • If you complete the inner loop and find a match, increment the count of matches
+            • Return the count
+*/
+
+/*---------------------------------------------------------------------------------------------------*/
