@@ -1028,10 +1028,19 @@ function linearSearch(arr, val) { // [O(n)]
 // L60: Linear Search BIG O
 
 /*
-    >> Linear Search Big O
+    >> Linear Search Big O:
         - Best Case: O(1)
         - Worst Case: O(n)
         - Average Case: O(n)
 */
 
 /*---------------------------------------------------------------------------------------------------*/
+
+// L61: Intro to Binary Search
+
+/*
+    >> Binary Search:
+        - Binary search is a much faster form of search.
+        - Rather than eliminating one element at a time, you can eliminate half of the remaining elements at a time.
+        - Binary search only works on sorted arrays!
+*/
