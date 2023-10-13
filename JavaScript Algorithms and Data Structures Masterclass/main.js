@@ -1263,7 +1263,7 @@ function bubbleSort1(arr) { // NAIVE Solution
     return arr;
 }
 
-function bubbleSort2(arr) { // Optimized Solution using Pseudocode mentioned last lecture [Removes useless "undefined" Iterations]
+function bubbleSort2(arr) { // Optimized Solution using Pseudocode mentioned last lecture. [Removes useless "undefined" Iterations]
     for (let i = arr.length; i > 0; i--) {
         for(let j = 0; j < i - 1; j++) {
             if(arr[j] > arr[j + 1]) {
@@ -1297,3 +1297,31 @@ function bubbleSort3(arr) { // Optimized Solution using Pseudocode mentioned las
 }
 
 /*---------------------------------------------------------------------------------------------------*/
+
+// L72: Bubble Sort: Optimization
+
+// Optimized with "noSwaps" flag
+function bubbleSort4(arr) { // Optimized Solution using "noSwaps" flag. [Removes useless iterations that didn't make swaps anymore]
+    var noSwaps;
+
+    for (let i = arr.length; i > 0; i--) {
+        noSwaps = true;
+
+        for(let j = 0; j < i - 1; j++) {
+            if(arr[j] > arr[j + 1]) {
+                // Swap!
+                let temp = arr[j];
+
+                arr[j] = arr[j + 1];
+
+                arr[j + 1] = temp;
+                
+                noSwaps = false;
+            }
+        }
+
+        if (noSwaps) break;
+    }
+
+    return arr;
+}
