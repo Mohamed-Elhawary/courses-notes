@@ -1241,3 +1241,59 @@ function swap2(arr, idx1, idx2) {
         - If arr[j] is greater than arr[j+1], swap those two values!.
         - Return the sorted array
 */
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L71: Bubble Sort: Implementation
+
+function bubbleSort1(arr) { // NAIVE Solution
+    for (let i = 0; i < arr.length; i++) {
+        for(let j = 0; j < arr.length; j++) {
+            if(arr[j] > arr[j + 1]) {
+                // Swap!
+                let temp = arr[j];
+
+                arr[j] = arr[j + 1];
+
+                arr[j + 1] = temp;
+            }
+        }
+    }
+
+    return arr;
+}
+
+function bubbleSort2(arr) { // Optimized Solution using Pseudocode mentioned last lecture [Removes useless "undefined" Iterations]
+    for (let i = arr.length; i > 0; i--) {
+        for(let j = 0; j < i - 1; j++) {
+            if(arr[j] > arr[j + 1]) {
+                // Swap!
+                let temp = arr[j];
+
+                arr[j] = arr[j + 1];
+
+                arr[j + 1] = temp;
+            }
+        }
+    }
+
+    return arr;
+}
+
+function bubbleSort3(arr) { // Optimized Solution using Pseudocode mentioned last lecture. [Swap with ES6 Way]
+    const swap = (arr, ind1, ind2) => {
+        [arr[ind1], arr[ind2]] = [arr[ind2], arr[ind1]];
+    }
+
+    for (let i = arr.length; i > 0; i--) {
+        for(let j = 0; j < i - 1; j++) {
+            if(arr[j] > arr[j + 1]) {
+                swap(arr, j, j + 1);
+            }
+        }
+    }
+
+    return arr;
+}
+
+/*---------------------------------------------------------------------------------------------------*/
