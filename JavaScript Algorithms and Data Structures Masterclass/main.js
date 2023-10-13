@@ -1325,3 +1325,14 @@ function bubbleSort4(arr) { // Optimized Solution using "noSwaps" flag. [Removes
 
     return arr;
 }
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L73: Bubble Sort: BIG O Complexity
+
+/*
+    - [O(n²)] >> IF the data is randomly and not sorted any way from the beginning.
+    - Almost [O(n)] or Linear Time >> If the data is nearly sorted or already sorted from the beginning. [Best case to use bubble sort here]
+*/
+
+/*---------------------------------------------------------------------------------------------------*/
