@@ -1199,3 +1199,45 @@ function compareByLen2(str1, str2) {
 ["Steele", "Colt", "Data Structures", "Algorithms"].sort(compareByLen2); // ["Data Structures", "Algorithms", "Steele", "Colt"]
 
 /*---------------------------------------------------------------------------------------------------*/
+
+// L70: Bubble Sort: Overview
+
+/*
+    >> Bubble Sort:
+        - A sorting algorithm where the largest values bubble up to the top!
+
+        * Example:
+        ------------
+        [5, 3, 4, 1, 2] >> swap 5 with 3
+        [3, 5, 4, 1, 2] >> swap 5 with 4
+        [3, 4, 5, 1, 2] >> swap 5 with 1
+        [3, 4, 1, 5, 2] >> swap 5 with 2
+        [3, 4, 1, 2, 5] >> swap 4 with 1
+        [3, 1, 4, 2, 5] >> swap 4 with 2
+        [3, 1, 2, 4, 5] >> swap 3 with 1
+        [1, 3, 2, 4, 5] >> swap 3 with 2
+        [1, 2, 3, 4, 5]
+
+    >> Before we sort using bubble sort, we must swap!
+        - Many sorting algorithms involve some type of swapping functionality (e.g. swapping to numbers to put them in order).
+*/
+
+// ES2015 Version (ES6)
+const swap1 = (arr, idx1, idx2) => {
+    [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]];
+};
+
+// ES5 Version
+function swap2(arr, idx1, idx2) {
+    var temp = arr[idx1];
+    arr[idx1] = arr[idx2];
+    arr[idx2] = temp;
+} 
+
+/*
+    >> Bubble Sort Pseudocode:
+        - Start looping from with a variable called (i) the end of the array towards the beginning.
+        - Start an inner loop with a variable called (j) from the beginning until (i - 1)
+        - If arr[j] is greater than arr[j+1], swap those two values!.
+        - Return the sorted array
+*/
