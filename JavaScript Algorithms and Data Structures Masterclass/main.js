@@ -1439,20 +1439,20 @@ function selectionSort(arr) {
 
         * Example:
         ----------
-        [5, 3, 4, 1, 2] >> 5 is sorted
-        [3, 5, 4, 1, 2] >> 3 is sorted
-        [3, 4, 5, 1, 2] >> 4 is sorted
-        [1, 3, 4, 5, 2] >> 1 is sorted
-        [1, 2, 3, 4, 5] >> 2 is sorted
+        [5, 3, 4, 1, 2] >> start with [3]: insert 3 @ index 0 and shift others
+        [3, 5, 4, 1, 2] >> start with [4]: insert 4 @ index 1 and shift others
+        [3, 4, 5, 1, 2] >> start with [1]: insert 1 @ index 0 and shift others
+        [1, 3, 4, 5, 2] >> start with [2]: insert 2 @ index 1 and shift others
+        [1, 2, 3, 4, 5]
 
         * Example:
         ----------
-        [3, 44, 38, 5, 47, 15] >> 3 is sorted
-        [3, 44, 38, 5, 47, 15] >> 44 is sorted
-        [3, 38, 44, 5, 47, 15] >> 38 is sorted
-        [3, 5, 38, 44, 47, 15] >> 5 is sorted
-        [3, 5, 38, 44, 47, 15] >> 47 is sorted
-        [3, 5, 15, 38, 44, 47] >> 15 is sorted
+        [3, 44, 38, 5, 47, 15] >> start with [44]
+        [3, 44, 38, 5, 47, 15] >> start with [38]: insert 38 @ index 1 and shift others
+        [3, 38, 44, 5, 47, 15] >> start with [5]: insert 5 @ index 1 and shift others
+        [3, 5, 38, 44, 47, 15] >> start with [47]
+        [3, 5, 38, 44, 47, 15] >> start with [15]: insert 15 @ index 2 and shift others
+        [3, 5, 15, 38, 44, 47]
 
     >> Insertion Sort Pseudocode:
         - Start by picking the second element in the array.
@@ -1460,3 +1460,37 @@ function selectionSort(arr) {
         - Continue to the next element and if it is in the incorrect order, iterate through the sorted portion (i.e. the left side) to place the element in the correct place.
         - Repeat until the array is sorted.
 */
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L80: Insertion Sort: Implementation
+
+function insertionSort(arr) {
+    for (let i = 1; i < arr.length; i++) {
+        let currentVal = arr[i];
+
+        for (var j = i - 1; j >= 0 && arr[j] > currentVal; j--) { // The place we're looking is still too big
+            // Copy value to the right to make a room for the currentVal
+            arr[j + 1] = arr[j];
+
+            console.log(arr);
+        }
+
+        console.log("Break Loop");
+
+        console.log("j Index > ", j);
+
+        console.log("j Value > ", arr[j]);
+
+        // Put our currentVal in the spot we created for it
+        arr[j + 1] = currentVal; // We can access (j) here, because it is declared using "var" keyword, so its scope is "global scope"
+
+        console.log("Insertion Sort Array", arr);
+    }
+
+    return arr;
+}
+
+insertionSort([2, 1, 9, 76, 4]);
+
+/*---------------------------------------------------------------------------------------------------*/
