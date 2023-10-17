@@ -1387,3 +1387,31 @@ function bubbleSort4(arr) { // Optimized Solution using "noSwaps" flag. [Removes
         - If the "minimum" is not the value (index) you initially began with, swap the two values, otherwise do nothing.
         - Repeat this with the next element until the array is sorted.
 */
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L76: Selection Sort: Implementation
+
+function selectionSort(arr) {
+    for (i = 0; i < arr.length; i++) {
+        let min = i;
+
+        for (j = i + 1; j < arr.length; j++) {
+            if(arr[j] < arr[min]) {
+                min = j;
+            }
+        }
+
+        if (i !== min) {
+            let temp = arr[i];
+
+            arr[i] = arr[min];
+
+            arr[min] = temp;
+        }
+    }
+
+    return arr;
+}
+
+/*---------------------------------------------------------------------------------------------------*/
