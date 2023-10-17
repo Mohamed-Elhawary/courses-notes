@@ -1494,3 +1494,15 @@ function insertionSort(arr) {
 insertionSort([2, 1, 9, 76, 4]);
 
 /*---------------------------------------------------------------------------------------------------*/
+
+// L81: Insertion Sort: BIG O Complexity
+
+/*
+    - [O(n²)] >> IF the data is randomly and not sorted any way from the beginning.
+    - Almost [O(n)] or Linear Time >> If the data is nearly sorted or already sorted from the beginning. [Best case to use Insertion sort here]
+    - Best Scenario to use Insertion sort and it is good at it, if your data is online data (data is coming in like a stream), so we receive new data, 
+      it doesn't have to have the entire array at once, for example, if we have some code where people are submitting numbers to use online live.
+      We are getting them and want to sort them, so we can use Insertion sort here, because we can keep one side of the array sorted and we are inserting
+      items one at a time, it doesn't matter what the number is that comes in, we can place it where it needs to go. We keep one side sorted and we insert 
+      things in the appropriate place.
+*/
