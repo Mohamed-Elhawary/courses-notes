@@ -1336,3 +1336,54 @@ function bubbleSort4(arr) { // Optimized Solution using "noSwaps" flag. [Removes
 */
 
 /*---------------------------------------------------------------------------------------------------*/
+
+/* Section 12: Selection Sort */
+
+// L75: Selection Sort Introduction
+
+/*
+    >> Selection Sort:
+        - Similar to bubble sort, but instead of first placing large values into sorted position, it places small values into sorted position.
+        - We find the minimum swap at the end and put it at the beginning.
+        - We are going through and selecting the smallest element, and then putting it at the beginning.
+
+        * Example:
+        ----------
+        [5, (3), 4, 1, 2] >> compare from 5 to 3 (min is 3)
+        [5, (3), 4, 1, 2] >> compare from 5 to 4 (min is 3)
+        [5, 3, 4, (1), 2] >> compare from 5 to 1 (min is 1)
+        [5, 3, 4, (1), 2] >> compare from 5 to 2 (min is 1) [reach to the end so swap 5 with 1]
+        [1, (3), 4, 5, 2] >> compare from 3 to 4 (min is 3)
+        [1, (3), 4, 5, 2] >> compare from 3 to 5 (min is 3)
+        [1, 3, 4, 5, (2)] >> compare from 3 to 2 (min is 2) [reach to the end so swap 3 with 2]
+        [1, 2, (4), 5, 3] >> compare from 4 to 5 (min is 4)
+        [1, 2, 4, 5, (3)] >> compare from 4 to 3 (min is 3) [reach to the end so swap 4 with 3]
+        [1, 2, 3, (4), 5] >> compare from 4 to 5 (min is 4) [reach to the end but no swap here]
+        [1, 2, 3, 4, 5]
+
+        * Example:
+        ----------
+        [(19), 44, 38, 5, 47, 15] >> compare from 19 to 44 (min is 19)
+        [(19), 44, 38, 5, 47, 15] >> compare from 19 to 38 (min is 19)
+        [19, 44, 38, (5), 47, 15] >> compare from 19 to 5 (min is 5)
+        [19, 44, 38, (5), 47, 15] >> compare from 19 to 47 (min is 5)
+        [19, 44, 38, (5), 47, 15] >> compare from 19 to 15 (min is 5) [reach to the end so swap 19 with 5]
+        [5, 44, (38), 19, 47, 15] >> compare from 44 to 38 (min is 38)
+        [5, 44, 38, (19), 47, 15] >> compare from 44 to 19 (min is 19)
+        [5, 44, 38, (19), 47, 15] >> compare from 44 to 47 (min is 19)
+        [5, 44, 38, 19, 47, (15)] >> compare from 44 to 15 (min is 15) [reach to the end so swap 44 with 15]
+        [5, 15, 38, (19), 47, 44] >> compare from 38 to 19 (min is 19)
+        [5, 15, 38, (19), 47, 44] >> compare from 38 to 47 (min is 19)
+        [5, 15, 38, (19), 47, 44] >> compare from 38 to 44 (min is 19) [reach to the end so swap 38 with 19]
+        [5, 15, 19, (38), 47, 44] >> compare from 38 to 47 (min is 38)
+        [5, 15, 19, (38), 47, 44] >> compare from 38 to 44 (min is 18) [reach to the end but no swap here]
+        [5, 15, 19, 38, 47, (44)] >> compare from 47 to 44 (min is 44) [reach to the end so swap 47 with 44]
+        [5, 15, 19, 38, 44, 47]
+
+    >> Selection Sort Pseudocode:
+        - Store the first element as the smallest value you've seen so far.
+        - Compare this item to the next item in the array until you find a smaller number.
+        - If a smaller number is found, designate that smaller number to be the new "minimum" and continue until the end of the array.
+        - If the "minimum" is not the value (index) you initially began with, swap the two values, otherwise do nothing.
+        - Repeat this with the next element until the array is sorted.
+*/
