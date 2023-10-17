@@ -1415,3 +1415,15 @@ function selectionSort(arr) {
 }
 
 /*---------------------------------------------------------------------------------------------------*/
+
+// L77: Selection Sort: Big O Complexity
+
+/*
+    - Big O Complexity is: [O(n²)] 
+    - Selection Sort potentially is better than bubble sort, if you want to minimize the number of swaps that you are making & minimize the number of writing to the memory.
+    - In Bubble sort we are basically swapping over and and over and over to get the largest item to the end. 
+    - In Selection sort, we iterate, we compare that, but we only make a swap at the end of each loop.
+*/
+
+/*---------------------------------------------------------------------------------------------------*/
+
