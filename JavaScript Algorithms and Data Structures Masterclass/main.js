@@ -1464,7 +1464,6 @@ function selectionSort(arr) {
 /*---------------------------------------------------------------------------------------------------*/
 
 // L80: Insertion Sort: Implementation
-
 function insertionSort(arr) {
     for (let i = 1; i < arr.length; i++) {
         let currentVal = arr[i];
@@ -1506,3 +1505,35 @@ insertionSort([2, 1, 9, 76, 4]);
       items one at a time, it doesn't matter what the number is that comes in, we can place it where it needs to go. We keep one side sorted and we insert 
       things in the appropriate place.
 */
+
+/*---------------------------------------------------------------------------------------------------*/
+
+/* Section 14: Comparing Bubble, Selection, and Insertion Sort */
+
+// L82: Comparing Bubble, Selection, and Insertion Sort
+
+/*
+    >> Big O of Sorting Algorithms
+        - Bubble Sort: 
+            • Best: [O(n)]
+            • Worst: [O(n²)] 
+            • Average: [O(n²)]
+
+            • Space Complexity: [O(1)]
+
+        - Insertion Sort: 
+            • Best: [O(n)]
+            • Worst: [O(n²)] 
+            • Average: [O(n²)]
+            
+            • Space Complexity: [O(1)]
+
+        - Selection Sort: [Doesn't matter if the array is sorted already from the beginning or not]
+            • Best: [O(n²)]
+            • Worst: [O(n²)] 
+            • Average: [O(n²)]
+            
+            • Space Complexity: [O(1)]
+*/
+
+/*---------------------------------------------------------------------------------------------------*/
