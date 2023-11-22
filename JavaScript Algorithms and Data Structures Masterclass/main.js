@@ -1549,3 +1549,26 @@ insertionSort([2, 1, 9, 76, 4]);
         - The more efficient algorithms are much less simple, and generally take longer to understand.
 */
 
+/*---------------------------------------------------------------------------------------------------*/
+
+// L85: Merge Sort: Introduction
+
+/*
+    - Merge Sort:
+        • It's a combination of two things - merging and sorting!
+        • Exploits the fact that arrays of 0 or 1 element are always sorted.
+        • Works by decomposing an array into smaller arrays of 0 or 1 elements, then building up a newly sorted array.
+
+    - How does it work?
+        • It decomposes the array into smaller arrays of 0 or 1 elements, then builds up a newly sorted array.
+
+        * Example:
+        ----------
+        [8, 3, 5, 4, 7, 6, 1, 2] >> [Final = 1 Array] / Split at the middle for each array to be 2 arrays
+        [8, 3, 5, 4] [7, 6, 1, 2] >> [Final = 2 Arrays] / Split at the middle for each array to be 2 arrays
+        [8, 3] [5, 4] [7, 6] [1, 2] >> [Final = 4 Arrays] / Split at the middle for each array to be 2 arrays 
+        [8] [3] [5] [4] [7] [6] [1] [2] >> [Final = 8 Arrays] / Merge each 2 array together
+        [3, 8] [4, 5] [6, 7] [1, 2] >> [Final = 4 Arrays] / Merge each 2 array together
+        [3, 4, 5, 8] [1, 2, 6, 7] >> [Final = 2 Arrays] / Merge each 2 array together
+        [1, 2, 3, 4, 5, 6, 7, 8] >> [Final = 1 Array]
+*/
