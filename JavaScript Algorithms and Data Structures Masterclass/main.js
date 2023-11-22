@@ -1564,11 +1564,38 @@ insertionSort([2, 1, 9, 76, 4]);
 
         * Example:
         ----------
-        [8, 3, 5, 4, 7, 6, 1, 2] >> [Final = 1 Array] / Split at the middle for each array to be 2 arrays
-        [8, 3, 5, 4] [7, 6, 1, 2] >> [Final = 2 Arrays] / Split at the middle for each array to be 2 arrays
-        [8, 3] [5, 4] [7, 6] [1, 2] >> [Final = 4 Arrays] / Split at the middle for each array to be 2 arrays 
-        [8] [3] [5] [4] [7] [6] [1] [2] >> [Final = 8 Arrays] / Merge each 2 array together
-        [3, 8] [4, 5] [6, 7] [1, 2] >> [Final = 4 Arrays] / Merge each 2 array together
-        [3, 4, 5, 8] [1, 2, 6, 7] >> [Final = 2 Arrays] / Merge each 2 array together
-        [1, 2, 3, 4, 5, 6, 7, 8] >> [Final = 1 Array]
+        [8, 3, 5, 4, 7, 6, 1, 2] >> [1 Array] / Split at the middle for each array to be 2 arrays
+        [8, 3, 5, 4] [7, 6, 1, 2] >> [2 Arrays] / Split at the middle for each array to be 2 arrays
+        [8, 3] [5, 4] [7, 6] [1, 2] >> [4 Arrays] / Split at the middle for each array to be 2 arrays 
+        [8] [3] [5] [4] [7] [6] [1] [2] >> [8 Arrays] / Merge each 2 array together
+        [3, 8] [4, 5] [6, 7] [1, 2] >> [4 Arrays] / Merge each 2 array together
+        [3, 4, 5, 8] [1, 2, 6, 7] >> [2 Arrays] / Merge each 2 array together
+        [1, 2, 3, 4, 5, 6, 7, 8] >> [1 Array]
+*/
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L86: Merging Arrays Intro
+
+/* 
+    - Merging Arrays:
+        • In order to implement merge sort, it's useful to first implement a function responsible for merging two sorted arrays.
+        • Given two arrays which are sorted, this helper function should create a new array which is also sorted, and consists of all of the elements in the two input arrays.
+        • This function should run in [O(n + m)] time and [O(n + m)] space and should not modify the parameters passed to it.
+
+    - Merging Arrays Pseudocode
+        • Create an empty array, take a look at the smallest values in each input array.
+        • While there are still values we haven't looked at...
+            • If the value in the first array is smaller than the value in the second array, push the value in the first array into our results and move on to the next value in the first array.
+            • If the value in the first array is larger than the value in the second array, push the value in the second array into our results and move on to the next value in the second array.
+            • Once we exhaust one array, push in all remaining values from the other array.
+
+        * Example:
+        ----------
+        merge([1, 10, 50] [2, 14, 99, 100]) >> compare 1 with 2 >> [1]
+        merge([1, 10, 50] [2, 14, 99, 100]) >> compare 10 with 2 >> [1, 2]
+        merge([1, 10, 50] [2, 14, 99, 100]) >> compare 10 with 14 >> [1, 2, 10]
+        merge([1, 10, 50] [2, 14, 99, 100]) >> compare 50 with 14 >> [1, 2, 10, 14]
+        merge([1, 10, 50] [2, 14, 99, 100]) >> compare 50 with 99 >> [1, 2, 10, 14, 50]
+        merge([1, 10, 50] [2, 14, 99, 100]) >> first array is exhausted, so push all remaining values from the other array >> [1, 2, 10, 14, 50, 99, 100]
 */
