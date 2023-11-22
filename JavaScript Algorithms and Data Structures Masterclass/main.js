@@ -1537,3 +1537,15 @@ insertionSort([2, 1, 9, 76, 4]);
 */
 
 /*---------------------------------------------------------------------------------------------------*/
+
+/* Section 15: Merge Sort */
+
+// L84: Intro to the "Crazier" Sorts
+
+/*
+    >> Faster Sorts:
+        - There is a family of sorting algorithms that can improve time complexity from [O(n²)] to [O(n log n)].
+        - There's a tradeoff between efficiency and simplicity.
+        - The more efficient algorithms are much less simple, and generally take longer to understand.
+*/
+
