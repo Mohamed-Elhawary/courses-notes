@@ -1599,3 +1599,41 @@ insertionSort([2, 1, 9, 76, 4]);
         merge([1, 10, 50] [2, 14, 99, 100]) >> compare 50 with 99 >> [1, 2, 10, 14, 50]
         merge([1, 10, 50] [2, 14, 99, 100]) >> first array is exhausted, so push all remaining values from the other array >> [1, 2, 10, 14, 50, 99, 100]
 */
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L87: Merging Arrays Implementation
+
+function merge1(arr1, arr2) {
+    let results = [];
+    let i = 0;
+    let j = 0;
+
+    while(i < arr1.length && j < arr2.length) {
+        if(arr2[j] > arr1[i]) {
+            results.push(arr1[i]);
+
+            i++;
+        } else {
+            results.push(arr2[j]);
+
+            j++;
+        }
+    }
+
+    while(i < arr1.length) {
+        results.push(arr1[i]);
+
+        i++;
+    }
+
+    while(j < arr2.length) {
+        results.push(arr2[j]);
+
+        j++;
+    }
+
+    return results;
+}
+
+/*---------------------------------------------------------------------------------------------------*/
