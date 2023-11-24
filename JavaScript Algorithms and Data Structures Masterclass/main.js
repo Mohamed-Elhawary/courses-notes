@@ -1513,25 +1513,25 @@ insertionSort([2, 1, 9, 76, 4]);
 // L82: Comparing Bubble, Selection, and Insertion Sort
 
 /*
-    >> Big O of Sorting Algorithms
+    >> Big O of Sorting Algorithms:
         - Bubble Sort: 
-            • Best: [O(n)]
-            • Worst: [O(n²)] 
-            • Average: [O(n²)]
+            • Time Complexity [Best]: [O(n)]
+            • Time Complexity [Worst]: [O(n²)] 
+            • Time Complexity [Average]: [O(n²)]
 
             • Space Complexity: [O(1)]
 
         - Insertion Sort: 
-            • Best: [O(n)]
-            • Worst: [O(n²)] 
-            • Average: [O(n²)]
+            • Time Complexity [Best]: [O(n)]
+            • Time Complexity [Worst]: [O(n²)] 
+            • Time Complexity [Average]: [O(n²)]
             
             • Space Complexity: [O(1)]
 
         - Selection Sort: [Doesn't matter if the array is sorted already from the beginning or not]
-            • Best: [O(n²)]
-            • Worst: [O(n²)] 
-            • Average: [O(n²)]
+            • Time Complexity [Best]: [O(n²)]
+            • Time Complexity [Worst]: [O(n²)] 
+            • Time Complexity [Average]: [O(n²)]
             
             • Space Complexity: [O(1)]
 */
@@ -1554,13 +1554,13 @@ insertionSort([2, 1, 9, 76, 4]);
 // L85: Merge Sort: Introduction
 
 /*
-    - Merge Sort:
-        • It's a combination of two things - merging and sorting!
-        • Exploits the fact that arrays of 0 or 1 element are always sorted.
-        • Works by decomposing an array into smaller arrays of 0 or 1 elements, then building up a newly sorted array.
+    >> Merge Sort:
+        - It's a combination of two things - merging and sorting!
+        - Exploits the fact that arrays of 0 or 1 element are always sorted.
+        - Works by decomposing an array into smaller arrays of 0 or 1 elements, then building up a newly sorted array.
 
-    - How does it work?
-        • It decomposes the array into smaller arrays of 0 or 1 elements, then builds up a newly sorted array.
+    >> How does it work?
+        - It decomposes the array into smaller arrays of 0 or 1 elements, then builds up a newly sorted array.
 
         * Example:
         ----------
@@ -1578,14 +1578,14 @@ insertionSort([2, 1, 9, 76, 4]);
 // L86: Merging Arrays Intro
 
 /* 
-    - Merging Arrays:
-        • In order to implement merge sort, it's useful to first implement a function responsible for merging two sorted arrays.
-        • Given two arrays which are sorted, this helper function should create a new array which is also sorted, and consists of all of the elements in the two input arrays.
-        • This function should run in [O(n + m)] time and [O(n + m)] space and should not modify the parameters passed to it.
+    >> Merging Arrays:
+        - In order to implement merge sort, it's useful to first implement a function responsible for merging two sorted arrays.
+        - Given two arrays which are sorted, this helper function should create a new array which is also sorted, and consists of all of the elements in the two input arrays.
+        - This function should run in [O(n + m)] time and [O(n + m)] space and should not modify the parameters passed to it.
 
-    - Merging Arrays Pseudocode:
-        • Create an empty array, take a look at the smallest values in each input array.
-        • While there are still values we haven't looked at...
+    >> Merging Arrays Pseudocode:
+        - Create an empty array, take a look at the smallest values in each input array.
+        - While there are still values we haven't looked at...
             • If the value in the first array is smaller than the value in the second array, push the value in the first array into our results and move on to the next value in the first array.
             • If the value in the first array is larger than the value in the second array, push the value in the second array into our results and move on to the next value in the second array.
             • Once we exhaust one array, push in all remaining values from the other array.
@@ -1662,5 +1662,30 @@ function mergeSort(arr) {
 
     return merge2Arrays(left, right);
 }
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L90: Merge Sort BIG O Complexity
+
+/*
+    >> Big O of Merge Sort:
+
+        • Time Complexity [Best]: [O(n log n)]
+        • Time Complexity [Average]: [O(n log n)]
+        • Time Complexity [Worst]: [O(n log n)]
+
+        • Space Complexity: [O(n)]
+
+    >> O(log n)
+        - Is the number of decomposition as (n) grows, there are the number of times we split the array grows at the rate of log(n).
+        - If we have 32 items in the array, we will have 5 splits [log₂(32) = 5  >>>>  2 power of (5) = 32 ].
+        - If we have 8 items in the array, we will have 3 splits [log₂(8) = 3  >>>>  2 power of (3) = 8 ].
+        
+    >> O(n)
+        - Each time we do split (decomposition), we have O(n) comparison to actually perform the merging.
+        - If we have eight items in the array, so we need eight comparisons that need to be merged.
+
+    - So in total we end up with Time Complexity: [O(n log n)]
+*/
 
 /*---------------------------------------------------------------------------------------------------*/
