@@ -1648,3 +1648,19 @@ function merge2Arrays(arr1, arr2) {
 */
 
 /*---------------------------------------------------------------------------------------------------*/
+
+// L89: Writing Merge Sort Part 2
+
+function mergeSort(arr) {
+    if(arr.length <= 1) return arr;
+
+    let mid = Math.floor(arr.length / 2);
+
+    let left = mergeSort(arr.slice(0, mid));
+
+    let right = mergeSort(arr.slice(mid));
+
+    return merge2Arrays(left, right);
+}
+
+/*---------------------------------------------------------------------------------------------------*/
