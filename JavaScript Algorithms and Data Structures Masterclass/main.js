@@ -1,4 +1,4 @@
-/* Section 2: BigO Notation */
+/* Section 2: Big O Notation */
 
 // L6: Timing our Code
 
@@ -66,7 +66,7 @@ console.log(`Time Elapsed: ${(time2Solution2- time1Solution2) / 1000} seconds.`)
             - f(n) could be something entirely different!
 
     > addUpToSolution1: Number of operations is eventually bounded by a multiple of n (say: 10n) [O(n)]
-    > addUpToSolution2: always 3 operations [O(1)] 
+    > addUpToSolution2: Always 3 operations [O(1)] 
 */
 
 function countUpAndDown (n) { // [O(n)]
@@ -125,7 +125,7 @@ function logAtMost5 (n) { // [O(1)]
 // L11: Space Complexity
 
 /* 
-    >> We can use big O notation to analyze space complexity, how much additional memory do we need to allocate in order to run the code in our algorithm
+    >> We can use big O notation to analyze space complexity, how much additional memory do we need to allocate in order to run the code in our algorithm.
         - Most primitives (booleans, numbers, undefined, null) are [constant] space
         - Strings require O(n) space (where n is the string length)
         - Reference types are generally O(n), where n is the length (for arrays) or the number of keys (for objects)
@@ -174,7 +174,7 @@ function double (arr) { // [O(n)] Space
 
 /*---------------------------------------------------------------------------------------------------*/
 
-/* Section 3: BigO Notation */
+/* Section 3: Big O Notation */
 
 // L15: The Big O of Objects
 
@@ -183,19 +183,19 @@ function double (arr) { // [O(n)] Space
         - when you don't need order
         - when you need a fast access/insertion and removal
 
-    >> Big O of Objects
-        * Insertion - 0(1)
-        * Removal - O(1)
-        * Searching - O(N)
-        * Access - 0(1)
+    >> Big O of Objects:
+        * Insertion > 0(1)
+        * Removal > O(1)
+        * Searching > O(n)
+        * Access > 0(1)
         
     > When you don't need any ordering, objects are an excellent choice!, because of constant time for insertion, removal and accessing data.
 
-    >> Big O of Object Methods
-        - Object.keys - O(N)
-        - Object.values - O(N)
-        - Object.entries - O(N)
-        - hasOwnProperty - 0(1)
+    >> Big O of Object Methods:
+        - Object.keys > O(n)
+        - Object.values > O(n)
+        - Object.entries > O(n)
+        - hasOwnProperty > 0(1)
 */
 
 /*---------------------------------------------------------------------------------------------------*/
@@ -204,14 +204,14 @@ function double (arr) { // [O(n)] Space
 
 /*
     >> When to use Arrays ?
-        - when you need order
-        - when you need a fast access/insertion and removal (sort of ...)
+        - when you need order.
+        - when you need a fast access/insertion and removal (sort of ...).
 
-    >> Big O of Arrays
-        * Insertion - It depends [Insert at END [O(1)] >> (Push)] / [Insert at BEGIN [O(N)] >> (Shift)]
-        * Removal - It depends [Remove from END [O(1)] >> (Pop)] / [Remove from BEGIN [O(N)] >> (unShift)]
-        * Searching O(N)
-        * Access - O(1)
+    >> Big O of Arrays:
+        * Insertion > It depends [Insert at END [O(1)] >> (Push)] / [Insert at BEGIN [O(n)] >> (Shift)]
+        * Removal > It depends [Remove from END [O(1)] >> (Pop)] / [Remove from BEGIN [O(n)] >> (unShift)]
+        * Searching > O(n)
+        * Access > O(1)
         
     > Inserting item at the end of the array is faster than inserting at the beginning, because inserting at the end will just require adding a new index at the end of the array after the last existing index,
       but inserting at the beginning will require re-ordering the array items and shifting their index for each item, where index (Zero) now will be related to the new inserted item, so the amount of time it takes to inserting 
@@ -226,15 +226,15 @@ function double (arr) { // [O(n)] Space
 
 /*
     >> Big O of Array Operations
-        • push - 0(1)
-        • pop - 0(1)
-        • shift - O(N)
-        • unshift - O(N) 
-        • concat - O(N)
-        • slice - O(N)
-        • splice - O(N)
-        • sort - O(N * log N)
-        • forEach/map/fill/reduce/etc. - O(N)
+        • push > 0(1)
+        • pop > 0(1)
+        • shift >  O(n)
+        • unshift > O(n) 
+        • concat > O(n)
+        • slice > O(n)
+        • splice > O(n)
+        • sort > O(n log n)
+        • forEach/map/fill/reduce/etc. > O(n)
 */
 
 /*---------------------------------------------------------------------------------------------------*/
@@ -278,7 +278,7 @@ function double (arr) { // [O(n)] Space
 // L21: Step 2: Explore Examples
 
 /*
-    >> EXPLORE EXAMPLES
+    >> EXPLORE EXAMPLES:
         • Start with Simple Examples 
         • Progress to More Complex Examples
         • Explore Examples with Empty Inputs
@@ -434,7 +434,7 @@ function isAlphaNumeric (char){
 /*
     >> Frequency Counter Pattern:
         - This pattern uses objects or sets to collect values/frequencies of values.
-        - This can often avoid the need for nested loops or O(N²) operations with arrays / strings.
+        - This can often avoid the need for nested loops or [O(n²)] operations with arrays / strings.
 
     > Write a function called same, which accepts two arrays. The function should return true if every value in the
       array has it's corresponding value squared in the second array. The frequency of values must be the same.
@@ -445,14 +445,14 @@ function isAlphaNumeric (char){
             - same([1,2,1], [4,4,1]) // false (must be same frequency)
 */
 
-function same1(arr1, arr2) { // This is a NAIVE solution, means [Not the best possible solution in this case] >> Time Complexity is [O(n^2)]
-    if(arr1. length !== arr2.length) {
+function same1(arr1, arr2) { // This is a NAIVE solution, means [Not the best possible solution in this case] >> Time Complexity is [O(n²)]
+    if(arr1.length !== arr2.length) {
         return false;
     }
     
     for(let i = 0; i < arr1.length; i++) { // [O(n)]
         let correctIndex = arr2.indexOf(arr1[i] ** 2); // [O(n)]
-        if (correctIndex -1){
+        if (correctIndex === -1){
             return false;
         }
         arr2.splice (correctIndex, 1)
@@ -470,11 +470,11 @@ function same2(arr1, arr2) { // [O(n)]
     let frequencyCounter2 = {};
 
     for(let val of arr1) { // [O(n)]
-        frequencyCounter1[val] = (frequencyCounter1 [val] || 0) + 1; // === ++frequencyCounter1 [val] || 1
+        frequencyCounter1[val] = (frequencyCounter1[val] || 0) + 1; // === ++frequencyCounter1[val] || 1
     }
     
     for(let val of arr2) { // [O(n)]
-        frequencyCounter2 [val] = (frequencyCounter2 [val] || 0) + 1; // === ++frequencyCounter2 [val] || 1
+        frequencyCounter2 [val] = (frequencyCounter2[val] || 0) + 1; // === ++frequencyCounter2[val] || 1
     }
     
     for(let key in frequencyCounter1) { // [O(n)]
@@ -482,7 +482,7 @@ function same2(arr1, arr2) { // [O(n)]
             return false
         }
 
-        if(frequencyCounter2 [key ** 2] !== frequencyCounter1[key]){
+        if(frequencyCounter2[key ** 2] !== frequencyCounter1[key]){
             return false
         }
     }
@@ -524,7 +524,7 @@ function validAnagram1(first, second) { // [O(n)]
     for (let i = 0; i < first.length; i++) {
         let letter = first[i];
         // if letter exists, increment, otherwise set to 1
-        lookup[letter] ? lookup[letter] += 1 : lookup [letter] = 1;
+        lookup[letter] ? lookup[letter] += 1 : lookup[letter] = 1;
     }
 
     for (let i = 0; i < second.length; i++) {
@@ -577,7 +577,7 @@ function validAnagram2(str1, str2){ // [O(n)]
 /*
     >> Multiple Pointers Pattern:
         - Creating pointers that correspond to an index or position towards the beginning, end or middle base a certain condition.
-        - Very efficient for solving problems with minimal space complexity as well
+        - Very efficient for solving problems with minimal space complexity as well.
         
         > Write a function called sumZero which accepts a sorted array of integers. The function should find the first pair
           where the sum is 0. Return an array that includes both values that sum to zero or undefined if a pair does not exist.
@@ -588,9 +588,9 @@ function validAnagram2(str1, str2){ // [O(n)]
             - sumZero([1,2,3]) // undefined
 */
 
-function sumZero1(arr) { // This is a NAIVE solution, means [Not the best possible solution in this case] >> Time Complexity is [O(n^2)]
+function sumZero1(arr) { // This is a NAIVE solution, means [Not the best possible solution in this case] >> Time Complexity is [O(n²)]
     for(let i = 0; i < arr.length; i++){
-        for(let j =i+1; j < arr.length; j++){
+        for(let j = i+1; j < arr.length; j++){
             if(arr[i] + arr[j] === 0) {
                 return [arr[i], arr[j]];
             }
@@ -623,10 +623,10 @@ function sumZero2(arr) { // [O(n)]
       There can be negative numbers in the array, but it will always be sorted.
         * Examples:
         ------------
-        - countUniqueValues ([1,1,1,1,1,2]) // 2 
-        - countUniqueValues ([1,2,3,4,4,4,7,7,12,12,13]) // 7
-        - countUniqueValues ([]) // 0
-        - countUniqueValues ( [-2,-1,-1,0,1]) // 4
+        - countUniqueValues([1,1,1,1,1,2]) // 2 
+        - countUniqueValues([1,2,3,4,4,4,7,7,12,12,13]) // 7
+        - countUniqueValues([]) // 0
+        - countUniqueValues([-2,-1,-1,0,1]) // 4
 */
 
 /*---------------------------------------------------------------------------------------------------*/
@@ -655,21 +655,21 @@ function countUniqueValues (arr) {
 /*
     >> Sliding Window Pattern:
         - This pattern involves creating a window which can either be an array or number from one position to another
-          Depending on a certain condition, the window either increases or closes (and a new window is created).
+          depending on a certain condition, the window either increases or closes (and a new window is created).
           Very useful for keeping track of a subset of data in an array/string.
 
         > Write a function called maxSubarraySum which accepts an array of integers and a number called n. The function
           should calculate the maximum sum of n consecutive elements in the array.
             * Examples:
             ------------
-            - maxSubarray Sum([1,2,5,2,8,1,5], 2) // 10
-            - maxSubarray Sum ([1,2,5,2,8,1,5],4) // 17
-            - maxSubarraySum ( [4,2,1,6], 1) // 6
-            - maxSubarraySum( [4,2,1,6,2],4) // 13
-            - maxSubarraySum( [],4) // null
+            - maxSubarraySum([1,2,5,2,8,1,5], 2) // 10
+            - maxSubarraySum([1,2,5,2,8,1,5],4) // 17
+            - maxSubarraySum ([4,2,1,6], 1) // 6
+            - maxSubarraySum([4,2,1,6,2],4) // 13
+            - maxSubarraySum([],4) // null
 */
 
-function maxSubarraySum1(arr, num) { // This is a NAIVE solution, means [Not the best possible solution in this case] >> Time Complexity is [O(n^2)]
+function maxSubarraySum1(arr, num) { // This is a NAIVE solution, means [Not the best possible solution in this case] >> Time Complexity is [O(n²)]
     if (num > arr.length) {
         return null;
     }
@@ -887,7 +887,7 @@ factorial2(5); // 5 * 4 * 3 * 2 * 1
         ------------
         -   function factorial (num) {
                 if (num === 1) return 1;
-                return num* factorial (num);
+                return num * factorial (num);
             }
 
         -   function factorial (num) {
@@ -901,7 +901,7 @@ factorial2(5); // 5 * 4 * 3 * 2 * 1
 // L49: Helper Method Recursion
 
 /*  
-    >> Helper Method Recursion Pattern
+    >> Helper Method Recursion Pattern:
         - It is just a pattern where we have an outer function that is not recursive, which calls an inner function, which is recursive.
 */
 
@@ -923,15 +923,15 @@ function collectOddValues1(arr) {
     let result = [];
     
     function helper (helperInput) { // we use helper method recursion here, because if we use [collectOddValues] itself as the recursive function, we will reset [result] array to empty array, every time we call [collectOddValues].
-        if (helperInput. length === 0) {
+        if (helperInput.length === 0) {
             return;
         }
 
-        if(helperInput [0] % 2 !== 0) {
+        if(helperInput[0] % 2 !== 0) {
             result.push(helperInput[0])
         }
 
-        helper (helperInput.slice (1));
+        helper (helperInput.slice(1));
     }
 
     helper (arr)
@@ -1084,7 +1084,7 @@ function binarySearch(arr, elem) { // [O(log(n))]
         - [14] (step 3)
         - Not Exist > return -1 (step 4)
 
-        > Array of [16] elements will take [4] steps to check if [13] exists or not. (log₂16 > 4)
+        > Array of [16] elements will take [4] steps to check if [13] exists or not. (log₂16 >> 4)
         
     >> To add another step, we need to double the number of elements in the array, Suppose we are searching for 32 in this array: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,32,35]
         - [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,32,35]
@@ -1094,7 +1094,7 @@ function binarySearch(arr, elem) { // [O(log(n))]
         - [32,35] (step 4)
         - [32] (step 5)
 
-        > Array of [32] elements will take [5] steps to check if [32] exists or not. (log₂32 > 5)
+        > Array of [32] elements will take [5] steps to check if [32] exists or not. (log₂32 >> 5)
 */
 
 /*---------------------------------------------------------------------------------------------------*/
@@ -1237,9 +1237,9 @@ function swap2(arr, idx1, idx2) {
 /*
     >> Bubble Sort Pseudocode:
         - Start looping from with a variable called (i) the end of the array towards the beginning.
-        - Start an inner loop with a variable called (j) from the beginning until (i - 1)
+        - Start an inner loop with a variable called (j) from the beginning until (i - 1).
         - If arr[j] is greater than arr[j+1], swap those two values!.
-        - Return the sorted array
+        - Return the sorted array.
 */
 
 /*---------------------------------------------------------------------------------------------------*/
@@ -1677,15 +1677,28 @@ function mergeSort(arr) {
         • Space Complexity: [O(n)]
 
     >> O(log n)
-        - Is the number of decomposition as (n) grows, there are the number of times we split the array grows at the rate of log(n).
+        - Is the number of decompositions. As (n) grows, the number of times we split the array grows at the rate of log(n).
         - If we have 32 items in the array, we will have 5 splits [log₂(32) = 5  >>>>  2 power of (5) = 32 ].
         - If we have 8 items in the array, we will have 3 splits [log₂(8) = 3  >>>>  2 power of (3) = 8 ].
         
     >> O(n)
         - Each time we do split (decomposition), we have O(n) comparison to actually perform the merging.
-        - If we have eight items in the array, so we need eight comparisons that need to be merged.
+        - If we have eight items in the array, so we need eight comparisons that need to be merged at each decomposition.
 
     - So in total we end up with Time Complexity: [O(n log n)]
+*/
+
+/*---------------------------------------------------------------------------------------------------*/
+
+/* Section 16: Quick Sort */
+
+// L92: Introduction to Quick Sort
+
+/*
+    >> Quick Sort:
+        - Like merge sort, exploits the fact that arrays of 0 or 1 element are always sorted.
+        - Works by selecting one element (called the "pivot") and finding the index where the pivot should end up in the sorted array.
+        - Once the pivot is positioned appropriately, quick sort can be applied on either side of the pivot.
 */
 
 /*---------------------------------------------------------------------------------------------------*/
