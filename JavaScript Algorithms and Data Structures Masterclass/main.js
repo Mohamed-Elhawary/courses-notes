@@ -1730,3 +1730,33 @@ function mergeSort(arr) {
 */
 
 /*---------------------------------------------------------------------------------------------------*/
+
+// L94: Pivot Helper Implementation
+
+function swap(arr, i, j) {
+    let temp = arr[i];
+
+    arr[i] = arr[j];
+
+    arr[j] = temp;
+}
+
+function pivot(arr, start = 0, end = arr.length - 1) {
+    let pivot = arr[start];
+
+    let swapIndx = start;
+
+    for (let i = start + 1; i < arr.length; i++) {
+        if(pivot > arr[i]) {
+            swapIndx++;
+
+            swap(arr, swapIndx, i);
+        }
+    }
+
+    swap(arr, start, swapIndx);
+
+    return swapIndx;
+}
+
+/*---------------------------------------------------------------------------------------------------*/
