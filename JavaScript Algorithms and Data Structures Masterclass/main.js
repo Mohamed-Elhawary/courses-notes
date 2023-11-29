@@ -1331,7 +1331,7 @@ function bubbleSort4(arr) { // Optimized Solution using "noSwaps" flag. [Removes
 // L73: Bubble Sort: BIG O Complexity
 
 /*
-    - [O(n²)] >> IF the data is randomly and not sorted any way from the beginning.
+    - [O(n²)] >> If the data is randomly and not sorted any way from the beginning.
     - Almost [O(n)] or Linear Time >> If the data is nearly sorted or already sorted from the beginning. [Best case to use bubble sort here]
 */
 
@@ -1497,7 +1497,7 @@ insertionSort([2, 1, 9, 76, 4]);
 // L81: Insertion Sort: BIG O Complexity
 
 /*
-    - [O(n²)] >> IF the data is randomly and not sorted any way from the beginning.
+    - [O(n²)] >> If the data is randomly and not sorted any way from the beginning.
     - Almost [O(n)] or Linear Time >> If the data is nearly sorted or already sorted from the beginning. [Best case to use Insertion sort here]
     - Best Scenario to use Insertion sort and it is good at it, if your data is online data (data is coming in like a stream), so we receive new data, 
       it doesn't have to have the entire array at once, for example, if we have some code where people are submitting numbers to use online live.
@@ -1663,6 +1663,8 @@ function mergeSort(arr) {
     return merge2Arrays(left, right);
 }
 
+mergeSort([10, 24, 76, 73]);
+
 /*---------------------------------------------------------------------------------------------------*/
 
 // L90: Merge Sort BIG O Complexity
@@ -1676,16 +1678,17 @@ function mergeSort(arr) {
 
         • Space Complexity: [O(n)]
 
-    >> O(log n)
-        - Is the number of decompositions. As (n) grows, the number of times we split the array grows at the rate of log(n).
-        - If we have 32 items in the array, we will have 5 splits [log₂(32) = 5  >>>>  2 power of (5) = 32 ].
-        - If we have 8 items in the array, we will have 3 splits [log₂(8) = 3  >>>>  2 power of (3) = 8 ].
+    >> Best, Average & Worst Cases:
+        - O(log n):
+            • Is the number of decompositions. As (n) grows, the number of times we split the array grows at the rate of log(n).
+            • If we have 32 items in the array, we will have 5 splits [log₂(32) = 5  >>>>  2 power of (5) = 32 ].
+            • If we have 8 items in the array, we will have 3 splits [log₂(8) = 3  >>>>  2 power of (3) = 8 ].
         
-    >> O(n)
-        - Each time we do split (decomposition), we have O(n) comparison to actually perform the merging.
-        - If we have eight items in the array, so we need eight comparisons that need to be merged at each decomposition.
+        - O(n):
+            • Each time we do split (decomposition), we have O(n) comparison to actually perform the merging.
+            • If we have eight items in the array, so we need eight comparisons that need to be merged at each decomposition.
 
-    - So in total we end up with Time Complexity: [O(n log n)]
+        - So in total we end up with Time Complexity: [O(n log n)]
 */
 
 /*---------------------------------------------------------------------------------------------------*/
@@ -1779,9 +1782,41 @@ function quickSort(arr, left = 0, right = arr.length - 1) {
 
         // Right
         quickSort(arr, pivotIndex + 1, right);
+
+        return arr;
     }
 
     return arr;
 }
+
+quickSort([4, 6, 9, 1, 2, 5]);
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L97: Quick Sort Big O Complexity
+
+/*
+    >> Big O of Quick Sort:
+
+        • Time Complexity [Best]: [O(n log n)] >> If the data is randomly and not sorted any way from the beginning. 
+        • Time Complexity [Average]: [O(n log n)]
+        • Time Complexity [Worst]: [O(n²)] >> If the data is already sorted from the beginning, and this is because we take the (pivot) always as the first element in the array, which is always the minimum element in the array.
+
+        • Space Complexity: [O(log n)]
+
+    >> Best & Average Case:
+        - O(log n): The number of decompositions.
+        - O(n): The number of comparisons per decomposition.
+        - So in total we end up with Time Complexity: [O(n log n)] in Best case Scenario.
+
+    >> Worst Case:
+        - O(n): The number of decompositions.
+        - O(n): The number of comparisons per decomposition.
+        - To enhance the case time complexity, we can choose the (pivot) randomly from the array, or pick the middle element of the array at every time we do decomposition, 
+          but of course there is still a chance that if we pick the middle element every time it is possible that the array is unsorted and it is supposed to be in random order,
+          but somehow we are always picking the minimum every time, so we can never avoid that worst case entirely because the way the algorithm works, is that if you are pivoting around the 
+          minimum or the maximum repeatedly, that's going to be quadratic time.
+        - So in total we end up with Time Complexity: [O(n²)] in Worst case Scenario.
+*/
 
 /*---------------------------------------------------------------------------------------------------*/
