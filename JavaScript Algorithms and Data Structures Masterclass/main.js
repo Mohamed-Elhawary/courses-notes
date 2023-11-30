@@ -1908,3 +1908,21 @@ function radixSort(nums) {
 radixSort([23, 345, 5467, 12, 2345, 9852]);
 
 /*---------------------------------------------------------------------------------------------------*/
+
+// L103: Radix Sort: BIG O Complexity
+
+/*
+    >> Big O of Radix Sort:
+
+        • Time Complexity [Best]: [O(nk)]
+        • Time Complexity [Average]: [O(nk)]
+        • Time Complexity [Worst]: [O(nk)]
+
+        • Space Complexity: [O(n + k)]
+
+        - (n) >> is the length of the array
+        - (k) >> is the number of digits (the word size for a number)
+        - Theoretically, Radix Sort can be faster than any of the comparison sorts.
+*/
+
+/*---------------------------------------------------------------------------------------------------*/
