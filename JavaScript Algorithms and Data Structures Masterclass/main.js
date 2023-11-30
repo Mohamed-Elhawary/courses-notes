@@ -1820,3 +1820,25 @@ quickSort([4, 6, 9, 1, 2, 5]);
 */
 
 /*---------------------------------------------------------------------------------------------------*/
+
+/* Section 17: Radix Sort */
+
+// L99: Radix Sort: Introduction [You have to see this Lecture for better understanding]
+
+/*
+    >> Comparisons Sorting Algorithms:
+        - Bubble Sort
+        - Selection Sort
+        - Insertion Sort
+        - Quick Sort
+        - Merge Sort
+    
+    >> Integer Sorting Algorithms: [Only work with integers and has no direct comparisons] "Better in Time Complexity"
+        - Radix Sort
+
+    >> Radix Sort:
+        - It's a special sorting algorithm that works on lists of numbers.
+        - It never makes comparisons between elements!
+        - It exploits the fact that information about the size of a number is encoded in the number of digits.
+        - More digits means a bigger number!
+*/
