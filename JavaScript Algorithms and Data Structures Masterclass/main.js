@@ -1946,3 +1946,21 @@ radixSort([23, 345, 5467, 12, 2345, 9852]);
 */
 
 /*---------------------------------------------------------------------------------------------------*/
+
+// L105: ES2015 Class Syntax Overview
+
+/*
+    >> Objectives:
+        - Explain what a (class) is.
+        - Understand how JS implements the idea of classes.
+        - Define terms like (abstraction), (encapsulation), and (inheritance).
+        - Use ES2015 classes to implement data structures.
+
+    >> What is a class ?
+        - A blueprint for creating objects with pre-defined properties and methods.
+
+    >> Why do we need to learn this ?
+        - We are going to implement data structure as classes.
+*/
+
+/*---------------------------------------------------------------------------------------------------*/
