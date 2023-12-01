@@ -1964,3 +1964,23 @@ radixSort([23, 345, 5467, 12, 2345, 9852]);
 */
 
 /*---------------------------------------------------------------------------------------------------*/
+
+// L106: Data Structure: The Class Keyword
+
+class Student { // The class keyword creates a constant, so you can not redefine it.
+    constructor(firstName, lastName, year) { // The method to create new objects must be called (constructor)
+        this.firstName = firstName; // (this) refers to the individual instance of the class (so the individual student)
+
+        this.lastName = lastName;
+
+        this.grade = year;
+    }
+}
+
+
+// Creating objects (Instances) from classes (we can use the "new" keyword)
+let firstStudent = new Student("Colt", "Steele", 3);
+
+let secondStudent = new Student("Blue", "Steele", 4);
+
+/*---------------------------------------------------------------------------------------------------*/
