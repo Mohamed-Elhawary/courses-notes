@@ -1967,7 +1967,7 @@ radixSort([23, 345, 5467, 12, 2345, 9852]);
 
 // L106: Data Structure: The Class Keyword
 
-class Student { // The class keyword creates a constant, so you can not redefine it.
+class Student1 { // The class keyword creates a constant, so you can not redefine it.
     constructor(firstName, lastName, year) { // The method to create new objects must be called (constructor)
         this.firstName = firstName; // (this) refers to the individual instance of the class (so the individual student)
 
@@ -1978,16 +1978,16 @@ class Student { // The class keyword creates a constant, so you can not redefine
 }
 
 
-// Creating objects (Instances) from classes (we can use the "new" keyword)
-let firstStudent = new Student("Colt", "Steele", 3);
+let firstStudent = new Student1("Colt", "Steele", 3); // Creating object (Instance) from class (we can use the "new" keyword)
 
-let secondStudent = new Student("Blue", "Steele", 4);
+
+let secondStudent = new Student1("Blue", "Steele", 4); // Creating object (Instance) from class (we can use the "new" keyword)
 
 /*---------------------------------------------------------------------------------------------------*/
 
 // L107: Data Structure: Adding Instance Methods
 
-class DetailedStudent { 
+class Student2 { 
     constructor(firstName, lastName, year) {
         this.firstName = firstName;
 
@@ -2000,11 +2000,11 @@ class DetailedStudent {
         this.scores = [];
     }
 
-    fullName() { // individual instance method
+    fullName() { // This is Individual Instance Method
         return `Your Full Name is ${this.firstName} ${this.lastName}`;
     }
 
-    markLate() {
+    markLate() { // This is Individual Instance Method
         this.tardies += 1;
 
         if (this.tardies >= 3) return "You are expelled";
@@ -2012,20 +2012,20 @@ class DetailedStudent {
         return `${this.firstName} ${this.lastName} has been late ${this.tardies} times`;
     }
 
-    addScores(score) {
+    addScores(score) { // This is Individual Instance Method
         this.scores.push(score);
 
         return this.scores;
     }
 
-    calculateAverage() {
+    calculateAverage() { // This is Individual Instance Method
         let sum = this.scores.reduce((a, b ) => a + b);
 
         return sum/this.scores.length;
     }
 }
 
-let thirdStudent = new DetailedStudent("Colt", "Steele");
+let thirdStudent = new Student2("Colt", "Steele");
 
 thirdStudent.fullName(); // Your Full Name is Colt Steele
 
@@ -2046,3 +2046,64 @@ let data = [1, 2, 3, 4];  // data is an instance object of Array Data Structure
 data.push(80); // push is the individual instance method
 
 /*---------------------------------------------------------------------------------------------------*/
+
+// L108: Data Structure: Adding Class Methods
+
+class Student3 { 
+    constructor(firstName, lastName, year) {
+        this.firstName = firstName;
+
+        this.lastName = lastName;
+
+        this.grade = year;
+
+        this.tardies = 0;
+
+        this.scores = [];
+    }
+
+    fullName() { // This is Individual Instance Method
+        return `Your Full Name is ${this.firstName} ${this.lastName}`;
+    }
+
+    static enrollStudents() { // This is a Class Method that is pertinent to classes but not necessarily to individual instances of a class (not related to a particular instance), we use (static) keyword to define these methods.
+        return "Enrolling Students";
+    }
+}
+
+let fourthStudent = new Student3("Colt", "Steele");
+
+Student3.enrollStudents(); // we call class method directly from the class itself
+
+fourthStudent.enrollStudents(); // we can't call class method from a class instance
+
+class Point {
+    constructor(x, y) {
+        this.x = x;
+
+        this.y = y;
+    }
+
+    static distance(a, b) {
+        const dx = a.x - b.x;
+
+        const dy = a.y - b.y;
+
+        return Math.hypot(dx, dy);
+    }
+}
+
+const p1 = new Point(5, 5); // { x: 5, y: 5 }
+
+const p2 = new Point(10, 10); // { x: 10, y: 10 }
+
+Point.distance(p1, p2);
+
+/*
+    >> Recap:
+        - Classes are blueprints that when created make objects known as "instances".
+        - Classes are created with the (new) keyword.
+        - The "constructor" function is a special function that get run when the class is instantiated.
+        - Instance methods can be added to classes similar to methods in objects.
+        - Class methods can be added using the (static) keyword.
+*/
