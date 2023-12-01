@@ -1926,3 +1926,23 @@ radixSort([23, 345, 5467, 12, 2345, 9852]);
 */
 
 /*---------------------------------------------------------------------------------------------------*/
+
+/* Section 18: Data Structure Introduction */
+
+// L104: Which Data Structure Is The Best?
+
+/*
+    >> What do they do ?
+        - Data Structure are collections of values, the relationships among them, and the functions or operations that can be applied to the data.
+
+    >> Why so many ?
+        - Different data structures excel at different things, some are highly specialized, while others (like arrays) are more generally used.
+
+    >> Usage:
+        - Working with map/location data: Use (Graph)
+        - Need an ordered list with fast inserts/removals at the beginning and end: Use (Linked List)
+        - Web scraping nested HTML: Use (Tree)
+        - Need to write a scheduler: Use (Binary Heap)
+*/
+
+/*---------------------------------------------------------------------------------------------------*/
