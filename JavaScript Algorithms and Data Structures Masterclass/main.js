@@ -1984,3 +1984,65 @@ let firstStudent = new Student("Colt", "Steele", 3);
 let secondStudent = new Student("Blue", "Steele", 4);
 
 /*---------------------------------------------------------------------------------------------------*/
+
+// L107: Data Structure: Adding Instance Methods
+
+class DetailedStudent { 
+    constructor(firstName, lastName, year) {
+        this.firstName = firstName;
+
+        this.lastName = lastName;
+
+        this.grade = year;
+
+        this.tardies = 0;
+
+        this.scores = [];
+    }
+
+    fullName() { // individual instance method
+        return `Your Full Name is ${this.firstName} ${this.lastName}`;
+    }
+
+    markLate() {
+        this.tardies += 1;
+
+        if (this.tardies >= 3) return "You are expelled";
+
+        return `${this.firstName} ${this.lastName} has been late ${this.tardies} times`;
+    }
+
+    addScores(score) {
+        this.scores.push(score);
+
+        return this.scores;
+    }
+
+    calculateAverage() {
+        let sum = this.scores.reduce((a, b ) => a + b);
+
+        return sum/this.scores.length;
+    }
+}
+
+let thirdStudent = new DetailedStudent("Colt", "Steele");
+
+thirdStudent.fullName(); // Your Full Name is Colt Steele
+
+thirdStudent.markLate(); // Colt Steele has been late 1 times
+
+thirdStudent.markLate(); // Colt Steele has been late 2 times
+
+thirdStudent.markLate(); // You are expelled
+
+thirdStudent.addScores(30); // [30]
+
+thirdStudent.addScores(40); // [30, 40]
+
+thirdStudent.calculateAverage(); // 35
+
+let data = [1, 2, 3, 4];  // data is an instance object of Array Data Structure
+
+data.push(80); // push is the individual instance method
+
+/*---------------------------------------------------------------------------------------------------*/
