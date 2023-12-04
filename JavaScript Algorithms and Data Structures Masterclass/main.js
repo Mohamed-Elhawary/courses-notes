@@ -2148,6 +2148,7 @@ Point.distance(p1, p2);
 class Node {
     constructor(val){
         this.val = val; // piece of data >> val
+
         this.next = null; // reference to next node >> next
     }
 }
@@ -2191,5 +2192,49 @@ console.log(first);
         - Increment the length by one.
         - Return the linked list.
 */
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L112: Singly Linked List: Push Solution
+
+class SinglyLinkedList {
+    constructor(){
+        this.head = null;
+
+        this.tail = null;
+
+        this.length = 0;
+    }
+
+    push(val) {
+        const newNode = new Node(val);
+
+        if (!this.head) {
+            this.head = newNode;
+
+            this.tail = this.head;
+        } else {
+            this.tail.next = newNode;
+
+            this.tail = newNode;
+        }
+
+        this.length++;
+
+        return this; // return "this" to be allowed to chain methods on the instance
+ }
+}
+
+let list = new SinglyLinkedList();
+
+list.push("Hi");
+
+list.push("There");
+
+list.push("Welcome");
+
+console.log(list);
+
+// Note: to understand well the concept of the SinglyLinkedList "push" method, and how it works, I recommend review the sketch diagram in this link: https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass/learn/lecture/8344200#questions/17934544
 
 /*---------------------------------------------------------------------------------------------------*/
