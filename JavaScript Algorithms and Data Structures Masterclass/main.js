@@ -2075,7 +2075,7 @@ let fourthStudent = new Student3("Colt", "Steele");
 
 Student3.enrollStudents(); // we call class method directly from the class itself
 
-fourthStudent.enrollStudents(); // we can't call class method from a class instance
+// fourthStudent.enrollStudents(); >> we can't call class method from a class instance
 
 class Point {
     constructor(x, y) {
@@ -2139,6 +2139,57 @@ Point.distance(p1, p2);
             • Indexed in order!
             • Insertion and deletion can be expensive.
             • Can quickly be accessed at a specific index.
+*/
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L111: Starter Code and Push Intro
+
+class Node {
+    constructor(val){
+        this.val = val; // piece of data >> val
+        this.next = null; // reference to next node >> next
+    }
+}
+
+let first = new Node("Hi");
+
+first.next = new Node("There"); 
+
+first.next.next = new Node("How"); 
+
+first.next.next.next = new Node("Are");
+
+first.next.next.next.next = new Node("You"); 
+
+console.log(first); 
+/* 
+    { 
+        val: "Hi", 
+        next: { 
+            val: "There", 
+            next: { 
+                val: "How", 
+                next: { 
+                    val: "Are", 
+                    next: { 
+                        val: "You", 
+                        next: null 
+                    } 
+                } 
+            } 
+        } 
+    }
+*/
+
+/*
+    >> Pushing Pseudocode:
+        - This function should accept a value.
+        - Create a new node using the value passed to the function.
+        - If there is no head property on the list, set the head and tail to be the newly created node.
+        - Otherwise set the next property on the tail to be the new node and set the tail property on the list to be the newly created node.
+        - Increment the length by one.
+        - Return the linked list.
 */
 
 /*---------------------------------------------------------------------------------------------------*/
