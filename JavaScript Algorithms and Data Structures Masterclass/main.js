@@ -2473,3 +2473,98 @@ class SinglyLinkedList4 {
 */
 
 /*---------------------------------------------------------------------------------------------------*/
+
+// L118: Singly Linked List: Unshift Solution
+
+
+class SinglyLinkedList5 {
+    constructor(){
+        this.head = null;
+
+        this.tail = null;
+
+        this.length = 0;
+    }
+
+    push(val) {
+        const newNode = new Node(val);
+
+        if (!this.head) {
+            this.head = newNode;
+
+            this.tail = this.head;
+        } else {
+            this.tail.next = newNode;
+
+            this.tail = newNode;
+        }
+
+        this.length++;
+
+        return this; // return "this" to be allowed to chain methods on the instance
+    }
+
+    pop() {
+        if(!this.head) return undefined;
+
+        let current = this.head;
+
+        let newTail = current;
+
+        while(current.next) {
+            newTail = current;
+
+            current = current.next;
+        }
+
+        this.tail = newTail;
+
+        this.tail.next = null;
+
+        this.length--;
+
+        if(this.length === 0) {
+            this.head = null;
+
+            this.tail = null;
+        }
+
+        return current; // This is the Popped value that we removed from the list
+    }
+
+    shift() {
+        if(!this.head) return undefined;
+
+        let currentHead = this.head;
+
+        this.head = currentHead.next;
+
+        this.length--;
+
+        if(this.length === 0) {
+            this.tail = null;
+        }
+
+        return currentHead;
+    }
+
+    unshift() {
+        const newNode = new Node(val);
+
+        if(!this.head) {
+            this.head = newNode;
+
+            this.tail = this.head;
+        } else {
+            newNode.next = this.head;
+
+            this.head = newNode;
+        }
+
+        this.length++;
+
+        return this;
+    }
+}
+
+/*---------------------------------------------------------------------------------------------------*/
