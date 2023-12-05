@@ -2197,7 +2197,7 @@ console.log(first);
 
 // L112: Singly Linked List: Push Solution
 
-class SinglyLinkedList {
+class SinglyLinkedList1 {
     constructor(){
         this.head = null;
 
@@ -2225,7 +2225,7 @@ class SinglyLinkedList {
  }
 }
 
-let list = new SinglyLinkedList();
+let list = new SinglyLinkedList1();
 
 list.push("Hi");
 
@@ -2236,5 +2236,57 @@ list.push("Welcome");
 console.log(list);
 
 // Note: to understand well the concept of the SinglyLinkedList "push" method, and how it works, I recommend review the sketch diagram in this link: https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass/learn/lecture/8344200#questions/17934544
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L113: Singly Linked List: Pop Intro
+
+class SinglyLinkedList2 {
+    constructor(){
+        this.head = null;
+
+        this.tail = null;
+
+        this.length = 0;
+    }
+
+    push(val) {
+        const newNode = new Node(val);
+
+        if (!this.head) {
+            this.head = newNode;
+
+            this.tail = this.head;
+        } else {
+            this.tail.next = newNode;
+
+            this.tail = newNode;
+        }
+
+        this.length++;
+
+        return this; // return "this" to be allowed to chain methods on the instance
+    }
+
+    traverse() {
+        let current = this.head;
+
+        while(current) {
+            console.log(current.val);
+
+            current = current.next;
+        }
+    }
+}
+
+/*
+    >> Popping Pseudocode:
+        - If there are no nodes in the list, return undefined.
+        - Loop through the list until you reach the tail.
+        - Set the next property of the 2nd to last node to be null.
+        - Set the tail to be the 2nd to last node.
+        - Decrement the length of the list by 1.
+        - Return the value of the node removed.
+*/
 
 /*---------------------------------------------------------------------------------------------------*/
