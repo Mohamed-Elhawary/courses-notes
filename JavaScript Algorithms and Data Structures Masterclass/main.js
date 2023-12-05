@@ -2225,13 +2225,13 @@ class SinglyLinkedList1 {
  }
 }
 
-let list = new SinglyLinkedList1();
+let list1 = new SinglyLinkedList1();
 
-list.push("Hi");
+list1.push("Hi");
 
-list.push("There");
+list1.push("There");
 
-list.push("Welcome");
+list1.push("Welcome");
 
 console.log(list);
 
@@ -2279,6 +2279,15 @@ class SinglyLinkedList2 {
     }
 }
 
+let list2 = new SinglyLinkedList2();
+
+list2.push("Hello");
+
+list2.push("Goodbye");
+
+list2.push("!");
+
+
 /*
     >> Popping Pseudocode:
         - If there are no nodes in the list, return undefined.
@@ -2290,3 +2299,84 @@ class SinglyLinkedList2 {
 */
 
 /*---------------------------------------------------------------------------------------------------*/
+
+// L114: Singly Linked List: Pop Solution
+
+class SinglyLinkedList3 {
+    constructor(){
+        this.head = null;
+
+        this.tail = null;
+
+        this.length = 0;
+    }
+
+    push(val) {
+        const newNode = new Node(val);
+
+        if (!this.head) {
+            this.head = newNode;
+
+            this.tail = this.head;
+        } else {
+            this.tail.next = newNode;
+
+            this.tail = newNode;
+        }
+
+        this.length++;
+
+        return this; // return "this" to be allowed to chain methods on the instance
+    }
+
+    pop() {
+        if(!this.head) return undefined;
+
+        let current = this.head;
+
+        let newTail = current;
+
+        while(current.next) {
+            newTail = current;
+
+            current = current.next;
+        }
+
+        this.tail = newTail;
+
+        this.tail.next = null;
+
+        this.length--;
+
+        if(this.length === 0) {
+            this.head = null;
+
+            this.tail = null;
+        }
+
+        return current; // This is the Popped value that we removed from the list
+    }
+}
+
+let list3 = new SinglyLinkedList3();
+
+list3.push("Hello");
+
+list3.push("Goodbye");
+
+list3.push("!");
+
+list3.pop(); // { val: "!", next: null }
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L115: Singly Linked List: Shift Intro
+
+/*
+    >> Shifting Pseudocode:
+        - If there are no nodes, return undefined.
+        - Store the current head property in a variable.
+        - Set the head property to be the current head's next property.
+        - Decrement the length by 1.
+        - Return the value of the node removed.
+*/
