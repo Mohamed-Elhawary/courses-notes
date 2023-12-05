@@ -2153,17 +2153,17 @@ class Node {
     }
 }
 
-let first = new Node("Hi");
+let node = new Node("Hi");
 
-first.next = new Node("There"); 
+node.next = new Node("There"); 
 
-first.next.next = new Node("How"); 
+node.next.next = new Node("How"); 
 
-first.next.next.next = new Node("Are");
+node.next.next.next = new Node("Are");
 
-first.next.next.next.next = new Node("You"); 
+node.next.next.next.next = new Node("You"); 
 
-console.log(first); 
+console.log(node); 
 /* 
     { 
         val: "Hi", 
@@ -2222,71 +2222,37 @@ class SinglyLinkedList1 {
         this.length++;
 
         return this; // return "this" to be allowed to chain methods on the instance
- }
+    }
 }
 
 let list1 = new SinglyLinkedList1();
 
-list1.push("Hi");
+list1.push("Hello");
 
-list1.push("There");
+list1.push("Goodbye");
 
-list1.push("Welcome");
+list1.push("!");
 
-console.log(list);
+console.log(list1);
+
+/* 
+    { 
+        val: "Hello", 
+        next: { 
+            val: "Goodbye", 
+            next: { 
+                val: "!", 
+                next: null 
+            } 
+        } 
+    }
+*/
 
 // Note: to understand well the concept of the SinglyLinkedList "push" method, and how it works, I recommend review the sketch diagram in this link: https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass/learn/lecture/8344200#questions/17934544
 
 /*---------------------------------------------------------------------------------------------------*/
 
 // L113: Singly Linked List: Pop Intro
-
-class SinglyLinkedList2 {
-    constructor(){
-        this.head = null;
-
-        this.tail = null;
-
-        this.length = 0;
-    }
-
-    push(val) {
-        const newNode = new Node(val);
-
-        if (!this.head) {
-            this.head = newNode;
-
-            this.tail = this.head;
-        } else {
-            this.tail.next = newNode;
-
-            this.tail = newNode;
-        }
-
-        this.length++;
-
-        return this; // return "this" to be allowed to chain methods on the instance
-    }
-
-    traverse() {
-        let current = this.head;
-
-        while(current) {
-            console.log(current.val);
-
-            current = current.next;
-        }
-    }
-}
-
-let list2 = new SinglyLinkedList2();
-
-list2.push("Hello");
-
-list2.push("Goodbye");
-
-list2.push("!");
-
 
 /*
     >> Popping Pseudocode:
@@ -2302,7 +2268,7 @@ list2.push("!");
 
 // L114: Singly Linked List: Pop Solution
 
-class SinglyLinkedList3 {
+class SinglyLinkedList2 {
     constructor(){
         this.head = null;
 
@@ -2358,15 +2324,15 @@ class SinglyLinkedList3 {
     }
 }
 
-let list3 = new SinglyLinkedList3();
+let list2 = new SinglyLinkedList2();
 
-list3.push("Hello");
+list2.push("Hello");
 
-list3.push("Goodbye");
+list2.push("Goodbye");
 
-list3.push("!");
+list2.push("!");
 
-list3.pop(); // { val: "!", next: null }
+list2.pop(); // { val: "!", next: null }
 
 /*---------------------------------------------------------------------------------------------------*/
 
@@ -2384,6 +2350,108 @@ list3.pop(); // { val: "!", next: null }
 /*---------------------------------------------------------------------------------------------------*/
 
 // L116: Singly Linked List: Shift Solution
+
+class SinglyLinkedList3 {
+    constructor(){
+        this.head = null;
+
+        this.tail = null;
+
+        this.length = 0;
+    }
+
+    push(val) {
+        const newNode = new Node(val);
+
+        if (!this.head) {
+            this.head = newNode;
+
+            this.tail = this.head;
+        } else {
+            this.tail.next = newNode;
+
+            this.tail = newNode;
+        }
+
+        this.length++;
+
+        return this; // return "this" to be allowed to chain methods on the instance
+    }
+
+    pop() {
+        if(!this.head) return undefined;
+
+        let current = this.head;
+
+        let newTail = current;
+
+        while(current.next) {
+            newTail = current;
+
+            current = current.next;
+        }
+
+        this.tail = newTail;
+
+        this.tail.next = null;
+
+        this.length--;
+
+        if(this.length === 0) {
+            this.head = null;
+
+            this.tail = null;
+        }
+
+        return current; // This is the Popped value that we removed from the list
+    }
+
+    shift() {
+        if(!this.head) return undefined;
+
+        let currentHead = this.head;
+
+        this.head = currentHead.next;
+
+        this.length--;
+
+        if(this.length === 0) {
+            this.tail = null;
+        }
+
+        return currentHead; // This is the Shifted value that we removed from the list
+    }
+}
+
+let list3 = new SinglyLinkedList3();
+
+list3.push("Hello");
+
+list3.push("Goodbye");
+
+list3.push("!");
+
+list3.shift(); // { val: "Hello", next: { val: "Goodbye", next: { val: "!", next: null } } }
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L117: Singly Linked List: Unshift Intro
+
+/*
+    >> Unshifting Pseudocode:
+        - This function should accept a value.
+        - Create a new node using the value passed to the function.
+        - If there is no head property on the list, set the head and tail to be the newly created node.
+        - Otherwise set the newly created node's next property to be the current head property on the list.
+        - Set the head property on the list to be that newly created node.
+        - Increment the length of the list by 1.
+        - Return the linked list.
+*/
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L118: Singly Linked List: Unshift Solution
+
 
 class SinglyLinkedList4 {
     constructor(){
@@ -2453,29 +2521,70 @@ class SinglyLinkedList4 {
             this.tail = null;
         }
 
-        return currentHead;
+        return currentHead; // This is the Shifted value that we removed from the list
+    }
+
+    unshift() {
+        const newNode = new Node(val);
+
+        if(!this.head) {
+            this.head = newNode;
+
+            this.tail = this.head;
+        } else {
+            newNode.next = this.head;
+
+            this.head = newNode;
+        }
+
+        this.length++;
+
+        return this;
     }
 }
 
-/*---------------------------------------------------------------------------------------------------*/
+let list4 = new SinglyLinkedList4();
 
-// L117: Singly Linked List: Unshift Intro
+list4.push("Hello");
 
-/*
-    >> Unshifting Pseudocode:
-        - This function should accept a value.
-        - Create a new node using the value passed to the function.
-        - If there is no head property on the list, set the head and tail to be the newly created node.
-        - Otherwise set the newly created node's next property to be the current head property on the list.
-        - Set the head property on the list to be that newly created node.
-        - Increment the length of the list by 1.
-        - Return the linked list.
+list4.push("Goodbye");
+
+list4.push("!");
+
+list4.unshift("Colt"); 
+
+console.log(list4); 
+
+/* 
+    { 
+        val: "Colt",
+        next: {
+            val: "Hello", 
+            next: { 
+                val: "Goodbye", 
+                next: { 
+                    val: "!", 
+                    next: null 
+                } 
+            } 
+        }
+    }
 */
 
 /*---------------------------------------------------------------------------------------------------*/
 
-// L118: Singly Linked List: Unshift Solution
+// L119: Singly Linked List: Get Intro
 
+/*
+    >> Get Pseudocode:
+        - This function should accept an index.
+        - If the index is less than zero or greater than or equal to the length of the list, return null.
+        - Loop through the list until you reach the index and return the node at that specific index.
+*/
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L120: Singly Linked List: Get Solution
 
 class SinglyLinkedList5 {
     constructor(){
@@ -2545,7 +2654,7 @@ class SinglyLinkedList5 {
             this.tail = null;
         }
 
-        return currentHead;
+        return currentHead; // This is the Shifted value that we removed from the list
     }
 
     unshift() {
@@ -2565,17 +2674,30 @@ class SinglyLinkedList5 {
 
         return this;
     }
+
+    get(index) {
+        if(index < 0 || index >= this.length) return null;
+
+        let counter = 0;
+
+        let current = this.head;
+
+        while(counter !== index) {
+            current = current.next;
+
+            counter++;
+        }
+
+        return current;
+    }
 }
 
-/*---------------------------------------------------------------------------------------------------*/
+let list5 = new SinglyLinkedList5();
 
-// L119: Singly Linked List: Get Intro
+list5.push("Hello");
 
-/*
-    >> Get Pseudocode:
-        - This function should accept an index.
-        - If the index is less than zero or greater than or equal to the length of the list, return null.
-        - Loop through the list until you reach the index and return the node at that specific index.
-*/
+list5.push("Goodbye");
 
-/*---------------------------------------------------------------------------------------------------*/
+list5.push("!");
+
+list5.get(1); // { val: "Goodbye", next: { val: "!", next: null } }
