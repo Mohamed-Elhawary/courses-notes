@@ -2383,7 +2383,7 @@ list3.pop(); // { val: "!", next: null }
 
 /*---------------------------------------------------------------------------------------------------*/
 
-// L115: Singly Linked List: Shift Solution
+// L116: Singly Linked List: Shift Solution
 
 class SinglyLinkedList4 {
     constructor(){
@@ -2456,5 +2456,20 @@ class SinglyLinkedList4 {
         return currentHead;
     }
 }
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L117: Singly Linked List: Unshift Intro
+
+/*
+    >> Unshifting Pseudocode:
+        - This function should accept a value.
+        - Create a new node using the value passed to the function.
+        - If there is no head property on the list, set the head and tail to be the newly created node.
+        - Otherwise set the newly created node's next property to be the current head property on the list.
+        - Set the head property on the list to be that newly created node.
+        - Increment the length of the list by 1.
+        - Return the linked list.
+*/
 
 /*---------------------------------------------------------------------------------------------------*/
