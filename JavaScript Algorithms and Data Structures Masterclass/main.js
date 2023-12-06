@@ -2524,7 +2524,7 @@ class SinglyLinkedList4 {
         return currentHead; // This is the Shifted value that we removed from the list
     }
 
-    unshift() {
+    unshift(val) {
         const newNode = new Node(val);
 
         if(!this.head) {
@@ -2657,7 +2657,7 @@ class SinglyLinkedList5 {
         return currentHead; // This is the Shifted value that we removed from the list
     }
 
-    unshift() {
+    unshift(val) {
         const newNode = new Node(val);
 
         if(!this.head) {
@@ -2789,7 +2789,7 @@ class SinglyLinkedList6 {
         return currentHead; // This is the Shifted value that we removed from the list
     }
 
-    unshift() {
+    unshift(val) {
         const newNode = new Node(val);
 
         if(!this.head) {
@@ -2959,7 +2959,7 @@ class SinglyLinkedList7 {
         return currentHead; // This is the Shifted value that we removed from the list
     }
 
-    unshift() {
+    unshift(val) {
         const newNode = new Node(val);
 
         if(!this.head) {
@@ -3147,7 +3147,7 @@ class SinglyLinkedList8 {
         return currentHead; // This is the Shifted value that we removed from the list
     }
 
-    unshift() {
+    unshift(val) {
         const newNode = new Node(val);
 
         if(!this.head) {
@@ -3254,6 +3254,29 @@ console.log(list8);
             next: null 
         } 
     }
+*/
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L127: Singly Linked List: Reverse Intro
+
+/*
+    >> Reverse Pseudocode:
+        - Swap the head and tail.
+        - Create a variable called next.
+        - Create a variable called prev.
+        - Create a variable called node and initialize it to the head property.
+        - Loop through the list.
+        - Set next to be the next property on whatever node is.
+        - Set the next property on the node to be whatever prev is.
+        - Set prev to be the value of the node variable.
+        - Set the node variable to be the value of the next variable.
+        - Once you have finished looping, return the list. 
+
+    * Example:
+    ----------
+    - [Before Reverse] 13(head) > 27 > 32 > 71(tail) 
+    - [After Reverse] 13(tail) < 27 < 32 < 71 (head)
 */
 
 /*---------------------------------------------------------------------------------------------------*/
