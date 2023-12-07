@@ -2952,3 +2952,22 @@ list9.reverse();
 list9.print(); // [400, 300, 200, 100]
 
 /*---------------------------------------------------------------------------------------------------*/
+
+// L129: Singly Linked List: BIG O Complexity
+
+/*
+    >> Big O of Singly Linked List:
+        • Insertion: [O(1)]
+        • Removal: [O(1)] >> if removing from the beginning or [O(n)] >> if removing from the end
+        • Searching: [O(n)]
+        • Access: [O(n)]
+    
+        - Singly Linked Lists are excel at Insertion and Deletion compared to Arrays, but Arrays are excel at Accessing than Singly Linked Lists.
+
+    >> Recap:
+        - Singly Linked Lists are an excellent alternative to arrays when insertion and deletion at the beginning are frequently required.
+        - Arrays contain a built in index whereas Linked Lists do not.
+        - The idea of a list data structure that consists of nodes is the foundation for other data structures like Stacks and Queues.
+*/
+
+/*---------------------------------------------------------------------------------------------------*/
