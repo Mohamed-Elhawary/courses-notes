@@ -2378,34 +2378,6 @@ class SinglyLinkedList3 {
         return this; // return "this" to be allowed to chain methods on the instance
     }
 
-    pop() {
-        if(!this.head) return undefined;
-
-        let current = this.head;
-
-        let newTail = current;
-
-        while(current.next) {
-            newTail = current;
-
-            current = current.next;
-        }
-
-        this.tail = newTail;
-
-        this.tail.next = null;
-
-        this.length--;
-
-        if(this.length === 0) {
-            this.head = null;
-
-            this.tail = null;
-        }
-
-        return current; // This is the Popped value that we removed from the list
-    }
-
     shift() {
         if(!this.head) return undefined;
 
@@ -2478,50 +2450,6 @@ class SinglyLinkedList4 {
         this.length++;
 
         return this; // return "this" to be allowed to chain methods on the instance
-    }
-
-    pop() {
-        if(!this.head) return undefined;
-
-        let current = this.head;
-
-        let newTail = current;
-
-        while(current.next) {
-            newTail = current;
-
-            current = current.next;
-        }
-
-        this.tail = newTail;
-
-        this.tail.next = null;
-
-        this.length--;
-
-        if(this.length === 0) {
-            this.head = null;
-
-            this.tail = null;
-        }
-
-        return current; // This is the Popped value that we removed from the list
-    }
-
-    shift() {
-        if(!this.head) return undefined;
-
-        let currentHead = this.head;
-
-        this.head = currentHead.next;
-
-        this.length--;
-
-        if(this.length === 0) {
-            this.tail = null;
-        }
-
-        return currentHead; // This is the Shifted value that we removed from the list
     }
 
     unshift(val) {
@@ -2613,68 +2541,6 @@ class SinglyLinkedList5 {
         return this; // return "this" to be allowed to chain methods on the instance
     }
 
-    pop() {
-        if(!this.head) return undefined;
-
-        let current = this.head;
-
-        let newTail = current;
-
-        while(current.next) {
-            newTail = current;
-
-            current = current.next;
-        }
-
-        this.tail = newTail;
-
-        this.tail.next = null;
-
-        this.length--;
-
-        if(this.length === 0) {
-            this.head = null;
-
-            this.tail = null;
-        }
-
-        return current; // This is the Popped value that we removed from the list
-    }
-
-    shift() {
-        if(!this.head) return undefined;
-
-        let currentHead = this.head;
-
-        this.head = currentHead.next;
-
-        this.length--;
-
-        if(this.length === 0) {
-            this.tail = null;
-        }
-
-        return currentHead; // This is the Shifted value that we removed from the list
-    }
-
-    unshift(val) {
-        const newNode = new Node(val);
-
-        if(!this.head) {
-            this.head = newNode;
-
-            this.tail = this.head;
-        } else {
-            newNode.next = this.head;
-
-            this.head = newNode;
-        }
-
-        this.length++;
-
-        return this;
-    }
-
     get(index) {
         if(index < 0 || index >= this.length) return null;
 
@@ -2743,84 +2609,6 @@ class SinglyLinkedList6 {
         this.length++;
 
         return this; // return "this" to be allowed to chain methods on the instance
-    }
-
-    pop() {
-        if(!this.head) return undefined;
-
-        let current = this.head;
-
-        let newTail = current;
-
-        while(current.next) {
-            newTail = current;
-
-            current = current.next;
-        }
-
-        this.tail = newTail;
-
-        this.tail.next = null;
-
-        this.length--;
-
-        if(this.length === 0) {
-            this.head = null;
-
-            this.tail = null;
-        }
-
-        return current; // This is the Popped value that we removed from the list
-    }
-
-    shift() {
-        if(!this.head) return undefined;
-
-        let currentHead = this.head;
-
-        this.head = currentHead.next;
-
-        this.length--;
-
-        if(this.length === 0) {
-            this.tail = null;
-        }
-
-        return currentHead; // This is the Shifted value that we removed from the list
-    }
-
-    unshift(val) {
-        const newNode = new Node(val);
-
-        if(!this.head) {
-            this.head = newNode;
-
-            this.tail = this.head;
-        } else {
-            newNode.next = this.head;
-
-            this.head = newNode;
-        }
-
-        this.length++;
-
-        return this;
-    }
-
-    get(index) {
-        if(index < 0 || index >= this.length) return null;
-
-        let counter = 0;
-
-        let current = this.head;
-
-        while(counter !== index) {
-            current = current.next;
-
-            counter++;
-        }
-
-        return current;
     }
 
     set(index, val) {
@@ -2913,96 +2701,6 @@ class SinglyLinkedList7 {
         this.length++;
 
         return this; // return "this" to be allowed to chain methods on the instance
-    }
-
-    pop() {
-        if(!this.head) return undefined;
-
-        let current = this.head;
-
-        let newTail = current;
-
-        while(current.next) {
-            newTail = current;
-
-            current = current.next;
-        }
-
-        this.tail = newTail;
-
-        this.tail.next = null;
-
-        this.length--;
-
-        if(this.length === 0) {
-            this.head = null;
-
-            this.tail = null;
-        }
-
-        return current; // This is the Popped value that we removed from the list
-    }
-
-    shift() {
-        if(!this.head) return undefined;
-
-        let currentHead = this.head;
-
-        this.head = currentHead.next;
-
-        this.length--;
-
-        if(this.length === 0) {
-            this.tail = null;
-        }
-
-        return currentHead; // This is the Shifted value that we removed from the list
-    }
-
-    unshift(val) {
-        const newNode = new Node(val);
-
-        if(!this.head) {
-            this.head = newNode;
-
-            this.tail = this.head;
-        } else {
-            newNode.next = this.head;
-
-            this.head = newNode;
-        }
-
-        this.length++;
-
-        return this;
-    }
-
-    get(index) {
-        if(index < 0 || index >= this.length) return null;
-
-        let counter = 0;
-
-        let current = this.head;
-
-        while(counter !== index) {
-            current = current.next;
-
-            counter++;
-        }
-
-        return current;
-    }
-
-    set(index, val) {
-        let foundNode = this.get(index);
-
-        if(foundNode) {
-            foundNode.val = val;
-
-            return true;
-        }
-
-        return false;
     }
 
     insert(index, val) {
@@ -3102,118 +2800,6 @@ class SinglyLinkedList8 {
 
         return this; // return "this" to be allowed to chain methods on the instance
     }
-
-    pop() {
-        if(!this.head) return undefined;
-
-        let current = this.head;
-
-        let newTail = current;
-
-        while(current.next) {
-            newTail = current;
-
-            current = current.next;
-        }
-
-        this.tail = newTail;
-
-        this.tail.next = null;
-
-        this.length--;
-
-        if(this.length === 0) {
-            this.head = null;
-
-            this.tail = null;
-        }
-
-        return current; // This is the Popped value that we removed from the list
-    }
-
-    shift() {
-        if(!this.head) return undefined;
-
-        let currentHead = this.head;
-
-        this.head = currentHead.next;
-
-        this.length--;
-
-        if(this.length === 0) {
-            this.tail = null;
-        }
-
-        return currentHead; // This is the Shifted value that we removed from the list
-    }
-
-    unshift(val) {
-        const newNode = new Node(val);
-
-        if(!this.head) {
-            this.head = newNode;
-
-            this.tail = this.head;
-        } else {
-            newNode.next = this.head;
-
-            this.head = newNode;
-        }
-
-        this.length++;
-
-        return this;
-    }
-
-    get(index) {
-        if(index < 0 || index >= this.length) return null;
-
-        let counter = 0;
-
-        let current = this.head;
-
-        while(counter !== index) {
-            current = current.next;
-
-            counter++;
-        }
-
-        return current;
-    }
-
-    set(index, val) {
-        let foundNode = this.get(index);
-
-        if(foundNode) {
-            foundNode.val = val;
-
-            return true;
-        }
-
-        return false;
-    }
-
-    insert(index, val) {
-        if(index < 0 || index > this.length) return false;
-
-        if(index === this.length) return !!this.push(val);
-
-        if(index === 0) return !!this.unshift(val);
-
-        let newNode = new Node(val);
-
-        let prev = this.get(index - 1);
-
-        let temp = prev.next;
-
-        prev.next = newNode;
-
-        newNode.next = temp;
-
-        this.length++;
-
-        return true;
-    }
     
     remove(index) {
         if(index < 0 || index >= this.length) return undefined;
@@ -3278,5 +2864,91 @@ console.log(list8);
     - [Before Reverse] 13(head) > 27 > 32 > 71(tail) 
     - [After Reverse] 13(tail) < 27 < 32 < 71 (head)
 */
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L128: Singly Linked List: Reverse Solution
+
+class SinglyLinkedList9 {
+    constructor(){
+        this.head = null;
+
+        this.tail = null;
+
+        this.length = 0;
+    }
+
+    push(val) {
+        const newNode = new Node(val);
+
+        if (!this.head) {
+            this.head = newNode;
+
+            this.tail = this.head;
+        } else {
+            this.tail.next = newNode;
+
+            this.tail = newNode;
+        }
+
+        this.length++;
+
+        return this; // return "this" to be allowed to chain methods on the instance
+    }
+
+    print() {
+        let arr = [];
+
+        let current = this.head;
+
+        while(current) {
+            arr.push(current.val);
+
+            current = current.next;
+        }
+
+        console.log(arr);
+    }
+
+    reverse() {
+        let node = this.head;
+
+        this.head = this.tail;
+
+        this.tail = node;
+
+        let next;
+
+        let prev = null;
+
+        for(let i = 0; i < this.length; i++) {
+            next = node.next;
+
+            node.next = prev;
+
+            prev = node;
+
+            node = next;
+        }
+
+        return this;
+    }
+}
+
+let list9 = new SinglyLinkedList9();
+
+list9.push(100);
+
+list9.push(200);
+
+list9.push(300);
+
+list9.push(400);
+
+list9.print(); // [100, 200, 300, 400]
+
+list9.reverse();
+
+list9.print(); // [400, 300, 200, 100]
 
 /*---------------------------------------------------------------------------------------------------*/
