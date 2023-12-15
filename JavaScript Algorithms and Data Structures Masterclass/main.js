@@ -302,14 +302,14 @@ function double (arr) { // [O(n)] Space
             - charCount("Your PIN number is 1234!"); // {1:1, 2:1, 3:1, 4:1, b:1, e:1, i:2, m:1, n:2, o:1, p:1, r:2, s:1, u:2, y:1}
 */
 
-    function charCount1(str) { // Break the steps of the problem down
-        // make object to return at end
-        // loop over string, for each character...
-        // if the char is a number/letter AND is a key in object, add one to count
-        // if the char is a number/letter AND not in object, add it to object and set value to 1
-        // if character is something else (space, period, etc. ) don't do anything
-        // return object at end
-    }
+function charCount1(str) { // Break the steps of the problem down
+    // make object to return at end
+    // loop over string, for each character...
+    // if the char is a number/letter AND is a key in object, add one to count
+    // if the char is a number/letter AND not in object, add it to object and set value to 1
+    // if character is something else (space, period, etc. ) don't do anything
+    // return object at end
+}
 
 /*---------------------------------------------------------------------------------------------------*/
 
@@ -2381,17 +2381,19 @@ class SinglyLinkedList3 {
     shift() {
         if(!this.head) return undefined;
 
-        let currentHead = this.head;
+        let removed = this.head;
 
-        this.head = currentHead.next;
+        this.head = removed.next;
 
         this.length--;
 
         if(this.length === 0) {
+            this.head = null;
+
             this.tail = null;
         }
 
-        return currentHead; // This is the Shifted value that we removed from the list
+        return removed; // This is the Shifted value that we removed from the list
     }
 }
 
@@ -2714,11 +2716,11 @@ class SinglyLinkedList7 {
 
         let prev = this.get(index - 1);
 
-        let temp = prev.next;
+        let prevNext = prev.next;
 
         prev.next = newNode;
 
-        newNode.next = temp;
+        newNode.next = prevNext;
 
         this.length++;
 
@@ -2808,11 +2810,11 @@ class SinglyLinkedList8 {
 
         if(index === this.length - 1) return this.pop();
 
-        let previousNode = this.get(index - 1);
+        let prev = this.get(index - 1);
 
-        let removed = previousNode.next;
+        let removed = prev.next;
 
-        previousNode.next = removed.next;
+        prev.next = removed.next;
 
         this.length--;
 
