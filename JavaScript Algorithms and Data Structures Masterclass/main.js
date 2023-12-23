@@ -3275,9 +3275,9 @@ class DoublyLinkedList2 {
     }
 }
 
-let doublyList2 = new DoublyLinkedList1();
+let doublyList2 = new DoublyLinkedList2();
 
-doublyList1.push("Hello");
+doublyList2.push("Hello");
 
 doublyList2.push("Goodbye");
 
@@ -3359,7 +3359,7 @@ class DoublyLinkedList3 {
     }
 }
 
-let doublyList3 = new DoublyLinkedList1();
+let doublyList3 = new DoublyLinkedList3();
 
 doublyList3.push("Hello");
 
@@ -3368,3 +3368,24 @@ doublyList3.push("Goodbye");
 doublyList3.push("!");
 
 doublyList3.pop(); // { val: "Hello", next: null, prev: null }
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L139: Unshift
+
+/*
+    >> Unshift Pseudocode:
+        - Create a new node with the value passed to the function.
+        - If the length is 0:
+            • Set the head to be the new node.
+            • Set the tail to be the new node.
+        - Otherwise:
+            • Set the prev property on the head of the list to be the new node.
+            • Set the next property on the new node to be the head property.
+            • Update the head to be the new node.
+        - Increment the length.
+        - Return the list.
+*/
+
+/*---------------------------------------------------------------------------------------------------*/
+
