@@ -3265,9 +3265,9 @@ class DoublyLinkedList2 {
             this.tail = poppedNode.prev;
 
             this.tail.next = null;
-
-            poppedNode.prev = null;
         }
+
+        poppedNode.prev = null;
 
         this.length--;
 
@@ -3304,3 +3304,67 @@ singlyList2.pop(); // { val: "!", next: null, prev: null }
 */
 
 /*---------------------------------------------------------------------------------------------------*/
+
+// L138: Shift Solution
+
+class DoublyLinkedList3 {
+    constructor() {
+        this.head = null;
+
+        this.tail = null;
+
+        this.length = 0;
+    }
+
+    push(val) {
+        const newNode = new DoublyNode(val);
+
+        if (this.length === 0) {
+            this.head = newNode;
+
+            this.tail = newNode;
+        } else {
+            this.tail.next = newNode;
+
+            newNode.prev = this.tail;
+
+            this.tail = newNode;
+        }
+
+        this.length++;
+
+        return this;
+    }
+
+    shift() {
+        if (this.length === 0) return undefined;
+
+        const oldHead = this.head;
+
+        if (this.length === 1) {
+            this.head = null;
+
+            this.tail = null;
+        } else {
+            this.head = oldHead.next;
+
+            this.head.prev = null;
+        }
+
+        oldHead.next = null;
+
+        this.length--;
+
+        return oldHead;
+    }
+}
+
+let doublyList3 = new DoublyLinkedList1();
+
+doublyList3.push("Hello");
+
+doublyList3.push("Goodbye");
+
+doublyList3.push("!");
+
+doublyList3.pop(); // { val: "Hello", next: null, prev: null }
