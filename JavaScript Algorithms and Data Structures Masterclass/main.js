@@ -3220,3 +3220,69 @@ console.log(doublyList1);
 */
 
 /*---------------------------------------------------------------------------------------------------*/
+
+// L136: Pop Solution
+
+class DoublyLinkedList2 {
+    constructor() {
+        this.head = null;
+
+        this.tail = null;
+
+        this.length = 0;
+    }
+
+    push(val) {
+        const newNode = new DoublyNode(val);
+
+        if (this.length === 0) {
+            this.head = newNode;
+
+            this.tail = newNode;
+        } else {
+            this.tail.next = newNode;
+
+            newNode.prev = this.tail;
+
+            this.tail = newNode;
+        }
+
+        this.length++;
+
+        return this;
+    }
+
+    pop() {
+        if (this.length === 0) return undefined;
+
+        const poppedNode = this.tail;
+
+        if (this.length === 1) {
+            this.head = null;
+
+            this.tail = null;
+        } else {
+            this.tail = poppedNode.prev;
+
+            this.tail.next = null;
+
+            poppedNode.prev = null;
+        }
+
+        this.length--;
+
+        return poppedNode;
+    }
+}
+
+let doublyList2 = new DoublyLinkedList1();
+
+doublyList1.push("Hello");
+
+doublyList2.push("Goodbye");
+
+doublyList2.push("!");
+
+singlyList2.pop(); // { val: "!", next: null, prev: null }
+
+/*---------------------------------------------------------------------------------------------------*/
