@@ -2153,17 +2153,17 @@ class SinglyNode {
     }
 }
 
-let node = new SinglyNode("Hi");
+let singlyNode = new SinglyNode("Hi");
 
-node.next = new SinglyNode("There"); 
+singlyNode.next = new SinglyNode("There"); 
 
-node.next.next = new SinglyNode("How"); 
+singlyNode.next.next = new SinglyNode("How"); 
 
-node.next.next.next = new SinglyNode("Are");
+singlyNode.next.next.next = new SinglyNode("Are");
 
-node.next.next.next.next = new SinglyNode("You"); 
+singlyNode.next.next.next.next = new SinglyNode("You"); 
 
-console.log(node); 
+console.log(singlyNode); 
 /* 
     { 
         val: "Hi", 
@@ -2225,15 +2225,15 @@ class SinglyLinkedList1 {
     }
 }
 
-let list1 = new SinglyLinkedList1();
+let singlyList1 = new SinglyLinkedList1();
 
-list1.push("Hello");
+singlyList1.push("Hello");
 
-list1.push("Goodbye");
+singlyList1.push("Goodbye");
 
-list1.push("!");
+singlyList1.push("!");
 
-console.log(list1);
+console.log(singlyList1);
 
 /* 
     { 
@@ -2324,15 +2324,15 @@ class SinglyLinkedList2 {
     }
 }
 
-let list2 = new SinglyLinkedList2();
+let singlyList2 = new SinglyLinkedList2();
 
-list2.push("Hello");
+singlyList2.push("Hello");
 
-list2.push("Goodbye");
+singlyList2.push("Goodbye");
 
-list2.push("!");
+singlyList2.push("!");
 
-list2.pop(); // { val: "!", next: null }
+singlyList2.pop(); // { val: "!", next: null }
 
 /*---------------------------------------------------------------------------------------------------*/
 
@@ -2397,15 +2397,15 @@ class SinglyLinkedList3 {
     }
 }
 
-let list3 = new SinglyLinkedList3();
+let singlyList3 = new SinglyLinkedList3();
 
-list3.push("Hello");
+singlyList3.push("Hello");
 
-list3.push("Goodbye");
+singlyList3.push("Goodbye");
 
-list3.push("!");
+singlyList3.push("!");
 
-list3.shift(); // { val: "Hello", next: { val: "Goodbye", next: { val: "!", next: null } } }
+singlyList3.shift(); // { val: "Hello", next: { val: "Goodbye", next: { val: "!", next: null } } }
 
 /*---------------------------------------------------------------------------------------------------*/
 
@@ -2473,17 +2473,17 @@ class SinglyLinkedList4 {
     }
 }
 
-let list4 = new SinglyLinkedList4();
+let singlyList4 = new SinglyLinkedList4();
 
-list4.push("Hello");
+singlyList4.push("Hello");
 
-list4.push("Goodbye");
+singlyList4.push("Goodbye");
 
-list4.push("!");
+singlyList4.push("!");
 
-list4.unshift("Colt"); 
+singlyList4.unshift("Colt"); 
 
-console.log(list4); 
+console.log(singlyList4); 
 
 /* 
     { 
@@ -2560,15 +2560,15 @@ class SinglyLinkedList5 {
     }
 }
 
-let list5 = new SinglyLinkedList5();
+let singlyList5 = new SinglyLinkedList5();
 
-list5.push("Hello");
+singlyList5.push("Hello");
 
-list5.push("Goodbye");
+singlyList5.push("Goodbye");
 
-list5.push("!");
+singlyList5.push("!");
 
-list5.get(1); // { val: "Goodbye", next: { val: "!", next: null } }
+singlyList5.get(1); // { val: "Goodbye", next: { val: "!", next: null } }
 
 /*---------------------------------------------------------------------------------------------------*/
 
@@ -2642,21 +2642,21 @@ class SinglyLinkedList6 {
     }
 }
 
-let list6 = new SinglyLinkedList6();
+let singlyList6 = new SinglyLinkedList6();
 
-list6.push("Hello");
+singlyList6.push("Hello");
 
-list6.push("Goodbye");
+singlyList6.push("Goodbye");
 
-list6.push("!");
+singlyList6.push("!");
 
-list6.push(":)");
+singlyList6.push(":)");
 
-list6.set(2, "!!!"); // true
+singlyList6.set(2, "!!!"); // true
 
-list6.set(7, "???"); // false
+singlyList6.set(7, "???"); // false
 
-console.log(list6);
+console.log(singlyList6);
 
 /*
     { 
@@ -2761,17 +2761,17 @@ class SinglyLinkedList7 {
 }
 
 
-let list7 = new SinglyLinkedList7();
+let singlyList7 = new SinglyLinkedList7();
 
-list7.push("Hello");
+singlyList7.push("Hello");
 
-list7.push("Goodbye");
+singlyList7.push("Goodbye");
 
-list7.push("!");
+singlyList7.push("!");
 
-list7.insert(1, "Colt"); // true
+singlyList7.insert(1, "Colt"); // true
 
-console.log(list7);
+console.log(singlyList7);
 
 /*
     { 
@@ -2916,17 +2916,17 @@ class SinglyLinkedList8 {
     }
 }
 
-let list8 = new SinglyLinkedList8();
+let singlyList8 = new SinglyLinkedList8();
 
-list8.push("Hello");
+singlyList8.push("Hello");
 
-list8.push("Goodbye");
+singlyList8.push("Goodbye");
 
-list8.push("!");
+singlyList8.push("!");
 
-list8.remove(1); // { val: "Goodbye", next: { val: "!", next: null } }
+singlyList8.remove(1); // { val: "Goodbye", next: { val: "!", next: null } }
 
-console.log(list8);
+console.log(singlyList8);
 
 /*
     { 
@@ -3031,21 +3031,21 @@ class SinglyLinkedList9 {
     }
 }
 
-let list9 = new SinglyLinkedList9();
+let singlyList9 = new SinglyLinkedList9();
 
-list9.push(100);
+singlyList9.push(100);
 
-list9.push(200);
+singlyList9.push(200);
 
-list9.push(300);
+singlyList9.push(300);
 
-list9.push(400);
+singlyList9.push(400);
 
-list9.print(); // [100, 200, 300, 400]
+singlyList9.print(); // [100, 200, 300, 400]
 
-list9.reverse();
+singlyList9.reverse();
 
-list9.print(); // [400, 300, 200, 100]
+singlyList9.print(); // [400, 300, 200, 100]
 
 /*---------------------------------------------------------------------------------------------------*/
 
@@ -3097,13 +3097,13 @@ class DoublyNode {
     }
 }
 
-const first = new DoublyNode(12);
+const doublyNode = new DoublyNode(12);
 
-first.next = new DoublyNode(13);
+doublyNode.next = new DoublyNode(13);
 
-first.next.prev = first;
+doublyNode.next.prev = doublyNode;
 
-console.log(first); 
+console.log(doublyNode); 
 
 /*
     { 
@@ -3134,6 +3134,74 @@ console.log(first);
         - Set the tail to be the newly created node.
         - Increment the length.
         - Return the Doubly Linked List.
+*/
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L134: Push Solution
+
+class DoublyLinkedList1 {
+    constructor() {
+        this.head = null;
+
+        this.tail = null;
+
+        this.length = 0;
+    }
+
+    push(val) {
+        const newNode = new DoublyNode(val);
+
+        if (this.length === 0) {
+            this.head = newNode;
+
+            this.tail = newNode;
+        } else {
+            this.tail.next = newNode;
+
+            newNode.prev = this.tail;
+
+            this.tail = newNode;
+        }
+
+        this.length++;
+
+        return this;
+    }
+}
+
+let doublyList1 = new DoublyLinkedList1();
+
+doublyList1.push("Hello");
+
+doublyList1.push("Goodbye");
+
+doublyList1.push("!");
+
+console.log(doublyList1);
+
+/* 
+    { 
+        val: "Hello", 
+        next: { 
+            val: "Goodbye", 
+            next: { 
+                val: "!", 
+                next: null, 
+                prev: { 
+                    val: "Goodbye", 
+                    next: [Circular *1], 
+                    prev: [Circular *2] 
+                } 
+            }, 
+            prev: { 
+                val: "Hello", 
+                next: [Circular *2], 
+                prev: null 
+            } 
+        }, 
+        prev: null 
+    }
 */
 
 /*---------------------------------------------------------------------------------------------------*/
