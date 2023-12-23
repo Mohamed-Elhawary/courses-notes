@@ -2145,7 +2145,7 @@ Point.distance(p1, p2);
 
 // L111: Starter Code and Push Intro
 
-class Node {
+class SinglyNode {
     constructor(val){
         this.val = val; // piece of data >> val
 
@@ -2153,15 +2153,15 @@ class Node {
     }
 }
 
-let node = new Node("Hi");
+let node = new SinglyNode("Hi");
 
-node.next = new Node("There"); 
+node.next = new SinglyNode("There"); 
 
-node.next.next = new Node("How"); 
+node.next.next = new SinglyNode("How"); 
 
-node.next.next.next = new Node("Are");
+node.next.next.next = new SinglyNode("Are");
 
-node.next.next.next.next = new Node("You"); 
+node.next.next.next.next = new SinglyNode("You"); 
 
 console.log(node); 
 /* 
@@ -2207,7 +2207,7 @@ class SinglyLinkedList1 {
     }
 
     push(val) {
-        const newNode = new Node(val);
+        const newNode = new SinglyNode(val);
 
         if (!this.head) {
             this.head = newNode;
@@ -2278,7 +2278,7 @@ class SinglyLinkedList2 {
     }
 
     push(val) {
-        const newNode = new Node(val);
+        const newNode = new SinglyNode(val);
 
         if (!this.head) {
             this.head = newNode;
@@ -2361,7 +2361,7 @@ class SinglyLinkedList3 {
     }
 
     push(val) {
-        const newNode = new Node(val);
+        const newNode = new SinglyNode(val);
 
         if (!this.head) {
             this.head = newNode;
@@ -2437,7 +2437,7 @@ class SinglyLinkedList4 {
     }
 
     push(val) {
-        const newNode = new Node(val);
+        const newNode = new SinglyNode(val);
 
         if (!this.head) {
             this.head = newNode;
@@ -2455,7 +2455,7 @@ class SinglyLinkedList4 {
     }
 
     unshift(val) {
-        const newNode = new Node(val);
+        const newNode = new SinglyNode(val);
 
         if(!this.head) {
             this.head = newNode;
@@ -2526,7 +2526,7 @@ class SinglyLinkedList5 {
     }
 
     push(val) {
-        const newNode = new Node(val);
+        const newNode = new SinglyNode(val);
 
         if (!this.head) {
             this.head = newNode;
@@ -2596,7 +2596,7 @@ class SinglyLinkedList6 {
     }
 
     push(val) {
-        const newNode = new Node(val);
+        const newNode = new SinglyNode(val);
 
         if (!this.head) {
             this.head = newNode;
@@ -2611,6 +2611,22 @@ class SinglyLinkedList6 {
         this.length++;
 
         return this; // return "this" to be allowed to chain methods on the instance
+    }
+
+    get(index) {
+        if(index < 0 || index >= this.length) return null;
+
+        let counter = 0;
+
+        let current = this.head;
+
+        while(counter !== index) {
+            current = current.next;
+
+            counter++;
+        }
+
+        return current;
     }
 
     set(index, val) {
@@ -2688,7 +2704,7 @@ class SinglyLinkedList7 {
     }
 
     push(val) {
-        const newNode = new Node(val);
+        const newNode = new SinglyNode(val);
 
         if (!this.head) {
             this.head = newNode;
@@ -2705,6 +2721,22 @@ class SinglyLinkedList7 {
         return this; // return "this" to be allowed to chain methods on the instance
     }
 
+    get(index) {
+        if(index < 0 || index >= this.length) return null;
+
+        let counter = 0;
+
+        let current = this.head;
+
+        while(counter !== index) {
+            current = current.next;
+
+            counter++;
+        }
+
+        return current;
+    }
+
     insert(index, val) {
         if(index < 0 || index > this.length) return false;
 
@@ -2712,7 +2744,7 @@ class SinglyLinkedList7 {
 
         if(index === 0) return !!this.unshift(val);
 
-        let newNode = new Node(val);
+        let newNode = new SinglyNode(val);
 
         let prev = this.get(index - 1);
 
@@ -2786,7 +2818,7 @@ class SinglyLinkedList8 {
     }
 
     push(val) {
-        const newNode = new Node(val);
+        const newNode = new SinglyNode(val);
 
         if (!this.head) {
             this.head = newNode;
@@ -2801,6 +2833,68 @@ class SinglyLinkedList8 {
         this.length++;
 
         return this; // return "this" to be allowed to chain methods on the instance
+    }
+
+    pop() {
+        if(!this.head) return undefined;
+
+        let current = this.head;
+
+        let newTail = current;
+
+        while(current.next) {
+            newTail = current;
+
+            current = current.next;
+        }
+
+        this.tail = newTail;
+
+        this.tail.next = null;
+
+        this.length--;
+
+        if(this.length === 0) {
+            this.head = null;
+
+            this.tail = null;
+        }
+
+        return current; // This is the Popped value that we removed from the list
+    }
+
+    shift() {
+        if(!this.head) return undefined;
+
+        let removed = this.head;
+
+        this.head = removed.next;
+
+        this.length--;
+
+        if(this.length === 0) {
+            this.head = null;
+
+            this.tail = null;
+        }
+
+        return removed; // This is the Shifted value that we removed from the list
+    }
+
+    get(index) {
+        if(index < 0 || index >= this.length) return null;
+
+        let counter = 0;
+
+        let current = this.head;
+
+        while(counter !== index) {
+            current = current.next;
+
+            counter++;
+        }
+
+        return current;
     }
     
     remove(index) {
@@ -2881,7 +2975,7 @@ class SinglyLinkedList9 {
     }
 
     push(val) {
-        const newNode = new Node(val);
+        const newNode = new SinglyNode(val);
 
         if (!this.head) {
             this.head = newNode;
@@ -2987,6 +3081,44 @@ list9.print(); // [400, 300, 200, 100]
         - Almost identical to Singly Linked Lists, except every node has another pointer, to the previous node!
         - Better than Singly Linked Lists for finding nodes and can be done in half the time! [More Flexibility]
         - However, they do take up more memory considering the extra pointer. [More Memory]
+*/
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L132: Setting Up Our Node Class
+
+class DoublyNode {
+    constructor(val) {
+        this.val = val;
+
+        this.next = null;
+
+        this.prev = null;
+    }
+}
+
+const first = new DoublyNode(12);
+
+first.next = new DoublyNode(13);
+
+first.next.prev = first;
+
+console.log(first); 
+
+/*
+    { 
+        val: 12, 
+        next: { 
+            val: 13, 
+            next: null, 
+            prev: { 
+                val: 12, 
+                next: [Circular *1], 
+                prev: null 
+            } 
+        }, 
+        prev: null 
+    }
 */
 
 /*---------------------------------------------------------------------------------------------------*/
