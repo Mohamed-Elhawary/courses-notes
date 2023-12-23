@@ -3389,3 +3389,92 @@ doublyList3.pop(); // { val: "Hello", next: null, prev: null }
 
 /*---------------------------------------------------------------------------------------------------*/
 
+// L140: Unshift Solution
+
+class DoublyLinkedList4 {
+    constructor() {
+        this.head = null;
+
+        this.tail = null;
+
+        this.length = 0;
+    }
+
+    push(val) {
+        const newNode = new DoublyNode(val);
+
+        if (this.length === 0) {
+            this.head = newNode;
+
+            this.tail = newNode;
+        } else {
+            this.tail.next = newNode;
+
+            newNode.prev = this.tail;
+
+            this.tail = newNode;
+        }
+
+        this.length++;
+
+        return this;
+    }
+
+    unshift(val) {
+        const newNode = new DoublyNode(val);
+
+        if (this.length === 0) {
+            this.head = newNode;
+
+            this.tail = newNode;
+        } else {
+            this.head.prev = newNode;
+
+            newNode.next = this.head;
+
+            this.head = newNode;
+        }
+
+        this.length++;
+
+        return this;
+    }
+}
+
+let doublyList4 = new DoublyLinkedList4();
+
+doublyList4.push("Hello");
+
+doublyList4.push("Goodbye");
+
+doublyList4.push("!");
+
+doublyList4.unshift("Colt");
+
+console.log(doublyList4);
+
+/*
+    { 
+        val: "Colt", 
+        next: { 
+            val: "Hello", 
+            next: { 
+                val: "Goodbye", 
+                next: { 
+                    val: "!", 
+                    next: null, 
+                    prev: [Circular *1] 
+                }, 
+                prev: [Circular *2] 
+            }, 
+            prev: { 
+                val: "Colt", 
+                next: [Circular *2], 
+                prev: null 
+            } 
+        }, 
+        prev: null 
+    }
+*/
+
+/*---------------------------------------------------------------------------------------------------*/
