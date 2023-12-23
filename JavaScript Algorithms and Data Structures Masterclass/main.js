@@ -2973,3 +2973,20 @@ list9.print(); // [400, 300, 200, 100]
 */
 
 /*---------------------------------------------------------------------------------------------------*/
+
+/* Section 20: Doubly Linked Lists */
+
+// L131: Doubly Linked Lists Introduction
+
+/*
+    >> Objectives:
+        - Compare and contrast Doubly and Singly Linked Lists.
+        - Implement basic operations on a Doubly Linked List.
+
+    >> Intro:
+        - Almost identical to Singly Linked Lists, except every node has another pointer, to the previous node!
+        - Better than Singly Linked Lists for finding nodes and can be done in half the time! [More Flexibility]
+        - However, they do take up more memory considering the extra pointer. [More Memory]
+*/
+
+/*---------------------------------------------------------------------------------------------------*/
