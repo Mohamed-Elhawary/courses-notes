@@ -3367,7 +3367,7 @@ doublyList3.push("Goodbye");
 
 doublyList3.push("!");
 
-doublyList3.pop(); // { val: "Hello", next: null, prev: null }
+doublyList3.shift(); // { val: "Hello", next: null, prev: null }
 
 /*---------------------------------------------------------------------------------------------------*/
 
@@ -3490,6 +3490,118 @@ console.log(doublyList4);
         - If the index is greater than half the length of the list:
             • Loop through the list starting from the tail and loop towards the middle.
             • Return the node once it is found.
+*/
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L142: Get Solution
+
+class DoublyLinkedList5 {
+    constructor() {
+        this.head = null;
+
+        this.tail = null;
+
+        this.length = 0;
+    }
+
+    push(val) {
+        const newNode = new DoublyNode(val);
+
+        if (this.length === 0) {
+            this.head = newNode;
+
+            this.tail = newNode;
+        } else {
+            this.tail.next = newNode;
+
+            newNode.prev = this.tail;
+
+            this.tail = newNode;
+        }
+
+        this.length++;
+
+        return this;
+    }
+
+    get(index) {
+        if (index < 0 || index >= this.length) return null;
+
+        let counter, current;
+
+        if (index <= this.length / 2) {
+            counter = 0;
+
+            current = this.head;
+
+            while (counter !== index) {
+                current = current.next;
+
+                counter++;
+            }
+        } else {
+            counter = this.length - 1;
+
+            current = this.tail;
+
+            while (counter !== index) {
+                current = current.prev;
+
+                counter--;
+            }
+        }
+
+        return current;
+    }
+   
+}
+
+let doublyList5 = new DoublyLinkedList5();
+
+doublyList5.push("Hello");
+
+doublyList5.push("Goodbye");
+
+doublyList5.push("!");
+
+doublyList5.push("Colt");
+
+doublyList5.push("How");
+
+doublyList5.push("Are");
+
+doublyList5.push("You");
+
+doublyList5.push("?");
+
+doublyList5.get(3);
+
+/*
+    { 
+        val: "Colt", 
+        next: { 
+            val: "How", 
+            next: { 
+                val: "Are", 
+                next: { 
+                    val: "!", 
+                    next: { 
+                        val: "You", 
+                        next: { 
+                            val: "!",
+                            next: null,
+                            prev: [Circular *5]
+                        },
+                        prev: [Circular *4]
+                    },      
+                }, 
+                prev: [Circular *3] 
+            }, 
+            prev: [Circular *2] 
+        }, 
+        prev: [Circular *1] 
+    }
 */
 
 /*---------------------------------------------------------------------------------------------------*/
