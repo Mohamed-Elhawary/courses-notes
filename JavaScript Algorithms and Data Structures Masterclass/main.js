@@ -2650,7 +2650,7 @@ singlyList6.push("Goodbye");
 
 singlyList6.push("!");
 
-singlyList6.push(":)");
+singlyList6.push("Colt");
 
 singlyList6.set(2, "!!!"); // true
 
@@ -2666,7 +2666,7 @@ console.log(singlyList6);
             next: { 
                 val: "!!!", 
                 next: { 
-                    val: ":)", 
+                    val: "Colt", 
                     next: null 
                 } 
             } 
@@ -2683,7 +2683,7 @@ console.log(singlyList6);
         - If the index is less than zero or greater than the length, return false.
         - If the index is the same as the length, push a new node to the end of the list.
         - If the index is 0, unshift a new node to the start of the list.
-        - Otherwise, using the get method, access the node at the index - 1.
+        - Otherwise, using the get method, access the node at the (index - 1).
         - Set the next property on that node to be the new node.
         - Set the next property on the new node to be the previous next.
         - Increment the length.
@@ -3113,9 +3113,9 @@ console.log(doublyNode);
             next: null, 
             prev: { 
                 val: 12, 
-                next: [Circular *1], 
+                next: [Circular], 
                 prev: null 
-            } 
+            }, 
         }, 
         prev: null 
     }
@@ -3190,13 +3190,13 @@ console.log(doublyList1);
                 next: null, 
                 prev: { 
                     val: "Goodbye", 
-                    next: [Circular *1], 
-                    prev: [Circular *2] 
+                    next: [Circular], 
+                    prev: [Circular], 
                 } 
             }, 
             prev: { 
                 val: "Hello", 
-                next: [Circular *2], 
+                next: [Circular], 
                 prev: null 
             } 
         }, 
@@ -3463,13 +3463,21 @@ console.log(doublyList4);
                 next: { 
                     val: "!", 
                     next: null, 
-                    prev: [Circular *1] 
+                    prev: {
+                        val: "Goodbye",
+                        next: [Circular],
+                        prev: [Circular],
+                    },
                 }, 
-                prev: [Circular *2] 
+                prev: {
+                    val: "Hello",
+                    next: [Circular],
+                    prev: [Circular],
+                },
             }, 
             prev: { 
                 val: "Colt", 
-                next: [Circular *2], 
+                next: [Circular], 
                 prev: null 
             } 
         }, 
@@ -3585,22 +3593,39 @@ doublyList5.get(3);
             next: { 
                 val: "Are", 
                 next: { 
-                    val: "!", 
+                    val: "You", 
                     next: { 
-                        val: "You", 
-                        next: { 
-                            val: "!",
-                            next: null,
-                            prev: [Circular *5]
+                        val: "?", 
+                        next: null,
+                        prev: {
+                            val: "You",
+                            next: [Circular],
+                            prev: [Circular],
                         },
-                        prev: [Circular *4]
-                    },      
+                    },    
+                    prev: {
+                        val: "Are",
+                        next: [Circular],
+                        prev: [Circular],
+                    }  
                 }, 
-                prev: [Circular *3] 
+                prev: {
+                    val: "How",
+                    next: [Circular],
+                    prev: [Circular],
+                },
             }, 
-            prev: [Circular *2] 
+            prev: {
+                val: "Colt",
+                next: [Circular],
+                prev: [Circular],
+            }, 
         }, 
-        prev: [Circular *1] 
+        prev: {
+            val: "!",
+            next: [Circular],
+            prev: [Circular],
+        }
     }
 */
 
@@ -3706,6 +3731,40 @@ doublyList6.set(2, "!!!"); // true
 
 doublyList6.set(7, "???"); // false
 
+console.log(doublyList6);
+
+/*
+    { 
+        val: "Hello", 
+        next: { 
+            val: "Goodbye", 
+            next: { 
+                val: "!!!", 
+                next: { 
+                    val: "Colt", 
+                    next: null,
+                    prev: {
+                        val: "!!!",
+                        next: [Circular],
+                        prev: [Circular],
+                    } 
+                },
+                prev: {
+                    val: "Goodbye",
+                    next: [Circular],
+                    prev: [Circular],
+                }
+            },
+            prev: {
+                val: "Hello",
+                next: [Circular],
+                prev: null,
+            }
+        } 
+        prev: null,
+    }
+*/
+
 /*---------------------------------------------------------------------------------------------------*/
 
 // L145: Insert
@@ -3715,10 +3774,162 @@ doublyList6.set(7, "???"); // false
         - If the index is less than zero or greater than or equal to the length return false.
         - If the index is 0, unshift.
         - If the index is the same as the length, push.
-        - Use the get method to access the index -1.
+        - Use the get method to access the (index - 1).
         - Set the next and prev properties on the correct nodes to link everything together.
         - Increment the length.
         - Return true.
 */
 
 /*---------------------------------------------------------------------------------------------------*/
+
+// L146: Insert Solution
+
+class DoublyLinkedList7 {
+    constructor() {
+        this.head = null;
+
+        this.tail = null;
+
+        this.length = 0;
+    }
+
+    push(val) {
+        const newNode = new DoublyNode(val);
+
+        if (this.length === 0) {
+            this.head = newNode;
+
+            this.tail = newNode;
+        } else {
+            this.tail.next = newNode;
+
+            newNode.prev = this.tail;
+
+            this.tail = newNode;
+        }
+
+        this.length++;
+
+        return this;
+    }
+
+    get(index) {
+        if (index < 0 || index >= this.length) return null;
+
+        let counter, current;
+
+        if (index <= this.length / 2) {
+            counter = 0;
+
+            current = this.head;
+
+            while (counter !== index) {
+                current = current.next;
+
+                counter++;
+            }
+        } else {
+            counter = this.length - 1;
+
+            current = this.tail;
+
+            while (counter !== index) {
+                current = current.prev;
+
+                counter--;
+            }
+        }
+
+        return current;
+    }
+
+    unshift(val) {
+        const newNode = new DoublyNode(val);
+
+        if (this.length === 0) {
+            this.head = newNode;
+
+            this.tail = newNode;
+        } else {
+            this.head.prev = newNode;
+
+            newNode.next = this.head;
+
+            this.head = newNode;
+        }
+
+        this.length++;
+
+        return this;
+    }
+
+    insert(index, val) {
+        if (index < 0 || index > this.length) return false;
+
+        if (index === 0) return !!this.unshift(val);
+
+        if (index === this.length) return !!this.push(val);
+
+        let newNode = new DoublyNode(val);
+
+        let beforeNode = this.get(index - 1);
+
+        let afterNode = beforeNode.next;
+
+        beforeNode.next = newNode;
+        
+        newNode.prev = beforeNode;
+
+        newNode.next = afterNode;
+        
+        afterNode.prev = newNode;
+
+        this.length++;
+
+        return true;
+    }
+}
+
+const doublyList7 = new DoublyLinkedList7();
+
+doublyList7.push("Hello");
+
+doublyList7.push("Goodbye");
+
+doublyList7.push("!");
+
+doublyList7.insert(1, "Colt"); // true
+
+console.log(doublyList7);
+
+/*
+    { 
+        val: "Hello", 
+        next: { 
+            val: "Colt", 
+            next: { 
+                val: "Goodbye", 
+                next: { 
+                    val: "!", 
+                    next: null,
+                    prev: {
+                        val: "Goodbye",
+                        next: [Circular],
+                        prev: [Circular],
+                    } 
+                },
+                prev: {
+                    val: "Colt",
+                    next: [Circular],
+                    prev: [Circular],
+                }
+            },
+            prev: {
+                val: "Hello",
+                next: [Circular],
+                prev: null,
+            }
+        } 
+        prev: null,
+    }
+*/
