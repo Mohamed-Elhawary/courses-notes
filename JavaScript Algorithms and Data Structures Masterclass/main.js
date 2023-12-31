@@ -2796,7 +2796,7 @@ console.log(singlyList7);
 /*
     >> Remove Pseudocode:
         - If the index is less than zero or greater than the length, return undefined.
-        - If the index is the same as the length-1, pop.
+        - If the index is the same as the (length - 1), pop.
         - If the index is 0, shift.
         - Otherwise, using the get method, access the node at the index - 1.
         - Set the next property on that node to be the next of the next node.
@@ -3933,3 +3933,21 @@ console.log(doublyList7);
         prev: null,
     }
 */
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L147: Remove
+
+/*
+    >> Remove Pseudocode:
+        - If the index is less than zero or greater than or equal to the length return undefined.
+        - If the index is 0, shift.
+        - If the index is the same as the (length - 1), pop.
+        - Use the get method to retrieve the item to be removed.
+        - Update the next and prev properties to remove the found node from the list.
+        - Set next and prev to null on the found node.
+        - Decrement the length.
+        - Return the removed node.
+*/
+
+/*---------------------------------------------------------------------------------------------------*/
