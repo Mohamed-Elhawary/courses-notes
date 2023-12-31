@@ -3283,7 +3283,7 @@ doublyList2.push("Goodbye");
 
 doublyList2.push("!");
 
-singlyList2.pop(); // { val: "!", next: null, prev: null }
+doublyList2.pop(); // { val: "!", next: null, prev: null }
 
 /*---------------------------------------------------------------------------------------------------*/
 
@@ -4080,4 +4080,15 @@ class DoublyLinkedList8 {
     }
 }
 
+let doublyList8 = new DoublyLinkedList8();
+
+doublyList8.push("Hello");
+
+doublyList8.push("Goodbye");
+
+doublyList8.push("!");
+
+doublyList8.remove(1); // { val: "Goodbye", next: null, prev: null }
+
 /*---------------------------------------------------------------------------------------------------*/
+
