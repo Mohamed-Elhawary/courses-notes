@@ -4092,3 +4092,19 @@ doublyList8.remove(1); // { val: "Goodbye", next: null, prev: null }
 
 /*---------------------------------------------------------------------------------------------------*/
 
+// L149: Comparing Singly and Doubly Linked Lists
+
+/*
+    >> Big O of Doubly Linked Lists:
+        • Insertion: [O(1)]
+        • Removal: [O(1)] >> if removing from the beginning or [O(n)] >> if removing from the end
+        • Searching: [O(n)] >> technically [O(n/2)] but that's still [O(n)]
+        • Access: [O(n)]
+
+    >> Recap:
+        - Doubly Linked Lists are almost identical to Singly Linked Lists except there is an additional pointer to previous nodes.
+        - Better than Singly Linked Lists for finding nodes and can be done in half the time!
+        - However, they do take up more memory considering the extra pointer.
+*/
+
+/*---------------------------------------------------------------------------------------------------*/
