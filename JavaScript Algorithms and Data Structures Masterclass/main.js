@@ -3562,7 +3562,6 @@ class DoublyLinkedList5 {
 
         return current;
     }
-   
 }
 
 let doublyList5 = new DoublyLinkedList5();
