@@ -4107,3 +4107,36 @@ doublyList8.remove(1); // { val: "Goodbye", next: null, prev: null }
 */
 
 /*---------------------------------------------------------------------------------------------------*/
+
+/* Section 21 */
+
+// L151: Intro Stacks
+
+/*
+    >> Objectives:
+        - Define what a stack is.
+        - Understand use cases for a stack.
+        - Implement operations on a stack data structure.
+
+    >> What is Stack?
+        - A LIFO data structure! [Last element In, First element Out]
+        - The last element added to the stack will be the first element removed from the stack.
+        - This is used for:
+            • Managing function invocations.
+            • Undo / Redo. (Command + Z)
+            • Routing (the history object in the browser) is treated like a stack!
+        - Example of Stacks: the JS built-in "Call Stack"
+        - There is more than one way of implementing a stack:
+            • Array implementation.
+            • Linked List implementation.
+*/
+
+function factorial(x) { // Call Stack example
+    if (x === 0) return 1;
+
+    return x * factorial(x - 1);
+}
+
+factorial(4);
+
+/*---------------------------------------------------------------------------------------------------*/
