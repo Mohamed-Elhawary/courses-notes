@@ -4140,3 +4140,59 @@ function factorial(x) { // Call Stack example
 factorial(4);
 
 /*---------------------------------------------------------------------------------------------------*/
+
+// L152: Creating a Stack with an Array
+
+// push() & pop() >> Last element In, First element Out [Adding & Removing from the end]
+
+let stack1 = [];
+
+stack1.push("google");
+
+stack1.push("facebook");
+
+stack1.push("youtube");
+
+console.log(stack1); // ["google", "facebook", "youtube"]
+
+stack1.pop(); // youtube
+
+stack1.pop(); // facebook
+
+stack1.push("amazon");
+
+stack1.pop(); // amazon
+
+stack1.pop(); // google
+
+// unshift() & shift() >> First element In, Last element Out [Adding & Removing from the beginning]
+
+let stack2 = []; 
+
+stack2.unshift("google");
+
+stack2.unshift("facebook");
+
+stack2.unshift("youtube");
+
+console.log(stack2); // ["youtube", "facebook", "google"]
+
+stack2.shift(); // youtube
+
+stack2.shift(); // facebook
+
+stack2.unshift("amazon");
+
+stack2.shift(); // amazon
+
+stack2.shift(); // google
+
+/*
+    >> What is better & What's more efficient ?
+        - Adding & Removing from the beginning is not good as far as big O time complexity, we have to re-index all other items.
+        - Adding & Removing from the end is good as far as big O time complexity, we don't have to re-index all other items.
+        - If you are going to have a ton of data in there, so all you need is [Last In, First Out] implementation.
+        - If you are using the length of list only and there is no reason to have the indices of the items and we are not accessing information based off an index, so all you need is [First In, Last Out] implementation.
+*/
+
+/*---------------------------------------------------------------------------------------------------*/
