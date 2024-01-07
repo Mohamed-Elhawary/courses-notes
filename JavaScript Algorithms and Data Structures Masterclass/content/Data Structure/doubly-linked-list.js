@@ -5,6 +5,8 @@ class Node {
         this.val = val;
 
         this.next = null;
+
+        this.prev = null;
     }
 }
 

@@ -4196,3 +4196,84 @@ stack2.shift(); // google
 */
 
 /*---------------------------------------------------------------------------------------------------*/
+
+// L153: Writing Our Own Stack From Scratch
+
+class StackNode {
+    constructor(val) {
+        this.val = val;
+        
+        this.next = null;
+    }
+}
+
+/* 
+    >> Pushing Pseudocode: (Add a value to the top of stack) === "unshift" in singly linked list
+        - The function should accept a value.
+        - Create a new node with that value.
+        - If there are no nodes in the stack, set the first and last property to be the newly created node.
+        - If there is at least one node, create a variable that stores the current first property on the stack.
+        - Reset the first property to be the newly created node.
+        - Set the next property on the node to be the previously created variable.
+        - Increment the size of the stack by 1.
+
+
+    >> Popping Pseudocode: (Remove a value from the top of stack) === "shift" in singly linked list
+        - If there are no nodes in the stack, return null.
+        - Create a temporary variable to store the first property on the stack.
+        - If there is only 1 node, set the first and last property to be null.
+        - If there is more than one node, set the first property to be the next property on the current first.
+        - Decrement the size by 1.
+        - Return the value of the node removed.
+*/
+
+class Stack {
+    constructor() {
+        this.first = null;
+
+        this.last = null;
+
+        this.size = 0;
+    }
+
+    push(val) {
+        let newNode = new StackNode(val);
+
+        if (!this.first) {
+            this.first = newNode;
+
+            this.last = newNode;
+        } else {
+            let temp = this.first;
+
+            this.first = newNode;
+
+            this.first.next = temp;
+        }
+
+        return ++this.size;
+    }
+
+    pop () {
+        if (!this.first) return null;
+
+        let temp = this.first;
+
+        if (this.first === this.last) {
+            this.last = null;
+        }
+
+        this.first = this.first.next;
+
+        this.size--;
+
+        return temp.val; 
+    }
+}
+
+/*
+    >> Why we do "push" & "pop" at this way like we do "unshift" & "shift" in Singly Linked List?
+        - Because we want to have a constant time complexity, but removing from the end is not constant time because we have to 
+          iterate through the entire list to get to the item before the last item and set it to be the new tail, and Stack is supposed to be constant time,
+          so we are adding and removing from beginning of our list, but we are calling it "push" and "pop" because it is a Stack.
+*/
