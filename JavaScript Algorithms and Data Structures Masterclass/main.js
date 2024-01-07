@@ -4141,9 +4141,9 @@ factorial(4);
 
 /*---------------------------------------------------------------------------------------------------*/
 
-// L152: Creating a Stack with an Array
+// L152: Creating a Stack with an Array [LIFO === FILO]
 
-// push() & pop() >> Last element In, First element Out [Adding & Removing from the end]
+// push() & pop() >> Last element In, First element Out [Adding & Removing from the end] (LIFO)
 
 let stack1 = [];
 
@@ -4165,7 +4165,7 @@ stack1.pop(); // amazon
 
 stack1.pop(); // google
 
-// unshift() & shift() >> First element In, Last element Out [Adding & Removing from the beginning]
+// unshift() & shift() >> First element In, Last element Out [Adding & Removing from the beginning] (FILO)
 
 let stack2 = []; 
 
@@ -4296,6 +4296,28 @@ class Stack {
         - They are not a built in data structure in JavaScript, but are relatively simple to implement.
         - Insertion and removal can be done in O(1).
         - Searching and Access are not strengths of stacks.
+*/
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L155: Intro to Queues
+
+/*
+    >> Objectives:
+        - Define what a queue is.
+        - Understand use cases for a queue.
+        - Implement operations on a queue data structure.
+
+    >> What is a Queue ?
+        - A FIFO data structure! [First element In, First element Out]
+        - This is used for:
+            • Background tasks.
+            • Uploading resources.
+            • Printing / Task processing.
+        - Example of Queues: the JS built-in "Message Queue"
+        - There is more than one way of implementing a queue:
+            • Array implementation.
+            • Linked List implementation.
 */
 
 /*---------------------------------------------------------------------------------------------------*/
