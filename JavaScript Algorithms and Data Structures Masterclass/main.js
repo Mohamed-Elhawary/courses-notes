@@ -165,7 +165,7 @@ function double (arr) { // [O(n)] Space
 */
 
 /* 
-    >> Recap
+    >> Recap:
         - To analyze the performance of an algorithm, we use Big O Notation
         - Big O Notation can give us a high level understanding of the time or space complexity of an algorithm
         - Big O Notation doesn't care about precision, only about general trends (linear? quadratic? constant?)
@@ -4188,7 +4188,7 @@ stack2.shift(); // amazon
 stack2.shift(); // google
 
 /*
-    >> What is better & What's more efficient ?
+    >> What is better & What's more efficient in Arrays ?
         - Adding & Removing from the beginning is not good as far as big O time complexity, we have to re-index all other items.
         - Adding & Removing from the end is good as far as big O time complexity, we don't have to re-index all other items.
         - If you are going to have a ton of data in there, so all you need is [Last In, First Out] implementation.
@@ -4274,6 +4274,28 @@ class Stack {
 /*
     >> Why we do "push" & "pop" at this way like we do "unshift" & "shift" in Singly Linked List?
         - Because we want to have a constant time complexity, but removing from the end is not constant time because we have to 
-          iterate through the entire list to get to the item before the last item and set it to be the new tail, and Stack is supposed to be constant time,
-          so we are adding and removing from beginning of our list, but we are calling it "push" and "pop" because it is a Stack.
+          iterate through the entire list to get to the item before the last item and set it to be the new tail, and Stack is supposed 
+          to be constant time at removing and adding, so we are adding and removing from beginning of our list, but we are calling it 
+          "push" and "pop" because it is a Stack.
 */
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L154: BIG O of Stacks
+
+/*
+    >> BIG O of Stacks:
+        • Insertion: [O(1)]
+        • Removal: [O(1)]
+        • Searching: [O(n)]
+        • Access: [O(n)]
+
+    >> Recap:
+        - Stacks are a LIFO data structure where the last value in is always the first one out.
+        - Stacks are used to handle function invocations (the call stack), for operations like undo/redo, and for routing (remember pages you have visited and go back/forward) and much more!
+        - They are not a built in data structure in JavaScript, but are relatively simple to implement.
+        - Insertion and removal can be done in O(1).
+        - Searching and Access are not strengths of stacks.
+*/
+
+/*---------------------------------------------------------------------------------------------------*/
