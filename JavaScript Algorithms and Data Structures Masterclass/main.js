@@ -4143,7 +4143,7 @@ factorial(4);
 
 // L152: Creating a Stack with an Array [LIFO === FILO]
 
-// push() & pop() >> Last element In, First element Out [Adding & Removing from the end] (LIFO)
+// push() & pop() >> Last element In, First element Out using [Adding & Removing from the end] (LIFO)
 
 let stack1 = [];
 
@@ -4165,7 +4165,7 @@ stack1.pop(); // amazon
 
 stack1.pop(); // google
 
-// unshift() & shift() >> First element In, Last element Out [Adding & Removing from the beginning] (FILO)
+// unshift() & shift() >> Last element In, First element Out using [Adding & Removing from the beginning] (LIFO)
 
 let stack2 = []; 
 
@@ -4189,10 +4189,10 @@ stack2.shift(); // google
 
 /*
     >> What is better & What's more efficient in Arrays ?
-        - Adding & Removing from the beginning is not good as far as big O time complexity, we have to re-index all other items.
-        - Adding & Removing from the end is good as far as big O time complexity, we don't have to re-index all other items.
-        - If you are going to have a ton of data in there, so all you need is [Last In, First Out] implementation.
-        - If you are using the length of list only and there is no reason to have the indices of the items and we are not accessing information based off an index, so all you need is [First In, Last Out] implementation.
+        - Adding & Removing from the beginning, is not good for big O time complexity, we have to re-index all other items.
+        - Adding & Removing from the end, is good for big O time complexity, we don't have to re-index all other items.
+        - If you are going to have a ton of data in there, so all you need is [push() & pop()] implementation.
+        - If you are using the length of list only and there is no reason to have the indices of the items and we are not accessing information based off an index, so all you need is [unshift() & shift()] implementation.
 */
 
 /*---------------------------------------------------------------------------------------------------*/
@@ -4318,6 +4318,55 @@ class Stack {
         - There is more than one way of implementing a queue:
             • Array implementation.
             • Linked List implementation.
+*/
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L156: Creating Queues Using Arrays
+
+// push() & shift() >> First element In, First element Out using [Adding from the end & Removing from the beginning] (FIFO)
+
+let queue1 = [];
+
+queue1.push("FIRST");
+
+queue1.push("SECOND");
+
+queue1.push("THIRD");
+
+console.log(queue1); // ["FIRST", "SECOND", "THIRD"]
+
+queue1.shift(); // FIRST
+
+queue1.shift(); // SECOND
+
+queue1.shift(); // THIRD
+
+// unshift() & pop() >> First element In, First element Out using [Adding from the beginning & Removing from the end] (FIFO)
+
+let queue2 = [];
+
+queue2.unshift("FIRST");
+
+queue2.unshift("SECOND");
+
+queue2.unshift("THIRD");
+
+console.log(queue2); // ["THIRD", "SECOND", "FIRST"]
+
+queue2.pop(); // FIRST
+
+queue2.pop(); // SECOND
+
+queue2.pop(); // THIRD
+
+/*
+    >> What is better & What's more efficient in Arrays ?
+        - Adding from the end & Removing from the beginning, is not good for big O time complexity, we have to re-index all other items during removing from the beginning.
+        - Adding from the beginning & Removing from the end, is not good for big O time complexity, we have to re-index all other items during adding from the beginning.
+        - If you are going to have a ton of data in there, so you can't use both implementations here, because unlike Stacks, you could use [push() & pop()] to make a stack and you would never need to re-index the entire array, 
+          unlike that, when we do a queue, there is no way around it using an Array, so we have to create our own queue class if you are concerned about performance.  .
+        - If you are using the length of list only and there is no reason to have the indices of the items and we are not accessing information based off an index, so you can use both implementations [push() & shift()] or [unshift() & pop()].
 */
 
 /*---------------------------------------------------------------------------------------------------*/
