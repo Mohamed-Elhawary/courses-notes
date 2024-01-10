@@ -4199,14 +4199,6 @@ stack2.shift(); // google
 
 // L153: Writing Our Own Stack From Scratch
 
-class StackNode {
-    constructor(val) {
-        this.val = val;
-        
-        this.next = null;
-    }
-}
-
 /* 
     >> Pushing Pseudocode: (Add a value to the top of stack) === "unshift" in singly linked list
         - The function should accept a value.
@@ -4226,6 +4218,14 @@ class StackNode {
         - Decrement the size by 1.
         - Return the value of the node removed.
 */
+
+class StackNode {
+    constructor(val) {
+        this.val = val;
+        
+        this.next = null;
+    }
+}
 
 class Stack {
     constructor() {
