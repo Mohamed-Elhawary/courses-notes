@@ -4449,3 +4449,22 @@ class Queue {
 */
 
 /*---------------------------------------------------------------------------------------------------*/
+
+// L158: BIG O of Queues
+
+/*
+    >> BIG O of Queues:
+        • Insertion: [O(1)]
+        • Removal: [O(1)]
+        • Searching: [O(n)]
+        • Access: [O(n)]
+
+    >> Recap:
+        - Queues are a LIFO data structure where the first value in is always the first one out.
+        - Queues are useful for processing tasks and are foundational for more complex data structures.
+        - They are not a built in data structure in JavaScript, but are relatively simple to implement.
+        - Insertion and removal can be done in O(1).
+        - Searching and Access are not strengths of queues.
+*/
+
+/*---------------------------------------------------------------------------------------------------*/
