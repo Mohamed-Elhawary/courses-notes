@@ -4516,3 +4516,21 @@ class Queue {
 */
 
 /*---------------------------------------------------------------------------------------------------*/
+
+// L162: Intro to Binary Trees
+
+/*
+    >> Kinds of Trees we will learn in this Section:
+        - Trees: Each Node can have multiple Children.
+        - Binary Trees [BTS]: Each Node can have at most two Children.
+        - Binary Search Trees [BSTS]: Like Binary Tree, each Node can have at most two Children, but this type of trees 
+          is sorted in a specific way, they are kept in order, so that searching for a value is much faster.
+
+    >> How BSTS Work ?
+        - Every Parent Node has at most two children.
+        - Every Node to the left of a parent node is always less than the parent.
+        - Every Node to the right of a parent node is always greater than the parent.
+*/
+
+/*---------------------------------------------------------------------------------------------------*/
+
