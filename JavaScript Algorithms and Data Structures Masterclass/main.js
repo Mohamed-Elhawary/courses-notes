@@ -4546,21 +4546,21 @@ class TreeNode {
     }
 }
 
-class BinarySearchTree {
+class BinarySearchTree1 {
     constructor() {
         this.root = null;
     }
 }
 
-let tree = new BinarySearchTree();
+let tree1 = new BinarySearchTree1();
 
-tree.root = new TreeNode(10);
+tree1.root = new TreeNode(10);
 
-tree.root.right = new TreeNode(15);
+tree1.root.right = new TreeNode(15);
 
-tree.root.left = new TreeNode(7);
+tree1.root.left = new TreeNode(7);
 
-tree.root.left.right = new TreeNode(9);
+tree1.root.left.right = new TreeNode(9);
 
 /*---------------------------------------------------------------------------------------------------*/
 
@@ -4580,6 +4580,104 @@ tree.root.left.right = new TreeNode(9);
                 • Check to see if there is a node to the left.
                     • If there is, move to that node and repeat these steps.
                     • If there is not, add that node as the left property.
+*/
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L167: BST: Insert Solution
+
+class BinarySearchTree2 {
+    constructor() {
+        this.root = null;
+    }
+
+    insert(val) {
+        const newNode = new TreeNode(val);
+
+        if (this.root === null) {
+            this.root = newNode;
+
+            return this;
+        }
+
+        let current = this.root;
+
+        while (true) {
+            if (val === current.val) return undefined;
+
+            if (val < current.val) {
+                if (current.left === null) {
+                    current.left === newNode;
+
+                    return this;
+                }
+
+                current = current.left;
+            } else {
+                if (val > current.val) {
+                    if (current.right === null) {
+                        current.right === newNode;
+
+                        return this;
+                    }
+
+                    current = current.right;
+                }
+            }
+        }
+    }
+}
+
+let tree2 = new BinarySearchTree2();
+
+tree2.insert(10);
+
+tree2.insert(5);
+
+tree2.insert(13);
+
+tree2.insert(11);
+
+tree2.insert(2);
+
+tree2.insert(16);
+
+tree2.insert(7);
+
+console.log(tree2);
+
+/*
+    { 
+        root: { 
+            val: 10, 
+            left: { 
+                val: 5, 
+                left: { 
+                    val: 2, 
+                    left: null, 
+                    right: null 
+                }, 
+                right: { 
+                    val: 7, 
+                    left: null, 
+                    right: null 
+                } 
+            }, 
+            right: { 
+                val: 13, 
+                left: { 
+                    val: 11, 
+                    left: null, 
+                    right: null 
+                }, 
+                right: { 
+                    val: 16, 
+                    left: null, 
+                    right: null 
+                } 
+            } 
+        } 
+    }
 */
 
 /*---------------------------------------------------------------------------------------------------*/
