@@ -4485,7 +4485,8 @@ class Queue {
         - Lists are linear, Trees are non-linear.
         - Tree can only have one root.
         - Node can only point to a child.
-        - Node can't point to its sibling node. 
+        - Node can't point to its sibling node.
+        - Node can have more than one Child. 
         - Child can only have one parent. 
         - Child can't point to its parent.
         - There are many different types of trees.
@@ -4497,6 +4498,21 @@ class Queue {
         - Siblings: A group of nodes with the same parent.
         - Leaf: A node with no children.
         - Edge: The connection between one node and another.
+*/
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L161: Uses For Trees
+
+/*
+    >> Tress Examples:
+        - HTML DOM.
+        - Network Routing.
+        - Abstract Syntax Tree.
+        - Artificial Intelligence.
+        - Folders in Operating Systems.
+        - Computer File Systems.
+        - JSON.
 */
 
 /*---------------------------------------------------------------------------------------------------*/
