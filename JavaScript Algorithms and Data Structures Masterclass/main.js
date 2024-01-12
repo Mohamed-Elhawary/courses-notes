@@ -1671,7 +1671,6 @@ mergeSort([10, 24, 76, 73]);
 
 /*
     >> Big O of Merge Sort:
-
         • Time Complexity [Best]: [O(n log n)]
         • Time Complexity [Average]: [O(n log n)]
         • Time Complexity [Worst]: [O(n log n)]
@@ -1797,7 +1796,6 @@ quickSort([4, 6, 9, 1, 2, 5]);
 
 /*
     >> Big O of Quick Sort:
-
         • Time Complexity [Best]: [O(n log n)] >> If the data is randomly and not sorted any way from the beginning. 
         • Time Complexity [Average]: [O(n log n)]
         • Time Complexity [Worst]: [O(n²)] >> If the data is already sorted from the beginning, and this is because we take the (pivot) always as the first element in the array, which is always the minimum element in the array.
@@ -1913,7 +1911,6 @@ radixSort([23, 345, 5467, 12, 2345, 9852]);
 
 /*
     >> Big O of Radix Sort:
-
         • Time Complexity [Best]: [O(nk)]
         • Time Complexity [Average]: [O(nk)]
         • Time Complexity [Worst]: [O(nk)]
@@ -4811,5 +4808,25 @@ tree3.find(99); // undefined
 tree3.contains(7); // true
 
 tree3.contains(99); // false
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L170: Big O of Binary Search Trees
+
+/*
+    >> Big O of BST:
+        • Insertion: [O(log n)] >> Best & Average
+        • Searching: [O(log n)] >> Best & Average
+
+        - 2x number of nodes: 1 extra step
+        - 4x number of nodes: 2 extra steps
+        - 8x number of nodes: 3 extra steps
+
+        • Insertion: [O(n)] >> Worst 
+        • Searching: [O(n)] >> Worst
+
+        - The worst case scenario happens, if the tree has one side only, left or right side, and to enhance this you can pick a different root from the tree
+          and then restructure the entire tree to has 2 sides instead of one side.
+*/
 
 /*---------------------------------------------------------------------------------------------------*/
