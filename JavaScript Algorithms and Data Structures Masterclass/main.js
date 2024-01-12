@@ -4701,3 +4701,115 @@ console.log(tree2);
 */
 
 /*---------------------------------------------------------------------------------------------------*/
+
+// L169: BST: Find Solution
+
+class BinarySearchTree3 {
+    constructor() {
+        this.root = null;
+    }
+
+    insert(val) {
+        const newNode = new TreeNode(val);
+
+        if (this.root === null) {
+            this.root = newNode;
+
+            return this;
+        }
+
+        let current = this.root;
+
+        while (true) {
+            if (val === current.val) return undefined;
+
+            if (val < current.val) {
+                if (current.left === null) {
+                    current.left === newNode;
+
+                    return this;
+                }
+
+                current = current.left;
+            } else {
+                if (val > current.val) {
+                    if (current.right === null) {
+                        current.right === newNode;
+
+                        return this;
+                    }
+
+                    current = current.right;
+                }
+            }
+        }
+    }
+
+    find(val) {
+        if (this.root === null) return undefined;
+
+        let current = this.root;
+
+        let found = false;
+
+        while (current && !found) {
+            if (val < current.val) {
+                current = current.left;
+            } else if (val > current.val) {
+                current = current.right;
+            } else {
+                found = true;
+            }
+        }
+
+        if (!found) return undefined;
+
+        return current;
+    }
+
+    contains(val) {
+        if (this.root === null) return false;
+
+        let current = this.root;
+
+        let found = false;
+
+        while (current && !found) {
+            if (val < current.val) {
+                current = current.left;
+            } else if (val > current.val) {
+                current = current.right;
+            } else {
+                return true;
+            }
+        }
+
+        return false;
+    }
+}
+
+let tree3 = new BinarySearchTree3();
+
+tree3.insert(10);
+
+tree3.insert(5);
+
+tree3.insert(13);
+
+tree3.insert(11);
+
+tree3.insert(2);
+
+tree3.insert(16);
+
+tree3.insert(7);
+
+tree3.find(7); // { val: 7, left: null, right: null }
+
+tree3.find(99); // undefined
+
+tree3.contains(7); // true
+
+tree3.contains(99); // false
+
+/*---------------------------------------------------------------------------------------------------*/
