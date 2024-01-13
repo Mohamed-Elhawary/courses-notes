@@ -4836,14 +4836,34 @@ tree3.contains(99); // false
 // L172: Intro To Tree Traversal
 
 /*
+ --------------------------------
+                10
+            6        15
+        3       8         20
+ --------------------------------
     >> Traversing a Tree Ways:
-        - Breadth-first Search [BFS].
+        - Breadth-first Search [BFS]. >> [10, 6, 15, 3, 8, 20]
         - Depth-first Search [DFS].
 
     >> Depth-first Search Versions:
-        - InOrder.
-        - PreOrder.
-        - PostOrder.
+        - InOrder. >> [3, 6, 8, 10, 15, 20]
+        - PreOrder. >> [10, 6, 3, 8, 15, 20]
+        - PostOrder. >> [3, 8, 6, 20, 15, 10]
+*/
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L173: Breadth First Search Intro
+
+/*
+    >> BFS Pseudocode:
+        - Create a queue (this can be an array) and a variable to store the values of nodes visited.
+        - Place the root node in the queue.
+        - Loop as long as there is anything in the queue:
+            • Dequeue a node from the queue and push the value of the node into the variable that stores the nodes.
+            • If there is a left property on the node dequeued - add it to the queue.
+            • If there is a right property on the node dequeued - add it to the queue.
+        - Return the variable that stores the values.
 */
 
 /*---------------------------------------------------------------------------------------------------*/
