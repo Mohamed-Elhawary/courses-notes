@@ -4830,3 +4830,20 @@ tree3.contains(99); // false
 */
 
 /*---------------------------------------------------------------------------------------------------*/
+
+/* Section 23: Tree Traversal */
+
+// L172: Intro To Tree Traversal
+
+/*
+    >> Traversing a Tree Ways:
+        - Breadth-first Search [BFS].
+        - Depth-first Search [DFS].
+
+    >> Depth-first Search Versions:
+        - InOrder.
+        - PreOrder.
+        - PostOrder.
+*/
+
+/*---------------------------------------------------------------------------------------------------*/
