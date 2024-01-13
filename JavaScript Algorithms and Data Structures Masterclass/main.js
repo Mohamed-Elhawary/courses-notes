@@ -4849,6 +4849,8 @@ tree3.contains(99); // false
         - InOrder. >> [3, 6, 8, 10, 15, 20]
         - PreOrder. >> [10, 6, 3, 8, 15, 20]
         - PostOrder. >> [3, 8, 6, 20, 15, 10]
+
+    - The 2 ways don't require the tree to be binary search tree, it could be plain tree, binary tree or binary search tree.
 */
 
 /*---------------------------------------------------------------------------------------------------*/
@@ -4865,5 +4867,90 @@ tree3.contains(99); // false
             • If there is a right property on the node dequeued - add it to the queue.
         - Return the variable that stores the values.
 */
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L174: Breadth First Search Solution
+
+
+class BinarySearchTree4 {
+    constructor() {
+        this.root = null;
+    }
+
+    insert(val) {
+        const newNode = new TreeNode(val);
+
+        if (this.root === null) {
+            this.root = newNode;
+
+            return this;
+        }
+
+        let current = this.root;
+
+        while (true) {
+            if (val === current.val) return undefined;
+
+            if (val < current.val) {
+                if (current.left === null) {
+                    current.left === newNode;
+
+                    return this;
+                }
+
+                current = current.left;
+            } else {
+                if (val > current.val) {
+                    if (current.right === null) {
+                        current.right === newNode;
+
+                        return this;
+                    }
+
+                    current = current.right;
+                }
+            }
+        }
+    }
+
+    BFS() {
+        let node = this.root;
+
+        const data = [];
+
+        const queue = [];
+
+        queue.push(node);
+
+        while (queue.length) {
+            node = queue.shift();
+
+            data.push(node.val);
+
+            if (node.left) queue.push(node.left);
+
+            if (node.right) queue.push(node.right);
+        }
+
+        return data;
+    }
+}
+
+let tree4 = new BinarySearchTree4();
+
+tree4.insert(10);
+
+tree4.insert(6);
+
+tree4.insert(15);
+
+tree4.insert(3);
+
+tree4.insert(8);
+
+tree4.insert(20);
+
+tree4.BFS(); // [10, 6, 15, 3, 8, 20]
 
 /*---------------------------------------------------------------------------------------------------*/
