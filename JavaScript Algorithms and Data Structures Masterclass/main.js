@@ -4969,3 +4969,81 @@ tree4.BFS(); // [10, 6, 15, 3, 8, 20]
 */
 
 /*---------------------------------------------------------------------------------------------------*/
+
+// L176: Depth First PreOrder Solution
+
+class BinarySearchTree5 {
+    constructor() {
+        this.root = null;
+    }
+
+    insert(val) {
+        const newNode = new TreeNode(val);
+
+        if (this.root === null) {
+            this.root = newNode;
+
+            return this;
+        }
+
+        let current = this.root;
+
+        while (true) {
+            if (val === current.val) return undefined;
+
+            if (val < current.val) {
+                if (current.left === null) {
+                    current.left === newNode;
+
+                    return this;
+                }
+
+                current = current.left;
+            } else {
+                if (val > current.val) {
+                    if (current.right === null) {
+                        current.right === newNode;
+
+                        return this;
+                    }
+
+                    current = current.right;
+                }
+            }
+        }
+    }
+
+    DFSPreOrder() {
+        const data = [];
+
+        const traverse = (node) => {
+            data.push(node.val);
+
+            if (node.left) traverse(node.left);
+
+            if (node.right) traverse(node.right);
+        }
+
+        traverse(this.root);
+
+        return data;
+    }
+}
+
+let tree5 = new BinarySearchTree5();
+
+tree5.insert(10);
+
+tree5.insert(6);
+
+tree5.insert(15);
+
+tree5.insert(3);
+
+tree5.insert(8);
+
+tree5.insert(20);
+
+tree5.DFSPreOrder(); // [10, 6, 3, 8, 15, 20]
+
+/*---------------------------------------------------------------------------------------------------*/
