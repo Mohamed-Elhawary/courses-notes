@@ -5063,3 +5063,81 @@ tree5.DFSPreOrder(); // [10, 6, 3, 8, 15, 20]
 */
 
 /*---------------------------------------------------------------------------------------------------*/
+
+// L178: Depth First PostOrder Solution
+
+class BinarySearchTree6 {
+    constructor() {
+        this.root = null;
+    }
+
+    insert(val) {
+        const newNode = new TreeNode(val);
+
+        if (this.root === null) {
+            this.root = newNode;
+
+            return this;
+        }
+
+        let current = this.root;
+
+        while (true) {
+            if (val === current.val) return undefined;
+
+            if (val < current.val) {
+                if (current.left === null) {
+                    current.left === newNode;
+
+                    return this;
+                }
+
+                current = current.left;
+            } else {
+                if (val > current.val) {
+                    if (current.right === null) {
+                        current.right === newNode;
+
+                        return this;
+                    }
+
+                    current = current.right;
+                }
+            }
+        }
+    }
+
+    DFSPostOrder() {
+        const data = [];
+
+        const traverse = (node) => {
+            if (node.left) traverse(node.left);
+
+            if (node.right) traverse(node.right);
+
+            data.push(node.val);
+        }
+
+        traverse(this.root);
+
+        return data;
+    }
+}
+
+let tree6 = new BinarySearchTree6();
+
+tree6.insert(10);
+
+tree6.insert(6);
+
+tree6.insert(15);
+
+tree6.insert(3);
+
+tree6.insert(8);
+
+tree6.insert(20);
+
+tree6.DFSPostOrder(); // [3, 8, 6, 20, 15, 10]
+
+/*---------------------------------------------------------------------------------------------------*/
