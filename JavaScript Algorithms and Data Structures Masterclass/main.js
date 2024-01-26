@@ -5235,3 +5235,25 @@ tree7.insert(20);
 tree7.DFSInOrder(); // [3, 6, 8, 10, 15, 20]
 
 /*---------------------------------------------------------------------------------------------------*/
+
+// L181: When to Use BFS and DFS
+
+/*
+    >> Time Complexity is the same for both BFS & DFS, because we visit every node once.
+    >> Space Complexity depends on the structure of the tree.
+        - If it is a wide tree breadth, so BFS could store a lot more space for that queue and keep tracking of a lot of nodes than DFS.
+        - If it is a really deep long tree, so DFS could end up taking up more space.
+
+    >> DFS types use cases:
+        - InOrder: if you want to get the nodes in the tree in their underlying order, so you want to get them from smallest to largest, so you can use InOrder.
+        - PreOrder: if you want to create a tree from scratch, so you can use PreOrder. Can be used to export the tree structure so that it is easily reconstructed or copied.
+        - PostOrder: if you want to delete the entire tree, so you can use PostOrder.
+
+    >> Recap: 
+        - Trees are non-linear data structures that contain a root and child nodes.
+        - Binary Trees can have values of any type, but at most two children for each parent.
+        - Binary Search Trees are a more specific version of binary trees where every node to the left of a parent is less than it's value and every node to the right is greater.
+        - We can search through Trees using BFS and DFS. 
+*/
+
+/*---------------------------------------------------------------------------------------------------*/
