@@ -5157,3 +5157,81 @@ tree6.DFSPostOrder(); // [3, 8, 6, 20, 15, 10]
 */
 
 /*---------------------------------------------------------------------------------------------------*/
+
+// L180: Depth First InOrder Solution
+
+class BinarySearchTree7 {
+    constructor() {
+        this.root = null;
+    }
+
+    insert(val) {
+        const newNode = new TreeNode(val);
+
+        if (this.root === null) {
+            this.root = newNode;
+
+            return this;
+        }
+
+        let current = this.root;
+
+        while (true) {
+            if (val === current.val) return undefined;
+
+            if (val < current.val) {
+                if (current.left === null) {
+                    current.left === newNode;
+
+                    return this;
+                }
+
+                current = current.left;
+            } else {
+                if (val > current.val) {
+                    if (current.right === null) {
+                        current.right === newNode;
+
+                        return this;
+                    }
+
+                    current = current.right;
+                }
+            }
+        }
+    }
+
+    DFSInOrder() {
+        const data = [];
+
+        const traverse = (node) => {
+            if (node.left) traverse(node.left);
+
+            data.push(node.val);
+
+            if (node.right) traverse(node.right);
+        }
+
+        traverse(this.root);
+
+        return data;
+    }
+}
+
+let tree7 = new BinarySearchTree6();
+
+tree7.insert(10);
+
+tree7.insert(6);
+
+tree7.insert(15);
+
+tree7.insert(3);
+
+tree7.insert(8);
+
+tree7.insert(20);
+
+tree7.DFSInOrder(); // [3, 6, 8, 10, 15, 20]
+
+/*---------------------------------------------------------------------------------------------------*/
