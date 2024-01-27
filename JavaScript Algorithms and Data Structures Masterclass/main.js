@@ -5245,9 +5245,9 @@ tree7.DFSInOrder(); // [3, 6, 8, 10, 15, 20]
         - If it is a really deep long tree, so DFS could end up taking up more space.
 
     >> DFS types use cases:
-        - InOrder: if you want to get the nodes in the tree in their underlying order, so you want to get them from smallest to largest, so you can use InOrder.
-        - PreOrder: if you want to create a tree from scratch, so you can use PreOrder. Can be used to export the tree structure so that it is easily reconstructed or copied.
-        - PostOrder: if you want to delete the entire tree, so you can use PostOrder.
+        - InOrder: If you want to get the nodes in the tree in their underlying order, so you want to get them from smallest to largest, so you can use InOrder.
+        - PreOrder: If you want to create a tree from scratch, so you can use PreOrder. Can be used to export the tree structure so that it is easily reconstructed or copied.
+        - PostOrder: If you want to delete the entire tree, so you can use PostOrder.
 
     >> Recap: 
         - Trees are non-linear data structures that contain a root and child nodes.

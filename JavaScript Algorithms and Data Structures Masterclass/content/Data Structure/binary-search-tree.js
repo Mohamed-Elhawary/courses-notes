@@ -92,4 +92,74 @@ class BinarySearchTree {
 
         return false;
     }
+
+    BFS () {
+        let node = this.root;
+
+        const data = [];
+
+        const queue = [];
+
+        queue.push(node);
+
+        while (queue.length) {
+            node = queue.shift();
+
+            data.push(node.val);
+
+            if (node.left) queue.push(node.left);
+
+            if (node.right) queue.push(node.right);
+        }
+
+        return data;
+    }
+
+    DFSPreOrder() {
+        const data = [];
+
+        const traverse = (node) => {
+            data.push(node.val);
+
+            if (node.left) traverse(node.left);
+
+            if (node.right) traverse(node.right);
+        }
+
+        traverse(this.root);
+
+        return data;
+    }
+
+    DFSPostOrder() {
+        const data = [];
+
+        const traverse = (node) => {
+            if (node.left) traverse(node.left);
+
+            if (node.right) traverse(node.right);
+
+            data.push(node.val);
+        }
+
+        traverse(this.root);
+
+        return data;
+    }
+
+    DFSInOrder() {
+        const data = [];
+
+        const traverse = (node) => {
+            if (node.left) traverse(node.left);
+
+            data.push(node.val);
+
+            if (node.right) traverse(node.right);
+        }
+
+        traverse(this.root);
+
+        return data;
+    }
 }
