@@ -5286,7 +5286,19 @@ tree7.DFSInOrder(); // [3, 6, 8, 10, 15, 20]
     >> Min Binary Heap:
         - Each parent has at most two child nodes.
         - The value of each parent node is always smaller than its child nodes.
-        - In a max Binary Heap the parent is smaller than the children, but there are no guarantees between sibling nodes.
+        - In a min Binary Heap the parent is smaller than the children, but there are no guarantees between sibling nodes.
+*/
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L184: Storing Heaps
+
+/*
+    >> There is an easy way of sorting a binary heap (List/ Array)
+    >> For any index of an array (n):
+        - The left child is stored at (2n + 1).
+        - The right child is stored at (2n + 2).
+        - It's parent is stored at (n - 1)/2 [floored]
 */
 
 /*---------------------------------------------------------------------------------------------------*/
