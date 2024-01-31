@@ -5218,7 +5218,7 @@ class BinarySearchTree7 {
     }
 }
 
-let tree7 = new BinarySearchTree6();
+let tree7 = new BinarySearchTree7();
 
 tree7.insert(10);
 
@@ -5363,23 +5363,23 @@ class MaxBinaryHeap1 {
     }
 }
 
-let heap = new MaxBinaryHeap1();
+let heap1 = new MaxBinaryHeap1();
 
-heap.insert(33);
+heap1.insert(41);
 
-heap.insert(41);
+heap1.insert(39);
 
-heap.insert(39);
+heap1.insert(33);
 
-heap.insert(18);
+heap1.insert(18);
 
-heap.insert(27);
+heap1.insert(27);
 
-heap.insert(12);
+heap1.insert(12);
 
-heap.insert(55);
+heap1.insert(55);
 
-console.log(heap.values); // [55, 39, 41, 18, 27, 12, 33]
+console.log(heap1.values); // [55, 39, 41, 18, 27, 12, 33]
 
 /*---------------------------------------------------------------------------------------------------*/
 
@@ -5407,5 +5407,122 @@ console.log(heap.values); // [55, 39, 41, 18, 27, 12, 33]
             • Keep looping and swapping until neither child is larger than the element.
             • Return the old root!
 */
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L188: Heap: ExtractMax Solution
+
+class MaxBinaryHeap2 {
+    constructor() {
+        this.values = [];
+    }
+
+    insert(element) {
+        this.values.push(element);
+
+        this.bubbleUp();
+    }
+
+    bubbleUp() {
+        let index = this.values.length - 1;
+
+        const element = this.values[index];
+
+        while (index > 0) {
+            let parentIndex = Math.floor((index - 1)/2);
+
+            let parent = this.values[parentIndex];
+
+            if (element <= parent) break;
+
+            this.values[parentIndex] = element;
+
+            this.values[index] = parent;
+
+            index = parentIndex;
+        }
+    }
+
+    extractMax() {
+        const max = this.values[0];
+
+        const end = this.values.pop();
+
+        if (this.values.length > 0) {
+            this.values[0] = end;
+
+            this.sinkDown();
+        }
+
+        return max;
+    }
+
+    sinkDown() {
+        let index = 0;
+
+        const length = this.values.length;
+
+        const element = this.values[0];
+
+        while (true) {
+            let leftChildIndex = 2 * index + 1;
+
+            let rightChildIndex = 2 * index + 2;
+
+            let leftChild;
+
+            let rightChild;
+
+            let swap = null;
+
+            if (leftChildIndex < length) {
+                leftChild = this.values[leftChildIndex];
+
+                if (leftChild > element) {
+                    swap = leftChildIndex;
+                }
+            }
+
+            if (rightChildIndex < length) {
+                rightChild = this.values[rightChildIndex];
+
+                if (
+                    (swap === null && rightChild > element) || 
+                    (swap !== null && rightChild > leftChild)
+                ) {
+                    swap = rightChildIndex;
+                }
+            }
+
+            if (swap === null) break;
+
+            this.values[index] = this.values[swap];
+
+            this.values[swap] = element;
+
+            index = swap;
+        }
+    }
+}
+
+let heap2 = new MaxBinaryHeap2();
+
+heap2.insert(41);
+
+heap2.insert(39);
+
+heap2.insert(33);
+
+heap2.insert(18);
+
+heap2.insert(27);
+
+heap2.insert(12);
+
+heap2.insert(55);
+
+heap2.extractMax(); // 55
+
+console.log(heap2.values); // [41, 39, 33, 18, 27, 12]
 
 /*---------------------------------------------------------------------------------------------------*/
