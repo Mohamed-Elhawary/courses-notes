@@ -5299,6 +5299,17 @@ tree7.DFSInOrder(); // [3, 6, 8, 10, 15, 20]
         - The left child is stored at (2n + 1).
         - The right child is stored at (2n + 2).
         - It's parent is stored at (n - 1)/2 [floored]
+
+    >> [55, 39, 41, 18, 27, 12, 33]
+        - Parent of index [6] > (33) is: (6 - 1)/2 = 2.5 ==>floored==> index [2] > (41)
+        - Left child of index [2] > (41) is: (2 * 2) + 1 = 5 ==> index [5] > (12)
+        - Right child of index [2] > (41) is: (2 * 2) + 2 = 6 ==> index [6] > (33)
+
+        - So the list can be represented as follows:
+            55
+       39        41
+    
+    18    27   12    33  
 */
 
 /*---------------------------------------------------------------------------------------------------*/
@@ -5315,5 +5326,59 @@ tree7.DFSInOrder(); // [3, 6, 8, 10, 15, 20]
                 • Swap the value of the values element at the parentIndex with the value of the element property at the child index.
                 • Set the index to be the parentIndex, and start over!
 */
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L186: Heap: Insert Solution
+
+class MaxBinaryHeap1 {
+    constructor() {
+        this.values = [];
+    }
+
+    insert(element) {
+        this.values.push(element);
+
+        this.bubbleUp();
+    }
+
+    bubbleUp() {
+        let index = this.values.length - 1;
+
+        const element = this.values[index];
+
+        while (index > 0) {
+            let parentIndex = Math.floor((index - 1)/2);
+
+            let parent = this.values[parentIndex];
+
+            if (element <= parent) break;
+
+            this.values[parentIndex] = element;
+
+            this.values[index] = parent;
+
+            index = parentIndex;
+        }
+    }
+}
+
+let heap = new MaxBinaryHeap1();
+
+heap.insert(33);
+
+heap.insert(41);
+
+heap.insert(39);
+
+heap.insert(18);
+
+heap.insert(27);
+
+heap.insert(12);
+
+heap.insert(55);
+
+console.log(heap.values); // [55, 39, 41, 18, 27, 12, 33]
 
 /*---------------------------------------------------------------------------------------------------*/
