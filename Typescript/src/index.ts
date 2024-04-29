@@ -1,4 +1,7 @@
-/*SECTION [1]: Lecture [4]*/
+/* Section 1: Getting Started */
+
+// L4: Installing & Using TypeScript
+
 const input = document.getElementById('number')! as HTMLInputElement; // Exclamation Mark (!) to ensure that the element with the "input" ID will never yield >> (null)
 const button = document.getElementById('button')! as HTMLButtonElement;
 
@@ -11,7 +14,10 @@ button.addEventListener("click", function() {
 });
 
 
-/*SECTION [2]: Lecture [11]*/
+/* Section 2: TypeScript Basics & Basic Types */
+
+// L11: Using Types
+
 function collect(n1: number, n2: number): number {
     return n1 + n2;
 }
@@ -21,20 +27,23 @@ const number2 = 3;
 
 console.log(collect(number1, number2));
 
-/*SECTION [2]: Lecture [12]*/
-// > The Key difference between JS & TS is [JS uses dynamic types that are resolved at runtime], but [TS uses static types that are resolved during development mode]
+// L12: TypeScript Types vs JavaScript Types
 
-/*SECTION [2]: Lecture [15]*/
-// Type Assignment
-let numberAss: number;
+/*
+    - The Key difference between JS & TS is [JS uses dynamic types that are resolved at runtime], 
+      but [TS uses static types that are resolved during development mode]
+*/
+
+// L15: Type Assignment & Type Inference
+
+let numberAss: number; // Type Assignment
 numberAss = 5;
 
-// Type Inference [Best Practice & better syntax]
-let numberInf = 5; // === let numberInf: number = 5; but we don't have to assign the type explicitly here as well like the above example, cause this type now rely on type inference
+let numberInf = 5; // Type Inference [Best Practice & better syntax] === let numberInf: number = 5; but we don't have to assign the type explicitly here as well like the above example, cause this type now rely on type inference
 
-/*SECTION [2]: Lecture [16]*/
-// Object Type Assignment
-const objectAss: {
+// L16: Object Types
+
+const objectAss: { // Object Type Assignment
     name: string;
     age: number;
 } = {
@@ -42,29 +51,30 @@ const objectAss: {
     age: 27,
 };
 
-// Object Type Inference [Best Practice & better syntax]
-const objectInf = {
+const objectInf = { // Object Type Inference [Best Practice & better syntax]
     name: "hawary",
     age: 27,
 };
 
-/*SECTION [2]: Lecture [18]*/
-// Array Type Assignment
-let arrAss: string[] = ["sports", "driving"];
+// L18: Arrays Types
 
-// Array Type Inference [Best Practice & better syntax]
-let arrInf = ["swim", "watch movies"];
+let arrAss: string[] = ["sports", "driving"]; // Array Type Assignment
 
-/*SECTION [2]: Lecture [19]*/
+let arrInf = ["swim", "watch movies"]; // Array Type Inference [Best Practice & better syntax]
+
+// L19: Working with Tuples
+
 let tupleArray: [number, string] = [12, "admin"]; // This is a [Tuple] type, it is a normal array but has fixed length and fixed types of elements that can't not be changed
 
-// tupleArray[1] = 10; xx >> will catch an error
-// tupleArray = [15, "author", "admin"]; xx >> will catch an error
-// tupleArray.push("author"); >> TypeScript can't detect [push] method as it increases the array fixed length, so it allows us to use it with tuples normally, [This is an issue in the compiler itself]
+/* 
+    - tupleArray[1] = 10; // xx >> will catch an error
+    - tupleArray = [15, "author", "admin"]; // xx >> will catch an error
+    - tupleArray.push("author"); // xx >> TypeScript can't detect [push] method as it increases the array fixed length, so it allows us to use it with tuples normally, [This is an issue in the compiler itself]
+*/
 
-/*SECTION [2]: Lecture [20]*/
-// Automatically enumerated global constant identifiers, starting from Zero based index.
-enum Role {
+// L20: Working with Enums
+
+enum Role { // Automatically enumerated global constant identifiers, starting from Zero based index.
     ADMIN,
     AUTHOR,
     USER,
@@ -78,13 +88,16 @@ enum Type {
 
 console.log(Role.ADMIN, Type.FUN);
 
-/*SECTION [2]: Lecture [21]*/
+// L21: The "any" Type
+
 const anyType: any = "string"; // Any kind of value, no specific type assignment, you can use it as a fallback if you have some value or some kind of data where you really can't know which kind of data will be stored in there.
 
-/*SECTION [2]: Lecture [22]*/
+// L22: Union Types
+
 const unionType: string | number | boolean = "string"; // Union Type
 
-/*SECTION [2]: Lecture [23]*/
+// L23: Literal Types
+
 function literalType(result: "as-number" | "as-string") { // This is the Literal Type combined with union type together, so (result) here has specific literal types you choose, either "as-number" or "as-string" ONLY.
     if(result === "as-number") {
         console.log("number");
@@ -93,45 +106,48 @@ function literalType(result: "as-number" | "as-string") { // This is the Literal
     }
 }
 
-/*SECTION [2]: Lecture [24]*/
+literalType("as-number");
+literalType("as-string");
+// literalType("as-text"); // xx
+
+// L24: Type Aliases / Custom Types
+
 type AliasStringWithNumber = string | number; // Alias
 
 const value: AliasStringWithNumber = 15;
 
-// Type aliases can be used to "create" your own types. You're not limited to storing union types though - you can also provide an alias to a (possibly complex) object type. For example:
+/* 
+    - Type aliases can be used to "create" your own types. 
+    - You're not limited to storing union types though, you can also provide an alias to a (possibly complex) object type.
+*/
 
 type User = { name: string; age: number };
 
 const u1: User = { name: 'Max', age: 30 }; // this works!
 
-// This allows you to avoid unnecessary repetition and manage types centrally. For example, you can simplify this code:
-
-function greet1(user: { name: string; age: number }) {
+function greet1(user: { name: string; age: number }) { 
   console.log('Hi, I am ' + user.name);
 }
  
 function isOlder1(user: { name: string; age: number }, checkAge: number) {
   return checkAge > user.age;
 }
-
-// To:
  
-function greet2(user: User) {
+function greet2(user: User) { // This allows you to avoid unnecessary repetition and manage types centrally
   console.log('Hi, I am ' + user.name);
 }
  
-function isOlder2(user: User, checkAge: number) {
+function isOlder2(user: User, checkAge: number) { // This allows you to avoid unnecessary repetition and manage types centrally
   return checkAge > user.age;
 }
 
-/*SECTION [2]: Lecture [26]*/
-// Function Type Assignment
-function funAss(n1: number, n2: number): number {
+// L26: Function Return Types & "void"
+
+function funAss(n1: number, n2: number): number { // Function Type Assignment
     return n1 + n2;
 }
 
-// Function Type Inference [Best Practice & better syntax]
-function funInf(n1: number, n2: number) {
+function funInf(n1: number, n2: number) { // Function Type Inference [Best Practice & better syntax]
     return n1 + n2;
 }
 
@@ -147,41 +163,45 @@ funVoid(3); // 3
 
 console.log(funVoid(3)); // undefined
 
-/*SECTION [2]: Lecture [27]*/
+// L27: Functions as Types
+
 let funcTypeLessPrecise: Function; // This is good but not perfect, we say this should be a function, but it could also more precise to define the functions inputs and outputs type
 
 funcTypeLessPrecise = funInf;
 funcTypeLessPrecise = funVoid;
-// funcTypeLessPrecise = 5; xx
+// funcTypeLessPrecise = 5; // xx
 
 let funcTypeMorePrecise: (n1: number, n2: number) => number; // Function Type define the parameters and return type of a function
 
 funcTypeMorePrecise = funInf;
-// funcTypeMorePrecise = funVoid; xx
-// funcTypeMorePrecise = 5; xx
 
-/*SECTION [2]: Lecture [28]*/
+/*
+    - funcTypeMorePrecise = funVoid; // xx
+    - funcTypeMorePrecise = 5; // xx
+*/
+
+// L28: Functions Types & Callbacks
+
 function addAndHandle(n1: number, n2 : number, cb: (num: number) => void) { // Function Callback
     const result = n1 + n2;
     cb(result);
 }
 
-// Callback functions can return something, even if the argument on which they're passed does NOT expect a returned value, see below example for more details:
-
-addAndHandle(10, 20, (result) => {
+addAndHandle(10, 20, (result) => { // Callback functions can return something, even if the argument on which they're passed does NOT expect a returned value
     console.log(result);
+    
     return result;
 })
 
-/*SECTION [2]: Lecture [29]*/
+// L29: The "unknown" Type
+
 let userInput: unknown;
 
 let userName: string;
 
 userInput = 5;
 userInput = "Max";
-
-// userName = userInput; xx
+// userName = userInput; // xx
 
 if (typeof userInput === "string") { // we will have to use extra check to make sure that what you want to do can be done.
     userName = userInput;
@@ -193,17 +213,20 @@ let userName2: string;
 
 userInput2 = 5;
 userInput2 = "Max";
-
 userName2 = userInput2; // No problem with [any] type, so unknown is a bit more restrict than any
 
-/*SECTION [2]: Lecture [30]*/
+// L30: The "never" Type
+
 function generateError(msg: string, code: number): never { // never type function, is a function that doesn't return anything, like functions that throw an error or function that handle an infinite loop. 
     throw { message: msg, errorCode: code };
     // throw new Error()
     // while () {}
 }
 
-/*SECTION [5]: Lecture [59, 61, 62, 66, 67, 68]*/
+/* Section 5: Classes & Interfaces */
+
+// Lectures [59, 61, 62, 63, 64, 66, 67, 68]: (Classes)
+
 class Department {
     // public name: string;
     // public readonly id: string;
@@ -216,14 +239,14 @@ class Department {
         // this.name = n;
         this.lastReport = this.reports[0]
     }
-    get mostRecentReport(): any { //getter to get private property
+    get mostRecentReport(): any { // getter to get private property
         if(this.lastReport) {
             return this.lastReport;
         } else {
             console.log("No report found");
         }
     }
-    set mostRecentReport(report: string) { //setter to set private property
+    set mostRecentReport(report: string) { // setter to set private property
         if(!report) {
             console.log("Please add a valid value");
         } else {
@@ -238,7 +261,7 @@ class Department {
         Department.fiscalYear = year;
     }
     addEmployee(employee: string) {
-        this.employees.push(employee);
+        this.employees.push(employee); 
     }
     addReport(report: string) {
         this.reports.push(report);
@@ -266,31 +289,32 @@ accounting.mostRecentReport = "Report 1";
 
 accounting.describe(); // Department Accounting
 
-const accountCopy1 = { describe: accounting.describe() };
+const accountCopy1 = { describe: accounting.describe };
 
-// accountCopy1.describe(); // Department undefined
+accountCopy1.describe(); // Department undefined
 
-const accountCopy2 = { name: "Engineering", describe: accounting.describe(), id: "2" };
+const accountCopy2 = { name: "Engineering", describe: accounting.describe, id: "2" };
 
-// accountCopy2.describe(); // Department Engineering
+accountCopy2.describe(); // Department Engineering
 
 accounting.addEmployee("Max");
-
-// accounting.employees[2] = "Anna"; // error can't be accessable outside the class, because the employees property has private modifier
 
 accounting.printEmployeesInformation();
 
 accounting.addReport("Report 2");
 
-console.log(accounting.mostRecentReport);
-
-// accounting.reports[1] = "report 1"; // error can't be accessable outside the class, because the reports property has protected modifier
-
 accounting.printReportsInformation();
 
-// accounting.id = "2"; // error
+console.log(accounting.mostRecentReport);
 
-/*SECTION [5]: Lecture [65]*/
+/*
+    - accounting.employees[2] = "Anna"; // xx >> error can't be accessible outside the class, because the employees property has private modifier
+    - accounting.reports[1] = "report 1"; // xx >> error can't be accessible outside the class, because the reports property has protected modifier
+    - accounting.id = "2"; // xx >> error
+*/
+
+// L65: Inheritance
+
 class ITDepartment extends Department {
     constructor(id: string, public admins: string[]) {
         super("IT", id);
@@ -298,11 +322,11 @@ class ITDepartment extends Department {
     addAdmin(admin: string ): void {
         this.admins.push(admin)
     }
-    /* addEmployee(employee: string): void {
+    /* addEmployee(employee: string): void { // can't be accessible in the inheritance class that extends from the parent class [Department Class] because we use private modifier with the employees property
         this.employees.push(employee);
-    } */ // can't be accessible in the inheritance class that extends from the parent class [Department Class] because we use private modifier with the employees property
-    addReport(report: string): void {
-        this.reports.push(report); // can be accessible in the inheritance class that extends from the parent class [Department Class] because we use protected modifier with the reports property
+    } */ 
+    addReport(report: string): void { // can be accessible in the inheritance class that extends from the parent class [Department Class] because we use protected modifier with the reports property
+        this.reports.push(report); 
     }
 }
 
@@ -310,7 +334,8 @@ const it = new ITDepartment("25", ["Max"]);
 
 console.log(it);
 
-/*SECTION [5]: Lecture [69]*/
+// L69: Abstract Classes
+
 abstract class Human { // class that has abstract modifier, can't be instantiated or take instances from its structure, should be extended only.
     constructor(public name: string) {}
     abstract describe(): void; // methods that have abstract modifier can't have an implementation in the base parent class but it MUST have implementation in the inheritance classes that extend from the base class
@@ -325,8 +350,14 @@ class Man extends Human {
     }
 }
 
-/*SECTION [5]: Lecture [70]*/
-// Singletons Pattern: This pattern is used to prevent creating more than one instance of a certain singleton class, will ensure that the class has one only instance, we have to use private modifier with inherited class constructor
+// L70: Singletons & Private Constructors
+
+/*
+    -  Singleton Pattern: This pattern is used to prevent creating more than one instance of a certain singleton class. 
+       Will ensure that the class has one only instance, we have to use private modifier with inherited class constructor.
+
+*/
+
 class Animal {
     constructor(public name: string) {}
 }
@@ -350,11 +381,15 @@ const dog = Dog.getInstance();
 
 console.log(dog);
 
-/*SECTION [5]: Lecture [72, 73, 75, 76]*/
-// Interface describes the structure of an object, and how it looks like. 
-// Interface is same as (type) but type is more flexible because we can store other things like union types in the (type).
-// Interface can't own any implementation through it, it has only a structure.
-// Interface can't be used in runtime, because JS doesn't support interfaces.
+// Lectures [72, 73, 74,75, 76]: (Interfaces)
+
+/* 
+    - Interface describes the structure of an object, and how it looks like. 
+    - Interface is same as (type) but type is more flexible because we can store other things like union types in the (type).
+    - Interface can't own any implementation through it, it has only a structure.
+    - Interface can't be used in runtime, because JS doesn't support interfaces.
+*/
+
 interface UserLocation {
     location: string;
 }
@@ -392,12 +427,13 @@ class Person implements Greetable, UserLocation {
 
 let userOne: Greetable;
 
+// userOne.name = "Manu"; // xx >> because "name" is a readonly property
+
 userOne = new Person("User");
 
-// userOne.name = "Manu";
+// L77: Interfaces as Function Type
 
-/*SECTION [5]: Lecture [77]*/
-//type AddFn = (a: number) => number;
+// type AddFn = (a: number) => number;
 
 interface AddFn {
     (a: number): number;
@@ -409,7 +445,10 @@ addNumber = (n: number) => {
     return n;
 }
 
-/*SECTION [6]: Lecture [83]*/
+/* Section 6: Advanced Types */
+
+// L83: Intersection Types
+
 type Admin = {
     name: string;
     role: number;
@@ -423,21 +462,19 @@ type Employee = {
 
 type CompanyManagerMember = Admin & Employee; // Intersection Type.
 
-/* 
->> Another way to do the same effect using interfaces instead of types.
 
-interface Admin {
+// Another way to do the same effect using interfaces instead of types.
+interface Admin2 {
     name: string;
     role: number;
 }
 
-interface Employee {
+interface Employee2 {
     age: number;
     position: string;
 }
 
-interface CompanyManagerMember extends Admin, Employee;
-*/
+interface CompanyManagerMember2 extends Admin2, Employee2 {}
 
 const member: CompanyManagerMember = {
     name: "Admin",
@@ -446,18 +483,14 @@ const member: CompanyManagerMember = {
     position: "Head Manager",
 }
 
-/*SECTION [6]: Lecture [84, 88]*/
+// L84: Type Guards 
+
 type Combine = number | string;
 type Numeric = number;
 
 type Universal = Combine & Numeric;
 
-function concat(a: number, b: number): number; // Function Overload in case of 2 parameters are numbers
-function concat(a: string, b: string): string; // Function Overload in case of 2 parameters are strings
-function concat(a: string, b: number): string; // Function Overload in case of first parameter is string and second parameter is number
-function concat(a: number, b: string): string; // Function Overload in case of first parameter is number and second parameter is string
-
-function concat(a: Combine, b: Combine) {
+function concat1(a: Combine, b: Combine) {
     if(typeof a === "string" || typeof b === "string") { // Type Guard
         return a.toString() + b.toString();
     } else {
@@ -465,13 +498,9 @@ function concat(a: Combine, b: Combine) {
     }
 }
 
-const result = concat("Hawary", " Frontend");
-
-result.split(" "); // We need here to add function overloads that define the return cases types of concat function. [as we add them above before the implementation of concat function]
-
 type UnknownMember = Admin | Employee;
 
-function printComapanyMemeber(compMember: UnknownMember) {
+function printCompanyMember(compMember: UnknownMember) {
     console.log("name: " + compMember.name);
 
     if("role" in compMember) { // Type Guard
@@ -508,7 +537,10 @@ function useVehicle(vehicle: Vehicle) {
     }
 }
 
-/*SECTION [6]: Lecture [85]*/
+useVehicle(v1);
+useVehicle(v2);
+
+// L85: Discriminated Unions
 interface Bird {
     type: "bird", // Discriminated Union [To avoid misspelling and typos] as we can use it to check with it in the switch case statements like below
     flyingSpeed: number,
@@ -522,7 +554,7 @@ interface Horse {
 type BigAnimal = Bird | Horse;
 
 function moveAnimal(animal: BigAnimal) {
-    let speed;
+    // if (animal instanceof Bird) >> will not work because "Bird" is an Interface not Class, which is not compiled to JavaScript
     switch(animal.type) {
         case("bird"):
             console.log(animal.flyingSpeed);
@@ -533,24 +565,34 @@ function moveAnimal(animal: BigAnimal) {
     }
 }
 
-/*SECTION [6]: Lecture [86]*/
-// const inputElement = <HTMLInputElement>document.getElementById("user-input")!; >> Option ONE for Type Casting
-const inputElement = document.getElementById("user-input")! as HTMLInputElement; // >> Option TWO for Type Casting
-inputElement.value = "value";
+moveAnimal({ type: "bird", flyingSpeed: 10 });
 
-//Note: we add exclamation mark above if we are sure that this element will not be equal to "null" but if we aren't sure so we have to add "if" check like below example 
-const inputElement2 = document.getElementById("user-input");
+// L86: Type Casting
 
-if(inputElement2) {
-    (inputElement2 as HTMLInputElement).value = "value";
-}
+const inputElement1 = <HTMLInputElement>document.getElementById("user-input")!; // Option ONE for Type Casting
 
-/*SECTION [6]: Lecture [87]*/
+const inputElement2 = document.getElementById("user-input")! as HTMLInputElement; // Option TWO for Type Casting
+
+inputElement2.value = "value";
 
 /*
-    >> Index Properties give us the flexibility in our interface, so we don't need to know in advance which property names
-    we want to use and how many properties we need in this interface, see below example for more information:
+    -  We add exclamation mark above if we are sure that this element will not be equal to "null",
+       but if we aren't sure so we have to add "if" check like the example below.
 */
+
+const inputElement3 = document.getElementById("user-input");
+
+if(inputElement3) {
+    (inputElement3 as HTMLInputElement).value = "value";
+}
+
+// L87: Index Properties
+
+/*
+    -  Index Properties give us the flexibility in our interface, so we don't need to know in advance which property names
+       we want to use and how many properties we need in this interface.
+*/
+
 interface ErrorContainer {
     id: string, // MUST be a string because we define that each index property in this interface has a string value.
     [prop: string]: string; // Index Property
@@ -562,9 +604,53 @@ const errorObj: ErrorContainer = {
     name: "invalid name",
 }
 
-/*SECTION [6]: Lecture [90]*/
-const userInputValue = "";
+// L88: Function Overloads
 
-const storedData = userInputValue ?? "Default"; // This is called Nullish Coalescing that checks if the variable value equals to [NULL or undefined] only, Empty string here is treated here as truthy value.
+function concat2(a: number, b: number): number; // Function Overload in case of 2 parameters are numbers
+function concat2(a: string, b: string): string; // Function Overload in case of 2 parameters are strings
+function concat2(a: string, b: number): string; // Function Overload in case of first parameter is string and second parameter is number
+function concat2(a: number, b: string): string; // Function Overload in case of first parameter is number and second parameter is string
 
-console.log(storedData);
+function concat2(a: Combine, b: Combine) {
+    if(typeof a === "string" || typeof b === "string") { // Type Guard
+        return a.toString() + b.toString();
+    } else {
+        return a + b;
+    }
+}
+
+const result = concat2("Hawary", " Frontend");
+
+result.split(" "); // We need here to add function overloads that define the return cases types of "concat" function. [as we add them above before the implementation of "concat" function]
+
+// L89: Optional Chaining
+
+const fetchedUserData = {
+    id: 'ul',
+    name: 'Max',
+    job: { title: 'CEO', description: 'My own company' }
+};
+
+    console.log(fetchedUserData?.job?.title);
+
+// L90: Nullish Coalescing
+
+const userInputValue1 = "";
+
+const userInputValue2 = null;
+
+const storedData1 = userInputValue1 || "Default"; 
+
+const storedData2 = userInputValue1 ?? "Default"; // This is called Nullish Coalescing that checks if the variable value equals to [NULL or undefined] only, Empty string here is treated here as truthy value.
+
+const storedData3 = userInputValue2 || "Default"; 
+
+const storedData4 = userInputValue2 ?? "Default"; // This is called Nullish Coalescing that checks if the variable value equals to [NULL or undefined] only, Empty string here is treated here as truthy value.
+
+console.log(storedData1); // Default
+
+console.log(storedData2); // ""
+
+console.log(storedData3); // Default
+
+console.log(storedData4); // Default

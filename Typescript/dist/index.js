@@ -1,5 +1,7 @@
 "use strict";
-/*SECTION [1]: Lecture [4]*/
+/* Section 1: Getting Started */
+var _a;
+// L4: Installing & Using TypeScript
 const input = document.getElementById('number'); // Exclamation Mark (!) to ensure that the element with the "input" ID will never yield >> (null)
 const button = document.getElementById('button');
 function add(num) {
@@ -8,44 +10,43 @@ function add(num) {
 button.addEventListener("click", function () {
     console.log(add(+input.value));
 });
-/*SECTION [2]: Lecture [11]*/
+/* Section 2: TypeScript Basics & Basic Types */
+// L11: Using Types
 function collect(n1, n2) {
     return n1 + n2;
 }
 const number1 = 5.2;
 const number2 = 3;
 console.log(collect(number1, number2));
-/*SECTION [2]: Lecture [12]*/
-// > The Key difference between JS & TS is [JS uses dynamic types that are resolved at runtime], but [TS uses static types that are resolved during development mode]
-/*SECTION [2]: Lecture [15]*/
-// Type Assignment
-let numberAss;
+// L12: TypeScript Types vs JavaScript Types
+/*
+    - The Key difference between JS & TS is [JS uses dynamic types that are resolved at runtime],
+      but [TS uses static types that are resolved during development mode]
+*/
+// L15: Type Assignment & Type Inference
+let numberAss; // Type Assignment
 numberAss = 5;
-// Type Inference [Best Practice & better syntax]
-let numberInf = 5; // === let numberInf: number = 5; but we don't have to assign the type explicitly here as well like the above example, cause this type now rely on type inference
-/*SECTION [2]: Lecture [16]*/
-// Object Type Assignment
+let numberInf = 5; // Type Inference [Best Practice & better syntax] === let numberInf: number = 5; but we don't have to assign the type explicitly here as well like the above example, cause this type now rely on type inference
+// L16: Object Types
 const objectAss = {
     name: "hawary",
     age: 27,
 };
-// Object Type Inference [Best Practice & better syntax]
 const objectInf = {
     name: "hawary",
     age: 27,
 };
-/*SECTION [2]: Lecture [18]*/
-// Array Type Assignment
-let arrAss = ["sports", "driving"];
-// Array Type Inference [Best Practice & better syntax]
-let arrInf = ["swim", "watch movies"];
-/*SECTION [2]: Lecture [19]*/
+// L18: Arrays Types
+let arrAss = ["sports", "driving"]; // Array Type Assignment
+let arrInf = ["swim", "watch movies"]; // Array Type Inference [Best Practice & better syntax]
+// L19: Working with Tuples
 let tupleArray = [12, "admin"]; // This is a [Tuple] type, it is a normal array but has fixed length and fixed types of elements that can't not be changed
-// tupleArray[1] = 10; xx >> will catch an error
-// tupleArray = [15, "author", "admin"]; xx >> will catch an error
-// tupleArray.push("author"); >> TypeScript can't detect [push] method as it increases the array fixed length, so it allows us to use it with tuples normally, [This is an issue in the compiler itself]
-/*SECTION [2]: Lecture [20]*/
-// Automatically enumerated global constant identifiers, starting from Zero based index.
+/*
+    - tupleArray[1] = 10; // xx >> will catch an error
+    - tupleArray = [15, "author", "admin"]; // xx >> will catch an error
+    - tupleArray.push("author"); // xx >> TypeScript can't detect [push] method as it increases the array fixed length, so it allows us to use it with tuples normally, [This is an issue in the compiler itself]
+*/
+// L20: Working with Enums
 var Role;
 (function (Role) {
     Role[Role["ADMIN"] = 0] = "ADMIN";
@@ -59,11 +60,11 @@ var Type;
     Type["FUN"] = "Movies";
 })(Type || (Type = {}));
 console.log(Role.ADMIN, Type.FUN);
-/*SECTION [2]: Lecture [21]*/
+// L21: The "any" Type
 const anyType = "string"; // Any kind of value, no specific type assignment, you can use it as a fallback if you have some value or some kind of data where you really can't know which kind of data will be stored in there.
-/*SECTION [2]: Lecture [22]*/
+// L22: Union Types
 const unionType = "string"; // Union Type
-/*SECTION [2]: Lecture [23]*/
+// L23: Literal Types
 function literalType(result) {
     if (result === "as-number") {
         console.log("number");
@@ -72,28 +73,26 @@ function literalType(result) {
         console.log("string");
     }
 }
+literalType("as-number");
+literalType("as-string");
 const value = 15;
 const u1 = { name: 'Max', age: 30 }; // this works!
-// This allows you to avoid unnecessary repetition and manage types centrally. For example, you can simplify this code:
 function greet1(user) {
     console.log('Hi, I am ' + user.name);
 }
 function isOlder1(user, checkAge) {
     return checkAge > user.age;
 }
-// To:
 function greet2(user) {
     console.log('Hi, I am ' + user.name);
 }
 function isOlder2(user, checkAge) {
     return checkAge > user.age;
 }
-/*SECTION [2]: Lecture [26]*/
-// Function Type Assignment
+// L26: Function Return Types & "void"
 function funAss(n1, n2) {
     return n1 + n2;
 }
-// Function Type Inference [Best Practice & better syntax]
 function funInf(n1, n2) {
     return n1 + n2;
 }
@@ -105,31 +104,32 @@ function funVoid(num) {
 }
 funVoid(3); // 3
 console.log(funVoid(3)); // undefined
-/*SECTION [2]: Lecture [27]*/
+// L27: Functions as Types
 let funcTypeLessPrecise; // This is good but not perfect, we say this should be a function, but it could also more precise to define the functions inputs and outputs type
 funcTypeLessPrecise = funInf;
 funcTypeLessPrecise = funVoid;
-// funcTypeLessPrecise = 5; xx
+// funcTypeLessPrecise = 5; // xx
 let funcTypeMorePrecise; // Function Type define the parameters and return type of a function
 funcTypeMorePrecise = funInf;
-// funcTypeMorePrecise = funVoid; xx
-// funcTypeMorePrecise = 5; xx
-/*SECTION [2]: Lecture [28]*/
+/*
+    - funcTypeMorePrecise = funVoid; // xx
+    - funcTypeMorePrecise = 5; // xx
+*/
+// L28: Functions Types & Callbacks
 function addAndHandle(n1, n2, cb) {
     const result = n1 + n2;
     cb(result);
 }
-// Callback functions can return something, even if the argument on which they're passed does NOT expect a returned value, see below example for more details:
 addAndHandle(10, 20, (result) => {
     console.log(result);
     return result;
 });
-/*SECTION [2]: Lecture [29]*/
+// L29: The "unknown" Type
 let userInput;
 let userName;
 userInput = 5;
 userInput = "Max";
-// userName = userInput; xx
+// userName = userInput; // xx
 if (typeof userInput === "string") { // we will have to use extra check to make sure that what you want to do can be done.
     userName = userInput;
 }
@@ -138,13 +138,14 @@ let userName2;
 userInput2 = 5;
 userInput2 = "Max";
 userName2 = userInput2; // No problem with [any] type, so unknown is a bit more restrict than any
-/*SECTION [2]: Lecture [30]*/
+// L30: The "never" Type
 function generateError(msg, code) {
     throw { message: msg, errorCode: code };
     // throw new Error()
     // while () {}
 }
-/*SECTION [5]: Lecture [59, 61, 62, 66, 67, 68]*/
+/* Section 5: Classes & Interfaces */
+// Lectures [59, 61, 62, 63, 64, 66, 67, 68]: (Classes)
 class Department {
     // constructor(n: string) {
     constructor(name, id) {
@@ -204,19 +205,21 @@ const accounting = new Department("Accounting", "s2");
 console.log(accounting.mostRecentReport); // DON'T add function parentheses () here to execute getter method, instead treat with it as a normal property
 accounting.mostRecentReport = "Report 1";
 accounting.describe(); // Department Accounting
-const accountCopy1 = { describe: accounting.describe() };
-// accountCopy1.describe(); // Department undefined
-const accountCopy2 = { name: "Engineering", describe: accounting.describe(), id: "2" };
-// accountCopy2.describe(); // Department Engineering
+const accountCopy1 = { describe: accounting.describe };
+accountCopy1.describe(); // Department undefined
+const accountCopy2 = { name: "Engineering", describe: accounting.describe, id: "2" };
+accountCopy2.describe(); // Department Engineering
 accounting.addEmployee("Max");
-// accounting.employees[2] = "Anna"; // error can't be accessable outside the class, because the employees property has private modifier
 accounting.printEmployeesInformation();
 accounting.addReport("Report 2");
-console.log(accounting.mostRecentReport);
-// accounting.reports[1] = "report 1"; // error can't be accessable outside the class, because the reports property has protected modifier
 accounting.printReportsInformation();
-// accounting.id = "2"; // error
-/*SECTION [5]: Lecture [65]*/
+console.log(accounting.mostRecentReport);
+/*
+    - accounting.employees[2] = "Anna"; // xx >> error can't be accessible outside the class, because the employees property has private modifier
+    - accounting.reports[1] = "report 1"; // xx >> error can't be accessible outside the class, because the reports property has protected modifier
+    - accounting.id = "2"; // xx >> error
+*/
+// L65: Inheritance
 class ITDepartment extends Department {
     constructor(id, admins) {
         super("IT", id);
@@ -225,16 +228,16 @@ class ITDepartment extends Department {
     addAdmin(admin) {
         this.admins.push(admin);
     }
-    /* addEmployee(employee: string): void {
+    /* addEmployee(employee: string): void { // can't be accessible in the inheritance class that extends from the parent class [Department Class] because we use private modifier with the employees property
         this.employees.push(employee);
-    } */ // can't be accessible in the inheritance class that extends from the parent class [Department Class] because we use private modifier with the employees property
+    } */
     addReport(report) {
-        this.reports.push(report); // can be accessible in the inheritance class that extends from the parent class [Department Class] because we use protected modifier with the reports property
+        this.reports.push(report);
     }
 }
 const it = new ITDepartment("25", ["Max"]);
 console.log(it);
-/*SECTION [5]: Lecture [69]*/
+// L69: Abstract Classes
 class Human {
     constructor(name) {
         this.name = name;
@@ -248,8 +251,12 @@ class Man extends Human {
         console.log("Hello", this.name);
     }
 }
-/*SECTION [5]: Lecture [70]*/
-// Singletons Pattern: This pattern is used to prevent creating more than one instance of a certain singleton class, will ensure that the class has one only instance, we have to use private modifier with inherited class constructor
+// L70: Singletons & Private Constructors
+/*
+    -  Singleton Pattern: This pattern is used to prevent creating more than one instance of a certain singleton class.
+       Will ensure that the class has one only instance, we have to use private modifier with inherited class constructor.
+
+*/
 class Animal {
     constructor(name) {
         this.name = name;
@@ -289,33 +296,19 @@ class Person {
     }
 }
 let userOne;
+// userOne.name = "Manu"; // xx >> because "name" is a readonly property
 userOne = new Person("User");
 let addNumber;
 addNumber = (n) => {
     return n;
 };
-/*
->> Another way to do the same effect using interfaces instead of types.
-
-interface Admin {
-    name: string;
-    role: number;
-}
-
-interface Employee {
-    age: number;
-    position: string;
-}
-
-interface CompanyManagerMember extends Admin, Employee;
-*/
 const member = {
     name: "Admin",
     role: 0,
     age: 3,
     position: "Head Manager",
 };
-function concat(a, b) {
+function concat1(a, b) {
     if (typeof a === "string" || typeof b === "string") { // Type Guard
         return a.toString() + b.toString();
     }
@@ -323,9 +316,7 @@ function concat(a, b) {
         return a + b;
     }
 }
-const result = concat("Hawary", " Frontend");
-result.split(" "); // We need here to add function overloads that define the return cases types of concat function. [as we add them above before the implementation of concat function]
-function printComapanyMemeber(compMember) {
+function printCompanyMember(compMember) {
     console.log("name: " + compMember.name);
     if ("role" in compMember) { // Type Guard
         console.log("role: " + compMember.role);
@@ -352,8 +343,10 @@ function useVehicle(vehicle) {
         vehicle.loadCargo(1000);
     }
 }
+useVehicle(v1);
+useVehicle(v2);
 function moveAnimal(animal) {
-    let speed;
+    // if (animal instanceof Bird) >> will not work because "Bird" is an Interface not Class, which is not compiled to JavaScript
     switch (animal.type) {
         case ("bird"):
             console.log(animal.flyingSpeed);
@@ -363,22 +356,50 @@ function moveAnimal(animal) {
             break;
     }
 }
-/*SECTION [6]: Lecture [86]*/
-// const inputElement = <HTMLInputElement>document.getElementById("user-input")!; >> Option ONE for Type Casting
-const inputElement = document.getElementById("user-input"); // >> Option TWO for Type Casting
-inputElement.value = "value";
-//Note: we add exclamation mark above if we are sure that this element will not be equal to "null" but if we aren't sure so we have to add "if" check like below example 
-const inputElement2 = document.getElementById("user-input");
-if (inputElement2) {
-    inputElement2.value = "value";
+moveAnimal({ type: "bird", flyingSpeed: 10 });
+// L86: Type Casting
+const inputElement1 = document.getElementById("user-input"); // Option ONE for Type Casting
+const inputElement2 = document.getElementById("user-input"); // Option TWO for Type Casting
+inputElement2.value = "value";
+/*
+    -  We add exclamation mark above if we are sure that this element will not be equal to "null",
+       but if we aren't sure so we have to add "if" check like the example below.
+*/
+const inputElement3 = document.getElementById("user-input");
+if (inputElement3) {
+    inputElement3.value = "value";
 }
 const errorObj = {
     id: "1",
     email: "invalid email",
     name: "invalid name",
 };
-/*SECTION [6]: Lecture [90]*/
-const userInputValue = "";
-const storedData = userInputValue !== null && userInputValue !== void 0 ? userInputValue : "Default"; // This is called Nullish Coalescing that checks if the variable value equals to [NULL or undefined] only, Empty string here is treated here as truthy value.
-console.log(storedData);
+function concat2(a, b) {
+    if (typeof a === "string" || typeof b === "string") { // Type Guard
+        return a.toString() + b.toString();
+    }
+    else {
+        return a + b;
+    }
+}
+const result = concat2("Hawary", " Frontend");
+result.split(" "); // We need here to add function overloads that define the return cases types of "concat" function. [as we add them above before the implementation of "concat" function]
+// L89: Optional Chaining
+const fetchedUserData = {
+    id: 'ul',
+    name: 'Max',
+    job: { title: 'CEO', description: 'My own company' }
+};
+console.log((_a = fetchedUserData === null || fetchedUserData === void 0 ? void 0 : fetchedUserData.job) === null || _a === void 0 ? void 0 : _a.title);
+// L90: Nullish Coalescing
+const userInputValue1 = "";
+const userInputValue2 = null;
+const storedData1 = userInputValue1 || "Default";
+const storedData2 = userInputValue1 !== null && userInputValue1 !== void 0 ? userInputValue1 : "Default"; // This is called Nullish Coalescing that checks if the variable value equals to [NULL or undefined] only, Empty string here is treated here as truthy value.
+const storedData3 = userInputValue2 || "Default";
+const storedData4 = userInputValue2 !== null && userInputValue2 !== void 0 ? userInputValue2 : "Default"; // This is called Nullish Coalescing that checks if the variable value equals to [NULL or undefined] only, Empty string here is treated here as truthy value.
+console.log(storedData1); // Default
+console.log(storedData2); // ""
+console.log(storedData3); // Default
+console.log(storedData4); // Default
 //# sourceMappingURL=index.js.map
