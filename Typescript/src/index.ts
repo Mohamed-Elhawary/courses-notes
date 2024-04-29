@@ -13,6 +13,7 @@ button.addEventListener("click", function() {
     console.log(add(+input.value));
 });
 
+/*---------------------------------------------------------------------------------------------------*/
 
 /* Section 2: TypeScript Basics & Basic Types */
 
@@ -27,6 +28,8 @@ const number2 = 3;
 
 console.log(collect(number1, number2));
 
+/*---------------------------------------------------------------------------------------------------*/
+
 // L12: TypeScript Types vs JavaScript Types
 
 /*
@@ -34,12 +37,16 @@ console.log(collect(number1, number2));
       but [TS uses static types that are resolved during development mode]
 */
 
+/*---------------------------------------------------------------------------------------------------*/
+
 // L15: Type Assignment & Type Inference
 
 let numberAss: number; // Type Assignment
 numberAss = 5;
 
 let numberInf = 5; // Type Inference [Best Practice & better syntax] === let numberInf: number = 5; but we don't have to assign the type explicitly here as well like the above example, cause this type now rely on type inference
+
+/*---------------------------------------------------------------------------------------------------*/
 
 // L16: Object Types
 
@@ -56,11 +63,15 @@ const objectInf = { // Object Type Inference [Best Practice & better syntax]
     age: 27,
 };
 
+/*---------------------------------------------------------------------------------------------------*/
+
 // L18: Arrays Types
 
 let arrAss: string[] = ["sports", "driving"]; // Array Type Assignment
 
 let arrInf = ["swim", "watch movies"]; // Array Type Inference [Best Practice & better syntax]
+
+/*---------------------------------------------------------------------------------------------------*/
 
 // L19: Working with Tuples
 
@@ -71,6 +82,8 @@ let tupleArray: [number, string] = [12, "admin"]; // This is a [Tuple] type, it 
     - tupleArray = [15, "author", "admin"]; // xx >> will catch an error
     - tupleArray.push("author"); // xx >> TypeScript can't detect [push] method as it increases the array fixed length, so it allows us to use it with tuples normally, [This is an issue in the compiler itself]
 */
+
+/*---------------------------------------------------------------------------------------------------*/
 
 // L20: Working with Enums
 
@@ -88,13 +101,19 @@ enum Type {
 
 console.log(Role.ADMIN, Type.FUN);
 
+/*---------------------------------------------------------------------------------------------------*/
+
 // L21: The "any" Type
 
 const anyType: any = "string"; // Any kind of value, no specific type assignment, you can use it as a fallback if you have some value or some kind of data where you really can't know which kind of data will be stored in there.
 
+/*---------------------------------------------------------------------------------------------------*/
+
 // L22: Union Types
 
 const unionType: string | number | boolean = "string"; // Union Type
+
+/*---------------------------------------------------------------------------------------------------*/
 
 // L23: Literal Types
 
@@ -109,6 +128,8 @@ function literalType(result: "as-number" | "as-string") { // This is the Literal
 literalType("as-number");
 literalType("as-string");
 // literalType("as-text"); // xx
+
+/*---------------------------------------------------------------------------------------------------*/
 
 // L24: Type Aliases / Custom Types
 
@@ -141,6 +162,8 @@ function isOlder2(user: User, checkAge: number) { // This allows you to avoid un
   return checkAge > user.age;
 }
 
+/*---------------------------------------------------------------------------------------------------*/
+
 // L26: Function Return Types & "void"
 
 function funAss(n1: number, n2: number): number { // Function Type Assignment
@@ -163,6 +186,8 @@ funVoid(3); // 3
 
 console.log(funVoid(3)); // undefined
 
+/*---------------------------------------------------------------------------------------------------*/
+
 // L27: Functions as Types
 
 let funcTypeLessPrecise: Function; // This is good but not perfect, we say this should be a function, but it could also more precise to define the functions inputs and outputs type
@@ -180,6 +205,8 @@ funcTypeMorePrecise = funInf;
     - funcTypeMorePrecise = 5; // xx
 */
 
+/*---------------------------------------------------------------------------------------------------*/
+
 // L28: Functions Types & Callbacks
 
 function addAndHandle(n1: number, n2 : number, cb: (num: number) => void) { // Function Callback
@@ -192,6 +219,8 @@ addAndHandle(10, 20, (result) => { // Callback functions can return something, e
     
     return result;
 })
+
+/*---------------------------------------------------------------------------------------------------*/
 
 // L29: The "unknown" Type
 
@@ -215,6 +244,8 @@ userInput2 = 5;
 userInput2 = "Max";
 userName2 = userInput2; // No problem with [any] type, so unknown is a bit more restrict than any
 
+/*---------------------------------------------------------------------------------------------------*/
+
 // L30: The "never" Type
 
 function generateError(msg: string, code: number): never { // never type function, is a function that doesn't return anything, like functions that throw an error or function that handle an infinite loop. 
@@ -222,6 +253,8 @@ function generateError(msg: string, code: number): never { // never type functio
     // throw new Error()
     // while () {}
 }
+
+/*---------------------------------------------------------------------------------------------------*/
 
 /* Section 5: Classes & Interfaces */
 
@@ -313,6 +346,8 @@ console.log(accounting.mostRecentReport);
     - accounting.id = "2"; // xx >> error
 */
 
+/*---------------------------------------------------------------------------------------------------*/
+
 // L65: Inheritance
 
 class ITDepartment extends Department {
@@ -334,6 +369,8 @@ const it = new ITDepartment("25", ["Max"]);
 
 console.log(it);
 
+/*---------------------------------------------------------------------------------------------------*/
+
 // L69: Abstract Classes
 
 abstract class Human { // class that has abstract modifier, can't be instantiated or take instances from its structure, should be extended only.
@@ -349,6 +386,8 @@ class Man extends Human {
         console.log("Hello", this.name);
     }
 }
+
+/*---------------------------------------------------------------------------------------------------*/
 
 // L70: Singletons & Private Constructors
 
@@ -380,6 +419,8 @@ class Dog extends Animal {
 const dog = Dog.getInstance();
 
 console.log(dog);
+
+/*---------------------------------------------------------------------------------------------------*/
 
 // Lectures [72, 73, 74,75, 76]: (Interfaces)
 
@@ -430,6 +471,8 @@ let userOne: Greetable;
 // userOne.name = "Manu"; // xx >> because "name" is a readonly property
 
 userOne = new Person("User");
+
+/*---------------------------------------------------------------------------------------------------*/
 
 // L77: Interfaces as Function Type
 
@@ -482,6 +525,8 @@ const member: CompanyManagerMember = {
     age: 3,
     position: "Head Manager",
 }
+
+/*---------------------------------------------------------------------------------------------------*/
 
 // L84: Type Guards 
 
@@ -540,6 +585,8 @@ function useVehicle(vehicle: Vehicle) {
 useVehicle(v1);
 useVehicle(v2);
 
+/*---------------------------------------------------------------------------------------------------*/
+
 // L85: Discriminated Unions
 interface Bird {
     type: "bird", // Discriminated Union [To avoid misspelling and typos] as we can use it to check with it in the switch case statements like below
@@ -567,6 +614,8 @@ function moveAnimal(animal: BigAnimal) {
 
 moveAnimal({ type: "bird", flyingSpeed: 10 });
 
+/*---------------------------------------------------------------------------------------------------*/
+
 // L86: Type Casting
 
 const inputElement1 = <HTMLInputElement>document.getElementById("user-input")!; // Option ONE for Type Casting
@@ -586,6 +635,8 @@ if(inputElement3) {
     (inputElement3 as HTMLInputElement).value = "value";
 }
 
+/*---------------------------------------------------------------------------------------------------*/
+
 // L87: Index Properties
 
 /*
@@ -603,6 +654,8 @@ const errorObj: ErrorContainer = {
     email: "invalid email",
     name: "invalid name",
 }
+
+/*---------------------------------------------------------------------------------------------------*/
 
 // L88: Function Overloads
 
@@ -623,6 +676,8 @@ const result = concat2("Hawary", " Frontend");
 
 result.split(" "); // We need here to add function overloads that define the return cases types of "concat" function. [as we add them above before the implementation of "concat" function]
 
+/*---------------------------------------------------------------------------------------------------*/
+
 // L89: Optional Chaining
 
 const fetchedUserData = {
@@ -631,7 +686,9 @@ const fetchedUserData = {
     job: { title: 'CEO', description: 'My own company' }
 };
 
-    console.log(fetchedUserData?.job?.title);
+console.log(fetchedUserData?.job?.title);
+
+/*---------------------------------------------------------------------------------------------------*/
 
 // L90: Nullish Coalescing
 
@@ -654,3 +711,217 @@ console.log(storedData2); // ""
 console.log(storedData3); // Default
 
 console.log(storedData4); // Default
+
+/*---------------------------------------------------------------------------------------------------*/
+
+/* Section 7: Generics */
+
+// L94: Built-in Generics & What are Generics?
+
+/*
+    - Where can we use Generics?
+        >> In cases where you have a type that actually works together with multiple other possible types.
+*/
+
+const names: Array<string> = ['John', 'Alice']; // Generic Type === const names: string[] = ['John', 'Alice'];
+
+const promise: Promise<string> = new Promise((resolve, reject) => { // Generic Type
+    setTimeout(() => {
+        resolve('This is done!');
+    }, 2000);
+});
+
+promise.then(data => {
+    data.split(' ');
+});
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L95: Creating a Generic Function 
+
+function merge<T, U>(objA: T, objB: U) { // Generic Function
+    //@ts-ignore
+    return Object.assign(objA, objB); 
+}
+
+const mergedObj1 = merge({ name: 'Max' }, 30);
+
+//@ts-ignore
+console.log(mergedObj1.name); // Max
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L96: Working with Constraints
+
+/*
+    - Constraints allow you to narrow down the concrete types that may be used in a generic function.
+*/
+
+function merge2<T extends object, U extends object>(objA: T, objB: U) { // Generic Function
+    //@ts-ignore
+    return Object.assign(objA, objB); 
+}
+
+// const mergedObj2 = merge2({ name: 'Max' }, 30); // xx
+
+const mergedObj2 = merge2({ name: 'Max' }, { age: 30 });
+
+console.log(mergedObj2.age); // 30
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L97: Another Generic Function
+
+interface Lengthy {
+    length: number;
+}
+
+function countAndDescribe<T extends Lengthy>(element: T): [T, string] { // Generic Function
+    let descriptionText = 'Got no value.';
+    if (element.length === 1) {
+        descriptionText = 'Got 1 element.';
+    } else if (element.length > 1) {
+        descriptionText = 'Got ' + element.length + ' elements.';
+    }
+    return [element, descriptionText];
+}
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L98: The "keyof" Constraint
+
+function extractAndConvert<T extends object, U extends keyof T>(obj: T, key: U) { // Generic Function
+    return 'Value: ' + obj[key];
+}
+
+extractAndConvert({ name: "Max" }, "name");
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L99: Generic Classes
+
+class DataStorage1<T extends string | number | boolean | object> { // Generic Class
+    private data: T[] = [];
+
+    addItem(item: T) {
+        this.data.push(item);
+    }
+
+    removeItem(item: T) {
+        if (this.data.indexOf(item) === -1) {
+            return;
+        }
+
+        this.data.splice(this.data.indexOf(item), 1);
+    }
+
+    getItems() {
+        return [...this.data];
+    }
+}
+
+const textStorage = new DataStorage1<string>();  
+
+textStorage.addItem("Hello");
+textStorage.addItem("World");
+textStorage.removeItem("Hello");
+
+console.log(textStorage.getItems());
+
+const objectStorage = new DataStorage1<object>();
+
+const maxObj = { name: "Max" };
+
+objectStorage.addItem({ name: "Max" });
+objectStorage.addItem(maxObj);
+objectStorage.addItem({ name: "Manu" });
+objectStorage.removeItem({ name: "Max" }); // will not remove Max obj, because objects are reference data type, so it has different addresses or pointers.
+objectStorage.removeItem(maxObj); // will remove the Max obj, because we store the reference of the Max object in a variable so we can use this variable in removing item.
+
+console.log(objectStorage.getItems());
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L101: Generic Utility Types
+
+interface CourseGoal {
+    title: string;
+    description: string;
+    completeUntil: Date;
+}
+
+function createCourseGoal(title: string, description: string, date: Date): CourseGoal {
+    let courseGoal: Partial<CourseGoal> = {}; // Partial Utility Type, that makes all the properties in the type data are optional
+    courseGoal.title = title;
+    courseGoal.description = description;
+    courseGoal.completeUntil = date;
+
+    return courseGoal as CourseGoal;
+}
+
+const readonlyNames: Readonly<string[]> = ["Max", "Anna"]; // Readonly Utility Type, that prevents editing in the variable
+
+// readonlyNames.push("Manu"); // xx 
+
+// readonlyNames.pop(); // xx
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L102: Generic Types vs Union Types
+
+class DataStorage2 { 
+    private data: (string | number | boolean)[] = []; // Array that can have strings, numbers and boolean mixed.
+
+    addItem(item: string | number | boolean) {
+        this.data.push(item);
+    }
+
+    removeItem(item: string | number | boolean) {
+        if (this.data.indexOf(item) === -1) {
+            return;
+        }
+
+        this.data.splice(this.data.indexOf(item), 1);
+    }
+
+    getItems() {
+        return [...this.data];
+    }
+}
+
+const textStorage2 = new DataStorage2();  
+
+textStorage2.addItem("Hello");
+textStorage2.addItem("World");
+textStorage2.removeItem("Hello");
+
+class DataStorage3 { 
+    private data: string[] | number[] | boolean[] = []; // Either an array of strings or array of numbers or array of booleans [Prefer to use Generic Type at this case]
+
+    addItem(item: string | number | boolean) {
+        // this.data.push(item); // xx >> can't do this because item maybe string, number or boolean and the data array should contains only one type of strings, numbers or booleans 
+    }
+
+    removeItem(item: string | number | boolean) {
+        /* 
+            if (this.data.indexOf(item) === -1) { // xx >> can't do this because item maybe string, number or boolean and the data array should contains only one type of strings, numbers or booleans
+                return;
+            }
+        */
+
+        // this.data.splice(this.data.indexOf(item), 1);
+    }
+
+    getItems() {
+        return [...this.data];
+    }
+}
+
+/*
+    - Union Types can be great if you want to have a function which you can call with one of these types every time you call it.
+    - Generic Types are great if you want to lock in a certain type and use the same type throughout the entire class instance you create.
+    - In Generic Types you have to choose once which kind of data yo want to store and then you are only allowed to add that exact type of data. 
+    - In Union Types you are flexible to have a different type with every method call.
+*/
+
+/*---------------------------------------------------------------------------------------------------*/
