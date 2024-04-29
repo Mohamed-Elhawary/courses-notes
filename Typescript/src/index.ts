@@ -754,7 +754,8 @@ console.log(mergedObj1.name); // Max
 // L96: Working with Constraints
 
 /*
-    - Constraints allow you to narrow down the concrete types that may be used in a generic function.
+    - What are Constraints? 
+        >> Constraints allow you to narrow down the concrete types that may be used in a generic function.
 */
 
 function merge2<T extends object, U extends object>(objA: T, objB: U) { // Generic Function
@@ -922,6 +923,116 @@ class DataStorage3 {
     - Generic Types are great if you want to lock in a certain type and use the same type throughout the entire class instance you create.
     - In Generic Types you have to choose once which kind of data yo want to store and then you are only allowed to add that exact type of data. 
     - In Union Types you are flexible to have a different type with every method call.
+*/
+
+/*---------------------------------------------------------------------------------------------------*/
+
+/* Section 8: Decorators */
+
+// L105: A First Class Decorator
+
+function Logger1(constructor: Function) { // Decorator Function >> The "constructor" argument in the decorator function is the constructor function of the class that the decorator is attached to. (Default Argument) 
+    console.log('Logging');
+
+    console.log(constructor);
+}
+
+@Logger1 // Decorator
+
+class Person2 {
+    name = 'Max';
+
+    constructor() {
+        console.log('Creating person object...');
+    }
+}
+
+const john1 = new Person2();
+
+console.log(john1);
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L106: Working with Decorator Factories
+
+function Logger2(logString: string) { // Factory Function >> use it if you need to pass more arguments to the decorator beside the "constructor"
+    return function(constructor: Function) { // Decorator Function
+        console.log(logString);
+        
+        console.log(constructor);
+    }
+}
+
+@Logger2('Logging') // Decorator Factory
+
+class Person3 {
+    name = 'Max';
+
+    constructor() {
+        console.log('Creating person object...');
+    }
+}
+
+const john2 = new Person3();
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// Lectures [107 & 108]: (Building More Useful Decorators & Adding Multiple Decorators)
+
+function Logger3(logString: string) { 
+    console.log("Logger Factory");
+
+    return function(constructor: Function) {
+        console.log(logString);
+        
+        console.log(constructor);
+    }
+}
+
+function WithTemplate(template: string, hookId: string) { // Factory Function
+    console.log("Template Factory");
+
+    return function(constructor: any) { // Decorator Function
+        console.log("Rendering Template");
+
+        const hookEl = document.getElementById(hookId);
+        
+        const person = new constructor();
+        
+        if(hookEl) {
+            hookEl.innerHTML = template;
+
+            const hookElText = hookEl.querySelector('h1')!.textContent;
+
+            hookEl.querySelector('h1')!.textContent = hookElText + " is " + person.name;
+        }
+    }
+}
+
+@Logger3('Logging') 
+@WithTemplate(`<h1>My Person Object</h1>`, 'app') // Decorator Factory
+
+class Person4 {
+    name = 'Max';
+
+    constructor() {
+        console.log('Creating person object...');
+    }
+}
+
+const john3 = new Person4();
+
+/*
+    - The order of the decorators is important, because the decorators will be executed from the bottom to the top. so "WithTemplate" Decorator function will be executed before "Logger" Decorator function.
+    - The execution of the Factory functions will respect the JavaScript rules so will be executed from the top to the bottom as they are ordered, so the "Logger" Factory function will be executed before the "WithTemplate" Factory function.
+    - Outputs:
+        > Logger Factory
+        > Template Factory
+        > Rendering Template
+        > Creating person object...
+        > Logging
+        > [Function: Person4]
+        > Creating person object...
 */
 
 /*---------------------------------------------------------------------------------------------------*/

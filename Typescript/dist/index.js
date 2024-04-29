@@ -1,5 +1,11 @@
 "use strict";
 /* Section 1: Getting Started */
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 var _a;
 // L4: Installing & Using TypeScript
 const input = document.getElementById('number'); // Exclamation Mark (!) to ensure that the element with the "input" ID will never yield >> (null)
@@ -452,7 +458,8 @@ console.log(mergedObj1.name); // Max
 /*---------------------------------------------------------------------------------------------------*/
 // L96: Working with Constraints
 /*
-    - Constraints allow you to narrow down the concrete types that may be used in a generic function.
+    - What are Constraints?
+        >> Constraints allow you to narrow down the concrete types that may be used in a generic function.
 */
 function merge2(objA, objB) {
     //@ts-ignore
@@ -567,5 +574,86 @@ class DataStorage3 {
     - In Generic Types you have to choose once which kind of data yo want to store and then you are only allowed to add that exact type of data.
     - In Union Types you are flexible to have a different type with every method call.
 */
-/*---------------------------------------------------------------------------------------------------*/ 
+/*---------------------------------------------------------------------------------------------------*/
+/* Section 8: Decorators */
+// L105: A First Class Decorator
+function Logger1(constructor) {
+    console.log('Logging');
+    console.log(constructor);
+}
+let Person2 = class Person2 {
+    constructor() {
+        this.name = 'Max';
+        console.log('Creating person object...');
+    }
+};
+Person2 = __decorate([
+    Logger1 // Decorator
+], Person2);
+const john1 = new Person2();
+console.log(john1);
+/*---------------------------------------------------------------------------------------------------*/
+// L106: Working with Decorator Factories
+function Logger2(logString) {
+    return function (constructor) {
+        console.log(logString);
+        console.log(constructor);
+    };
+}
+let Person3 = class Person3 {
+    constructor() {
+        this.name = 'Max';
+        console.log('Creating person object...');
+    }
+};
+Person3 = __decorate([
+    Logger2('Logging') // Decorator Factory
+], Person3);
+const john2 = new Person3();
+/*---------------------------------------------------------------------------------------------------*/
+// Lectures [107 & 108]: (Building More Useful Decorators & Adding Multiple Decorators)
+function Logger3(logString) {
+    console.log("Logger Factory");
+    return function (constructor) {
+        console.log(logString);
+        console.log(constructor);
+    };
+}
+function WithTemplate(template, hookId) {
+    console.log("Template Factory");
+    return function (constructor) {
+        console.log("Rendering Template");
+        const hookEl = document.getElementById(hookId);
+        const person = new constructor();
+        if (hookEl) {
+            hookEl.innerHTML = template;
+            const hookElText = hookEl.querySelector('h1').textContent;
+            hookEl.querySelector('h1').textContent = hookElText + " is " + person.name;
+        }
+    };
+}
+let Person4 = class Person4 {
+    constructor() {
+        this.name = 'Max';
+        console.log('Creating person object...');
+    }
+};
+Person4 = __decorate([
+    Logger3('Logging'),
+    WithTemplate(`<h1>My Person Object</h1>`, 'app') // Decorator Factory
+], Person4);
+const john3 = new Person4();
+/*
+    - The order of the decorators is important, because the decorators will be executed from the bottom to the top. so "WithTemplate" Decorator function will be executed before "Logger" Decorator function.
+    - The execution of the Factory functions will respect the JavaScript rules so will be executed from the top to the bottom as they are ordered, so the "Logger" Factory function will be executed before the "WithTemplate" Factory function.
+    - Outputs:
+        > Logger Factory
+        > Template Factory
+        > Rendering Template
+        > Creating person object...
+        > Logging
+        > [Function: Person4]
+        > Creating person object...
+*/
+/*---------------------------------------------------------------------------------------------------*/
 //# sourceMappingURL=index.js.map
