@@ -719,13 +719,13 @@ console.log(storedData4); // Default
 // L94: Built-in Generics & What are Generics?
 
 /*
-    - Where can we use Generics?
-        >> In cases where you have a type that actually works together with multiple other possible types.
+    >> Where can we use Generics?
+        - In cases where you have a type that actually works together with multiple other possible types.
 */
 
-const names: Array<string> = ['John', 'Alice']; // Generic Type === const names: string[] = ['John', 'Alice'];
+const names: Array<string> = ['John', 'Alice']; // Built-in Generic Type === const names: string[] = ['John', 'Alice'];
 
-const promise: Promise<string> = new Promise((resolve, reject) => { // Generic Type
+const promise: Promise<string> = new Promise((resolve, reject) => { // Built-in Generic Type
     setTimeout(() => {
         resolve('This is done!');
     }, 2000);
@@ -754,8 +754,8 @@ console.log(mergedObj1.name); // Max
 // L96: Working with Constraints
 
 /*
-    - What are Constraints? 
-        >> Constraints allow you to narrow down the concrete types that may be used in a generic function.
+    >> What are Constraints? 
+        - Constraints allow you to narrow down the concrete types that may be used in a generic function.
 */
 
 function merge2<T extends object, U extends object>(objA: T, objB: U) { // Generic Function
@@ -963,7 +963,7 @@ function Logger2(logString: string) { // Factory Function >> use it if you need 
     }
 }
 
-@Logger2('Logging') // Decorator Factory
+@Logger2('Logging') // Factory Decorator 
 
 class Person3 {
     name = 'Max';
@@ -979,21 +979,21 @@ const john2 = new Person3();
 
 // Lectures [107 & 108]: (Building More Useful Decorators & Adding Multiple Decorators)
 
-function Logger3(logString: string) { 
+function Logger3(logString: string) { // Factory Function
     console.log("Logger Factory");
 
-    return function(constructor: Function) {
+    return function(constructor: Function) { // Decorator Function
         console.log(logString);
         
         console.log(constructor);
     }
 }
 
-function WithTemplate(template: string, hookId: string) { // Factory Function
-    console.log("Template Factory");
+function WithTemplate1(template: string, hookId: string) { // Factory Function
+    console.log("Template Factory 1");
 
     return function(constructor: any) { // Decorator Function
-        console.log("Rendering Template");
+        console.log("Rendering Template 1");
 
         const hookEl = document.getElementById(hookId);
         
@@ -1009,14 +1009,14 @@ function WithTemplate(template: string, hookId: string) { // Factory Function
     }
 }
 
-@Logger3('Logging') 
-@WithTemplate(`<h1>My Person Object</h1>`, 'app') // Decorator Factory
+@Logger3('Logging') // Factory Decorator
+@WithTemplate1(`<h1>My Person Object 1</h1>`, 'person1') // Factory Decorator
 
 class Person4 {
     name = 'Max';
 
     constructor() {
-        console.log('Creating person object...');
+        console.log('Creating person object 1...');
     }
 }
 
@@ -1034,5 +1034,277 @@ const john3 = new Person4();
         > [Function: Person4]
         > Creating person object...
 */
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// Lectures [109, 110 & 111]: (Diving into Property Decorators, Accessor & Parameter Decorators & When Do Decorators Execute?)
+
+function Log1(target: any, propertyName: string) { // Property Decorator Function (Not Accept return types)
+    console.log('Property Decorator!');
+
+    console.log(target, propertyName); // prototype of the class {}, "title"
+}
+
+function Log2(target: any, name: string | Symbol, descriptor: PropertyDescriptor) { // Accessor Decorator Function (Accept return types)
+    console.log('Accessor Decorator!');
+    
+    console.log(target, name, descriptor); // prototype of the class {}, "price", set price()
+}
+
+function Log3(target: any, name: string | Symbol, descriptor: PropertyDescriptor) { // Method Decorator Function (Accept return types)
+    console.log('Method Decorator!');
+    
+    console.log(target, name, descriptor); // prototype of the class {}, "getPriceWithTax", getPriceWithTax()
+}
+
+function Log4(target: any, name: string | Symbol, position: number) { // Parameter Decorator Function (Not Accept return types)
+    console.log('Parameter Decorator!');
+
+    console.log(target, name, position);
+
+}
+
+class Product { 
+    @Log1 // Property Decorator
+    title: string;
+    private _price: number;
+
+    @Log2 // Accessor Decorator 
+    set price(val: number) { // Accessor Method
+        if(val > 0) {
+            this._price = val;
+        } else {
+            throw new Error('Invalid price - should be positive!');
+        }
+    }
+
+    constructor(t: string, p: number) {
+        this.title = t;
+        this._price = p;
+    }
+
+    @Log3 // Method Decorator
+    getPriceWithTax(@Log4 tax: number) { // Parameter Decorator
+        return this._price * (1 + tax);
+    }
+}
+
+/*
+    >> Property Decorators:
+        - Property decorators are used to modify properties directly within a class.
+        - They are declared immediately before a property declaration.
+        - They receive two parameters: the "target" which is: (the prototype of the object that was created or the constructor function if we had a static property in the class) and the "property name".
+        - Property decorators are commonly used to add metadata to properties or to perform some action when the property is accessed or assigned.
+
+    >> Accessor Decorators:
+        - Accessor decorators are used to modify accessor methods (get and set) for a property.
+        - They are declared immediately before an accessor declaration (get or set).
+        - They receive three parameters: the "target" which is: (the prototype of the object that was created or the constructor function if we had a static property in the class), the "accessor name", and the "property descriptor".
+        - Accessor decorators allow you to intercept and modify the behavior of property access and assignment.
+
+    >> Method Decorators: 
+        - Method decorators are used to modify methods within a class.
+        - They are declared immediately before a method declaration.
+        - Method decorators receive three parameters: the "target" which is: (the prototype of the object that was created or the constructor function if we had a static property in the class), the "method name", and the "property descriptor".
+        - They can be used to add metadata to methods, modify their behavior, or perform actions before or after method invocation.
+
+    >> Parameter Decorators:
+        - Parameter decorators are used to modify parameters within a method or constructor.
+        - They are declared immediately before a parameter declaration within a method or constructor.
+        - Parameter decorators receive three parameters: the "target" which is: (the prototype of the object that was created or the constructor function if we had a static property in the class), the "method name", and the "parameter index".
+        - They are often used to add metadata to parameters or to perform actions based on the parameter values.
+
+    . In summary, each type of the above decorators serves a specific purpose in TypeScript and it is used inside the class:
+        - Property decorators modify properties.
+        - Accessor decorators modify accessor methods (get and set) for properties.
+        - Method decorators modify methods.
+        - Parameter decorators modify parameters within methods or constructors.
+
+    . Decorators are running without needing to instantiating the class, they are executing when you defined the class. 
+      These are not decorators that run at run time when you call them or when you work with a property, this is not what they do.
+      Instead these decorators allow you to do additional works behind the scenes when a class is defined.
+*/
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L112: Returning (and changing) a Class in a Class Decorator
+
+function WithTemplate2(template: string, hookId: string) { // Factory Function
+    console.log("Template Factory 2");
+
+    return function<T extends { new(...args: any[]): { name: string } }>(originalConstructor: T) { // Decorator Function
+        return class extends originalConstructor {
+            constructor(..._: any[]) {
+                super();
+                console.log("Rendering Template 2");
+
+                const hookEl = document.getElementById(hookId);
+                
+                if(hookEl) {
+                    hookEl.innerHTML = template;
+
+                    const hookElText = hookEl.querySelector('h1')!.textContent;
+
+                    hookEl.querySelector('h1')!.textContent = hookElText + " is " + this.name;
+                }
+            }
+        }
+    }
+}
+
+@WithTemplate2("<h1>My Person Object 2</h1>", 'person2') // Factory Decorator
+class Person5 { 
+    name = 'Max';
+
+    constructor() {
+        console.log('Creating person object 2...');
+    }
+}
+
+const john4 = new Person5(); // We should instantiate the class, in case we return something in the decorator function
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// L114: Example: Creating an "Autobind" Decorator
+
+function Autobind(_: any, _2: string, descriptor: PropertyDescriptor) { // Decorator Function
+    const originalMethod = descriptor.value;
+
+    const adjDescriptor: PropertyDescriptor = {
+        configurable: true,
+        enumerable: false,
+        get() {
+            const boundFn = originalMethod.bind(this);
+            return boundFn;
+
+            /*
+                - (this) refers to whatever is responsible for triggering this getter method,
+                  and the getter method will be triggered by the concrete object to which it belongs,
+                  so (this) inside of the getter method will always refer to the object on which we defined the getter.
+            */
+        }
+    }
+
+    return adjDescriptor;
+}
+
+class Printer {
+    message = 'This works!';
+
+    showMessage1() {
+        console.log(this.message);
+    }
+
+    @Autobind
+    showMessage2() {
+        console.log(this.message);
+    }
+}
+
+const printer = new Printer();
+
+printer.showMessage1(); // This works!
+
+const printerButton1 = document.querySelector('.button1')!;
+
+printerButton1.addEventListener('click', printer.showMessage1); // undefined
+
+printerButton1.addEventListener('click', printer.showMessage1.bind(printer)); // This works!
+
+
+printer.showMessage2(); // This works!
+
+const printerButton2 = document.querySelector('.button2')!;
+
+printerButton2.addEventListener('click', printer.showMessage2); // This works!
+
+printerButton2.addEventListener('click', printer.showMessage2.bind(printer)); // This works!
+
+/*---------------------------------------------------------------------------------------------------*/
+
+// Lectures [115 & 116]: (Validation with Decorators - First Steps & Validation with Decorators - Finished)
+
+interface ValidationConfig {
+    [property: string]: {
+        [validatableProp: string]: string[]; // ['required', 'positive']
+    }
+}
+
+const registeredValidators: ValidationConfig = {};
+
+function Required(target: any, propName: string) {
+    registeredValidators[target.constructor.name] = {
+        ...registeredValidators[target.constructor.name],
+        [propName]: [...(registeredValidators[target.constructor.name]?.[propName] ?? []), 'required'],
+    }
+}
+
+function PositiveNumber(target: any, propName: string) {
+    registeredValidators[target.constructor.name] = {
+        ...registeredValidators[target.constructor.name],
+        [propName]: [...(registeredValidators[target.constructor.name]?.[propName] ?? []), 'positive'],
+    }
+}
+
+function validate(obj: any) {
+    const objValidatorConfig = registeredValidators[obj.constructor.name];
+
+    if(!objValidatorConfig) {
+        return true;
+    }
+
+    let isValid = true;
+
+    for(const prop in objValidatorConfig) {
+        for(const validator of objValidatorConfig[prop]) {
+            switch(validator) {
+                case 'required':
+                    isValid = isValid && !!obj[prop];
+                    break;
+                case 'positive':
+                    isValid = isValid && obj[prop] > 0;
+                    break;
+            }
+        }
+    }
+
+    return isValid;
+}
+
+class Course {
+    @Required
+    title: string;
+    @PositiveNumber
+    price: number;
+
+    constructor(t: string, p: number) {
+        this.title = t;
+
+        this.price = p;
+    }
+}
+
+const courseForm = document.querySelector('form')!;
+
+courseForm.addEventListener('submit', event => {
+    event.preventDefault();
+
+    const titleEl = document.getElementById('title') as HTMLInputElement;
+    const priceEl = document.getElementById('price') as HTMLInputElement;
+
+    const title = titleEl.value;
+    const price = +priceEl.value;
+
+    const createdCourse = new Course(title, price);
+
+    if(!validate(createdCourse)) {
+        console.log(registeredValidators)
+
+        alert("Invalid input, please try again!");
+        return;
+    }
+
+    console.log(createdCourse);
+});
 
 /*---------------------------------------------------------------------------------------------------*/
