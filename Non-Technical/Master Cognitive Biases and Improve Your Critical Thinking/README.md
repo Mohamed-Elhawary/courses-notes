@@ -14,7 +14,7 @@ Cognitive biases undermine critical thinking by making us vulnerable to faulty b
 
 The good news is that there are proven strategies for neutralizing or minimizing the negative effects of cognitive biases. These "debiasing" techniques can be surprisingly simple and effective. 
 
-This course will get you up to speed on what cognitive biases are, why they're important for critical thinking, why cognitive bias training has become popular, and what sorts of "debiasing" techniques have been shown to be effective in improving the quality of thinking and decision-making.
+This course will get you up to speed on what cognitive biases are, why they're important for critical thinking, why cognitive bias training has become popular, and what sorts of "Debiasing" techniques have been shown to be effective in improving the quality of thinking and decision-making.
 
 ------------------
 

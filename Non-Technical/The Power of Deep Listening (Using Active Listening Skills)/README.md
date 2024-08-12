@@ -14,7 +14,7 @@ Active listening is as suspending judgment and being fully present with another 
 
 As you use active listening, you create a climate of respect based on non-judgment and receptivity that allows others to express themselves fully. You make it safe for them to express not only surface opinions but also their deeper feelings and needs as well as inner experience and wisdom.
 
-### Using Active Listening Skills is how you:
+### Benefits of using Active Listening Skills
 
 · Establish Deeper Connections
 · Build Trust, Rapport, and Goodwill
@@ -23,11 +23,11 @@ As you use active listening, you create a climate of respect based on non-judgme
 · Promote Learning, Growth, and Healing
 · Unleash Motivation
 · Empower others to take Responsibility
-· Acquire Vital Information that makes you better at Decision Making and Problem Solving
+· Acquire Vital Information to be better at Decision Making and Problem Solving
 
 Have you ever spoken to someone who was fully engaged and interested? Who made you feel you were the only person in the world at that moment? That is the power of using active listening skills. It begins with recognizing that everyone with whom you interact wants to heard and understood. It is your willingness to offer them this gift. The ability to listen is the heart and essence of every healthy relationship. The best and most trusted leaders, bosses, co-workers, spouses/partners, parents, helping professionals, friends, customer service reps, grocery clerks, etc. know how to listen. There are few more valuable gifts you can give the people in your life than that of a willingness and ability to listen deeply by using active listening skills.
 
-### Unfortunately, most of us are not Good Listeners because we tend to:
+### Unfortunately, most of us are not Good Listeners because we tend to
 
 · Get distracted by random thoughts or what’s going on around us.
 · Interpret what others say through our own filters (biases, feelings, motives, experiences).
@@ -42,13 +42,13 @@ Have you ever spoken to someone who was fully engaged and interested? Who made y
 · Offer solutions and “quick fixes” rather than guiding others to their own wisdom and experience.
 · Try to make others feel better rather than letting them own and work through their experience.
 
-### What you will get out of the Course:
+### What you will get out of the Course?
 
 By going through this course on active listening, you’ll come away understanding the value and power of listening. More importantly, you’ll come away knowing how to listen deeply and, thereby, build much more powerful relationships and become much more effective in influencing others and empowering them for success.
 
 By going through this program you’ll learn the most important influencing skill in the world. That key is not being able to explain yourself more eloquently or forcefully, but rather being able to actively listen to others in a way that unleashes understanding and goodwill.
 
-### Course Format:
+### Course Format
 
 > Section One: 
 
