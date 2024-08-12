@@ -12,7 +12,7 @@ This course takes you from the very basics and its most important feature (types
 
 This course lets you know how you can use TypeScript to bring modern JS features like destructuring, arrow functions or classes to any environment and codebase. Understand which types you may use and how you can build your own types. And how to write better code with types and with the many features offered by TypeScript.
 
-## Benefits: 
+### Benefits: 
 
 • Types
 • Classes
@@ -21,12 +21,11 @@ This course lets you know how you can use TypeScript to bring modern JS features
 • Interfaces
 • Generics
 • Decorators
-
 • How the TypeScript compiler works.
 • How to integrate Third-Party JavaScript libraries into your TypeScript projects.
 • How to set up a TypeScript project with webpack.
 • How to use TypeScript together with ReactJS.
-• How to use TypeScript together with Node/ Express.
+• How to use TypeScript together with Node/Express.
 
 ------------------
 
