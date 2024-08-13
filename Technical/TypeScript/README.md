@@ -14,17 +14,17 @@ This course lets you know how you can use TypeScript to bring modern JS features
 
 ### Benefits
 
-• Types
-• Classes
-• Namespaces
-• Modules
-• Interfaces
-• Generics
-• Decorators
-• How TypeScript Compiler works
-• How to integrate JavaScript Libraries in TypeScript Project
-• How to set up a TypeScript Project with Webpack
-• How to use TypeScript with ReactJS & Node/Express
+- Types
+- Classes
+- Namespaces
+- Modules
+- Interfaces
+- Generics
+- Decorators
+- How TypeScript Compiler works
+- How to integrate JavaScript Libraries in TypeScript Project
+- How to set up a TypeScript Project with Webpack
+- How to use TypeScript with ReactJS & Node/Express
 
 ------------------
 

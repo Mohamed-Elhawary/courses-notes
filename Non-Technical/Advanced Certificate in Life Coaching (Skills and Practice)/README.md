@@ -18,15 +18,15 @@ Life coaching is an excellent career choice for those who are interested in help
 
 ### Benefits
 
-· Improve your people skills and develop a greater sense of social awareness.
-· How to make difficult decisions (or how to help others make difficult decisions).
-· Expand your client's emotional IQ to solve problems and spark their creativity.
-· Facilitate change by helping people to break their molds of unhelpful behavior.
-· Establish rapport with others by communicating in a way that establishes trust.
-· Develop the self-awareness integral to the improvement of social effectiveness.
-· How to identify and address troublesome beliefs, attitudes and behavior habits.
-· How to help clients solve their problems and identify new growth opportunities.
-· A coaching method that inspires change rather than just imparting information.
+- Improve your people skills and develop a greater sense of social awareness.
+- How to make difficult decisions (or how to help others make difficult decisions).
+- Expand your client's emotional IQ to solve problems and spark their creativity.
+- Facilitate change by helping people to break their molds of unhelpful behavior.
+- Establish rapport with others by communicating in a way that establishes trust.
+- Develop the self-awareness integral to the improvement of social effectiveness.
+- How to identify and address troublesome beliefs, attitudes and behavior habits.
+- How to help clients solve their problems and identify new growth opportunities.
+- A coaching method that inspires change rather than just imparting information.
 
 By studying advanced life coach training, you can gain the skills needed to influence positive changes in your personal life, your family, in your workplace, or even in your community. By taking this course, you will gain a more comprehensive understanding of the life coaching process, counselling skills, psychological theory, coaching skills, and interpersonal skills.
 

@@ -10,16 +10,16 @@ This course crams months of computer science. It covers the exact same computer 
 
 ### Benefits
 
-• A 5 Steps Approach to solve any Difficult Coding Problem
-• Sorting Algorithms: (Bubble, Selection, Insertion, Quick, Merge, and Radix Sort)
-• Implement Data Structures: (Linked Lists, Trees, Heaps, Hash Tables, and Graphs)
-• Analyze Time and Space Complexity of Code using Big O Notation
-• Recursion
-• Traverse Trees and Graphs
-• Dijkstra's Shortest Path Algorithm  
-• Common Programming Patterns 
-• Popular Searching Algorithms 
-• Dynamic Programming
+- A 5 Steps Approach to solve any Difficult Coding Problem
+- Sorting Algorithms: (Bubble, Selection, Insertion, Quick, Merge, and Radix Sort)
+- Implement Data Structures: (Linked Lists, Trees, Heaps, Hash Tables, and Graphs)
+- Analyze Time and Space Complexity of Code using Big O Notation
+- Recursion
+- Traverse Trees and Graphs
+- Dijkstra's Shortest Path Algorithm  
+- Common Programming Patterns 
+- Popular Searching Algorithms 
+- Dynamic Programming
 
 ------------------
 

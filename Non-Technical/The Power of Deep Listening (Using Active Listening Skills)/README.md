@@ -16,31 +16,31 @@ As you use active listening, you create a climate of respect based on non-judgme
 
 ### Benefits of using Active Listening Skills
 
-· Establish Deeper Connections
-· Build Trust, Rapport, and Goodwill
-· Bridge Understanding and Foster Unity of Vision and Purpose
-· Overcome Friction and Conflict
-· Promote Learning, Growth, and Healing
-· Unleash Motivation
-· Empower others to take Responsibility
-· Acquire Vital Information to be better at Decision Making and Problem Solving
+- Establish Deeper Connections
+- Build Trust, Rapport, and Goodwill
+- Bridge Understanding and Foster Unity of Vision and Purpose
+- Overcome Friction and Conflict
+- Promote Learning, Growth, and Healing
+- Unleash Motivation
+- Empower others to take Responsibility
+- Acquire Vital Information to be better at Decision Making and Problem Solving
 
 Have you ever spoken to someone who was fully engaged and interested? Who made you feel you were the only person in the world at that moment? That is the power of using active listening skills. It begins with recognizing that everyone with whom you interact wants to heard and understood. It is your willingness to offer them this gift. The ability to listen is the heart and essence of every healthy relationship. The best and most trusted leaders, bosses, co-workers, spouses/partners, parents, helping professionals, friends, customer service reps, grocery clerks, etc. know how to listen. There are few more valuable gifts you can give the people in your life than that of a willingness and ability to listen deeply by using active listening skills.
 
 ### Unfortunately, most of us are not Good Listeners because we tend to
 
-· Get distracted by random thoughts or what’s going on around us.
-· Interpret what others say through our own filters (biases, feelings, motives, experiences).
-· Tune out because we think we already know what someone is going to say.
-· Think that what others have to say isn’t important.
-· Focus on formulating our response rather than hearing them out.
-· Quickly judge (agree or disagree) rather than opening ourselves to another’s point of view.
-· Wait impatiently for someone to finish so we can talk.
-· Shut down messages we don’t want to hear.
-· Hear the words only and not the deeper needs or meaning conveyed.
-· Take over the conversation by our comments and questions.
-· Offer solutions and “quick fixes” rather than guiding others to their own wisdom and experience.
-· Try to make others feel better rather than letting them own and work through their experience.
+- Get distracted by random thoughts or what’s going on around us.
+- Interpret what others say through our own filters (biases, feelings, motives, experiences).
+- Tune out because we think we already know what someone is going to say.
+- Think that what others have to say isn’t important.
+- Focus on formulating our response rather than hearing them out.
+- Quickly judge (agree or disagree) rather than opening ourselves to another’s point of view.
+- Wait impatiently for someone to finish so we can talk.
+- Shut down messages we don’t want to hear.
+- Hear the words only and not the deeper needs or meaning conveyed.
+- Take over the conversation by our comments and questions.
+- Offer solutions and “quick fixes” rather than guiding others to their own wisdom and experience.
+- Try to make others feel better rather than letting them own and work through their experience.
 
 ### What you will get out of the Course?
 
